@@ -1,0 +1,1515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hefei Pulian Automated Instruments Co., Ltd.</title>
+  <meta name="description" content="Professional flow meter manufacturer specializing in miniature flowmeters and scraper flowmeters. ISO 9001-2015 certified. Export to Russia and global markets." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Source+Sans+3:wght@300;400;600&family=Noto+Sans+SC:wght@300;400;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Reset & Base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --green-dark:  #1B3A2F;
+      --green-mid:   #2A5C47;
+      --gold:        #D4A843;
+      --gold-dark:   #B8892A;
+      --silver:      #C0C8C2;
+      --cream:       #F5F5F0;
+      --ink:         #1A1F1D;
+      --ink-light:   #3D4440;
+      --white:       #FFFFFF;
+      --border:      rgba(255,255,255,0.10);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Source Sans 3', 'Noto Sans SC', sans-serif;
+      color: var(--ink);
+      background: var(--cream);
+      line-height: 1.65;
+    }
+    .cn { font-family: 'Noto Sans SC', sans-serif; }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ── Layout Helpers ── */
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .section { padding: 96px 0; }
+    .section-dark { background: var(--green-dark); color: var(--white); }
+    .section-mid  { background: var(--green-mid);  color: var(--white); }
+    .section-cream{ background: var(--cream); }
+    .section-white{ background: var(--white); }
+
+    .section-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+    .section-subtitle {
+      font-size: 17px;
+      color: var(--silver);
+      max-width: 560px;
+      line-height: 1.7;
+    }
+    .section-subtitle.dark { color: var(--ink-light); }
+    .divider {
+      width: 48px; height: 3px;
+      background: var(--gold);
+      margin: 20px 0 40px;
+    }
+
+    /* ── CTA Button ── */
+    .btn {
+      display: inline-block;
+      padding: 14px 32px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: all .2s;
+      border: 2px solid transparent;
+    }
+    .btn-gold {
+      background: var(--gold);
+      color: var(--ink);
+    }
+    .btn-gold:hover { background: var(--gold-dark); }
+    .btn-outline {
+      background: transparent;
+      border-color: var(--silver);
+      color: var(--white);
+    }
+    .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+    /* ══════════════════════════════════════
+       NAVBAR
+    ══════════════════════════════════════ */
+    #navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 999;
+      background: var(--green-dark);
+      border-bottom: 1px solid var(--border);
+      transition: box-shadow .3s;
+    }
+    #navbar.scrolled { box-shadow: 0 4px 24px rgba(0,0,0,0.4); }
+    .nav-inner {
+      display: flex; align-items: center;
+      height: 68px;
+      gap: 0;
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 12px;
+      margin-right: auto;
+      text-decoration: none;
+    }
+    .logo-icon {
+      width: 40px; height: 40px;
+      background: var(--gold);
+      border-radius: 2px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .logo-icon svg { width: 26px; height: 26px; }
+    .logo-text { line-height: 1.2; }
+    .logo-text-en {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 20px; font-weight: 800;
+      letter-spacing: 1px;
+      color: var(--white);
+    }
+    .logo-text-cn {
+      font-family: 'Noto Sans SC', sans-serif;
+      font-size: 11px; font-weight: 300;
+      color: var(--silver);
+      letter-spacing: 2px;
+    }
+    .nav-links {
+      display: flex; align-items: center; gap: 4px;
+      list-style: none;
+    }
+    .nav-links a {
+      padding: 8px 14px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 14px; font-weight: 600;
+      letter-spacing: 1px; text-transform: uppercase;
+      color: var(--silver);
+      border-radius: 2px;
+      transition: color .2s;
+    }
+    .nav-links a:hover,
+    .nav-links a.active { color: var(--gold); }
+    .lang-btn {
+      margin-left: 16px;
+      padding: 6px 14px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 1px;
+      background: transparent;
+      border: 1.5px solid var(--silver);
+      color: var(--silver);
+      border-radius: 2px;
+      cursor: pointer;
+      transition: all .2s;
+    }
+    .lang-btn:hover { border-color: var(--gold); color: var(--gold); }
+    .nav-toggle {
+      display: none;
+      background: none; border: none;
+      cursor: pointer; padding: 8px;
+    }
+    .nav-toggle span {
+      display: block; width: 24px; height: 2px;
+      background: var(--silver); margin: 5px 0;
+      transition: all .3s;
+    }
+
+    /* ══════════════════════════════════════
+       HERO
+    ══════════════════════════════════════ */
+    #hero {
+      min-height: 100vh;
+      background:
+        linear-gradient(to bottom, rgba(27,58,47,0.82) 0%, rgba(27,58,47,0.65) 60%, rgba(27,58,47,0.90) 100%),
+        url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=1600&q=85') center/cover no-repeat;
+      display: flex; align-items: center;
+      padding-top: 68px;
+      color: var(--white);
+    }
+    .hero-inner {
+      max-width: 800px;
+      padding: 60px 24px;
+    }
+    .hero-eyebrow {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 4px; text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 24px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      display: block; width: 32px; height: 2px;
+      background: var(--gold);
+    }
+    .hero-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(44px, 7vw, 80px);
+      font-weight: 800;
+      line-height: 1.0;
+      margin-bottom: 8px;
+      letter-spacing: -0.5px;
+    }
+    .hero-title .highlight { color: var(--gold); }
+    .hero-subtitle {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(22px, 3.5vw, 36px);
+      font-weight: 400;
+      color: var(--silver);
+      margin-bottom: 32px;
+      line-height: 1.3;
+    }
+    .hero-desc {
+      font-size: 17px;
+      color: rgba(255,255,255,0.80);
+      max-width: 540px;
+      margin-bottom: 44px;
+      line-height: 1.75;
+    }
+    .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+    .hero-stats {
+      display: flex; gap: 48px;
+      margin-top: 72px;
+      padding-top: 36px;
+      border-top: 1px solid var(--border);
+      flex-wrap: wrap;
+    }
+    .hero-stat-num {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 40px; font-weight: 800;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .hero-stat-label {
+      font-size: 13px;
+      color: var(--silver);
+      margin-top: 4px;
+      letter-spacing: 0.5px;
+    }
+
+    /* ══════════════════════════════════════
+       ABOUT
+    ══════════════════════════════════════ */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .about-img-wrap {
+      position: relative;
+    }
+    .about-img-wrap img {
+      width: 100%; height: 420px;
+      object-fit: cover;
+      border-radius: 2px;
+    }
+    .about-badge {
+      position: absolute;
+      bottom: -24px; right: -24px;
+      background: var(--gold);
+      color: var(--ink);
+      padding: 20px 24px;
+      text-align: center;
+      border-radius: 2px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    }
+    .about-badge-num {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 42px; font-weight: 800; line-height: 1;
+    }
+    .about-badge-label { font-size: 12px; font-weight: 600; letter-spacing: 1px; }
+    .about-features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 36px;
+    }
+    .about-feature {
+      padding: 20px;
+      background: rgba(42,92,71,0.08);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 2px 2px 0;
+    }
+    .about-feature-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 16px; font-weight: 700;
+      color: var(--green-dark);
+      margin-bottom: 4px;
+    }
+    .about-feature-text { font-size: 14px; color: var(--ink-light); }
+
+    /* ══════════════════════════════════════
+       CORE PRODUCTS
+    ══════════════════════════════════════ */
+    #products { background: var(--green-dark); }
+    .products-header { margin-bottom: 64px; }
+    .product-block {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      margin-bottom: 80px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .product-block:last-child { margin-bottom: 0; }
+    .product-block.reverse { direction: rtl; }
+    .product-block.reverse > * { direction: ltr; }
+    .product-img-wrap {
+      position: relative;
+      overflow: hidden;
+      min-height: 460px;
+    }
+    .product-img-wrap img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform .5s;
+    }
+    .product-block:hover .product-img-wrap img { transform: scale(1.04); }
+    .product-priority {
+      position: absolute;
+      top: 20px; left: 20px;
+      background: var(--gold);
+      color: var(--ink);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px; font-weight: 800;
+      letter-spacing: 2px; text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 1px;
+    }
+    .product-content {
+      padding: 48px 48px;
+      display: flex; flex-direction: column;
+      justify-content: space-between;
+    }
+    .product-tag {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 3px; text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+    .product-name {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(28px, 3.5vw, 40px);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: 4px;
+    }
+    .product-name-cn {
+      font-family: 'Noto Sans SC', sans-serif;
+      font-size: 16px; font-weight: 300;
+      color: var(--silver);
+      margin-bottom: 16px;
+    }
+    .product-tagline {
+      font-size: 15px;
+      color: rgba(255,255,255,0.75);
+      margin-bottom: 28px;
+      line-height: 1.65;
+    }
+    .product-highlights {
+      display: flex; gap: 24px;
+      margin-bottom: 28px;
+      flex-wrap: wrap;
+    }
+    .highlight-item { text-align: center; }
+    .highlight-num {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 26px; font-weight: 800;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .highlight-label { font-size: 11px; color: var(--silver); letter-spacing: 0.5px; margin-top: 2px; }
+    .spec-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 32px;
+      font-size: 13px;
+    }
+    .spec-table tr { border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .spec-table tr:last-child { border-bottom: none; }
+    .spec-table td {
+      padding: 8px 0;
+      color: rgba(255,255,255,0.85);
+    }
+    .spec-table td:first-child {
+      color: var(--silver);
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      width: 45%;
+    }
+    .spec-table td:last-child { font-weight: 400; }
+    .product-icons {
+      display: flex; gap: 20px;
+      margin-bottom: 28px;
+      flex-wrap: wrap;
+    }
+    .product-icon-item {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 13px; color: var(--silver);
+    }
+    .product-icon-item svg { color: var(--gold); flex-shrink: 0; }
+
+    /* ══════════════════════════════════════
+       PRODUCT LINE (Cards)
+    ══════════════════════════════════════ */
+    #product-line { background: var(--cream); }
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .product-card {
+      background: var(--white);
+      border-radius: 2px;
+      overflow: hidden;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+      transition: transform .25s, box-shadow .25s;
+    }
+    .product-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+    }
+    .card-img {
+      width: 100%; height: 200px;
+      object-fit: cover;
+    }
+    .card-body { padding: 24px; }
+    .card-tag {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 2px; text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+    .card-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 22px; font-weight: 700;
+      color: var(--green-dark);
+      margin-bottom: 8px;
+      line-height: 1.2;
+    }
+    .card-cn {
+      font-family: 'Noto Sans SC', sans-serif;
+      font-size: 13px; color: #888;
+      margin-bottom: 10px;
+    }
+    .card-desc { font-size: 14px; color: var(--ink-light); margin-bottom: 16px; line-height: 1.6; }
+    .card-params {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 13px; color: var(--green-mid);
+      font-weight: 600; letter-spacing: 0.3px;
+    }
+
+    /* ══════════════════════════════════════
+       INDUSTRIES
+    ══════════════════════════════════════ */
+    #industries { background: var(--green-mid); }
+    .industries-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+    .industry-item {
+      position: relative;
+      overflow: hidden;
+      height: 280px;
+    }
+    .industry-item img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      filter: brightness(0.55);
+      transition: filter .3s, transform .4s;
+    }
+    .industry-item:hover img { filter: brightness(0.35); transform: scale(1.05); }
+    .industry-overlay {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 24px;
+      text-align: center;
+    }
+    .industry-icon {
+      font-size: 40px;
+      margin-bottom: 12px;
+      filter: drop-shadow(0 2px 8px rgba(0,0,0,0.5));
+    }
+    .industry-name {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 24px; font-weight: 700;
+      color: var(--white);
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+    }
+    .industry-name-cn {
+      font-family: 'Noto Sans SC', sans-serif;
+      font-size: 13px; color: var(--silver);
+    }
+    .industry-desc {
+      font-size: 13px; color: rgba(255,255,255,0.75);
+      margin-top: 8px; line-height: 1.5;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity .3s, transform .3s;
+    }
+    .industry-item:hover .industry-desc {
+      opacity: 1; transform: translateY(0);
+    }
+
+    /* ══════════════════════════════════════
+       CERTIFICATIONS
+    ══════════════════════════════════════ */
+    #certifications { background: var(--white); }
+    .cert-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .cert-items {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .cert-item {
+      padding: 28px 24px;
+      border: 1.5px solid #E5E8E6;
+      border-radius: 2px;
+      text-align: center;
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .cert-item:hover {
+      border-color: var(--gold);
+      box-shadow: 0 4px 20px rgba(212,168,67,0.12);
+    }
+    .cert-icon { font-size: 36px; margin-bottom: 12px; }
+    .cert-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 18px; font-weight: 700;
+      color: var(--green-dark);
+      margin-bottom: 4px;
+    }
+    .cert-desc { font-size: 13px; color: #777; line-height: 1.5; }
+    .cert-content .section-subtitle { color: var(--ink-light); }
+    .capacity-bars { margin-top: 32px; }
+    .cap-bar { margin-bottom: 20px; }
+    .cap-bar-header {
+      display: flex; justify-content: space-between;
+      font-size: 14px; font-weight: 600;
+      color: var(--ink); margin-bottom: 6px;
+    }
+    .cap-bar-track {
+      height: 6px; background: #E5E8E6;
+      border-radius: 3px; overflow: hidden;
+    }
+    .cap-bar-fill {
+      height: 100%; background: linear-gradient(90deg, var(--green-mid), var(--gold));
+      border-radius: 3px;
+      transition: width 1s ease;
+    }
+
+    /* ══════════════════════════════════════
+       CONTACT + FORM
+    ══════════════════════════════════════ */
+    #contact { background: var(--green-dark); }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .contact-info { }
+    .contact-item {
+      display: flex; gap: 16px;
+      margin-bottom: 28px;
+      align-items: flex-start;
+    }
+    .contact-icon {
+      width: 44px; height: 44px;
+      background: rgba(212,168,67,0.12);
+      border: 1px solid rgba(212,168,67,0.3);
+      border-radius: 2px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .contact-icon svg { color: var(--gold); }
+    .contact-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 2px; text-transform: uppercase;
+      color: var(--silver); margin-bottom: 2px;
+    }
+    .contact-value {
+      font-size: 16px; color: var(--white);
+      font-weight: 400; line-height: 1.5;
+    }
+    .contact-value a { color: var(--gold); }
+    .contact-value a:hover { text-decoration: underline; }
+
+    /* Form */
+    .inquiry-form {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      padding: 40px;
+    }
+    .form-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 26px; font-weight: 800;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+    .form-subtitle { font-size: 14px; color: var(--silver); margin-bottom: 28px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-group { margin-bottom: 18px; }
+    .form-group label {
+      display: block;
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 1px; text-transform: uppercase;
+      color: var(--silver);
+      margin-bottom: 6px;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 14px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 2px;
+      color: var(--white);
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 15px;
+      transition: border-color .2s;
+      outline: none;
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: rgba(255,255,255,0.3); }
+    .form-group select option { background: var(--green-dark); color: var(--white); }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus { border-color: var(--gold); }
+    .form-group textarea { resize: vertical; min-height: 110px; }
+    .form-required { color: var(--gold); margin-left: 2px; }
+    .form-submit {
+      width: 100%;
+      padding: 16px;
+      background: var(--gold);
+      color: var(--ink);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 16px; font-weight: 800;
+      letter-spacing: 2px; text-transform: uppercase;
+      border: none; border-radius: 2px;
+      cursor: pointer;
+      transition: background .2s;
+      margin-top: 4px;
+    }
+    .form-submit:hover { background: var(--gold-dark); }
+    .form-note {
+      font-size: 12px; color: var(--silver);
+      text-align: center; margin-top: 12px;
+      line-height: 1.5;
+    }
+    .form-success {
+      display: none;
+      text-align: center; padding: 32px;
+    }
+    .form-success svg { color: var(--gold); margin: 0 auto 16px; }
+    .form-success p { color: var(--white); font-size: 16px; }
+
+    /* ══════════════════════════════════════
+       FOOTER
+    ══════════════════════════════════════ */
+    footer {
+      background: #111816;
+      padding: 48px 0 32px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+    .footer-logo { margin-bottom: 12px; }
+    .footer-copy {
+      font-size: 13px; color: #555;
+      line-height: 1.6;
+    }
+    .footer-links {
+      display: flex; gap: 24px;
+      list-style: none;
+      flex-wrap: wrap;
+    }
+    .footer-links a {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 13px; font-weight: 600;
+      letter-spacing: 1px; text-transform: uppercase;
+      color: #555;
+      transition: color .2s;
+    }
+    .footer-links a:hover { color: var(--gold); }
+
+    /* ══════════════════════════════════════
+       RESPONSIVE
+    ══════════════════════════════════════ */
+    @media (max-width: 1024px) {
+      .about-grid { grid-template-columns: 1fr; gap: 48px; }
+      .about-img-wrap img { height: 320px; }
+      .about-badge { bottom: -16px; right: 16px; }
+      .product-block { grid-template-columns: 1fr; }
+      .product-block.reverse { direction: ltr; }
+      .product-img-wrap { min-height: 280px; }
+      .cert-grid { grid-template-columns: 1fr; gap: 48px; }
+      .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+    }
+    @media (max-width: 768px) {
+      .section { padding: 64px 0; }
+      .nav-links { display: none; flex-direction: column; gap: 0; }
+      .nav-links.open { display: flex; position: absolute; top: 68px; left: 0; right: 0; background: var(--green-dark); padding: 16px 0; border-top: 1px solid var(--border); }
+      .nav-links.open a { padding: 12px 24px; }
+      .lang-btn { display: none; }
+      .nav-toggle { display: block; margin-left: 16px; }
+      .cards-grid { grid-template-columns: 1fr 1fr; }
+      .industries-grid { grid-template-columns: 1fr 1fr; }
+      .cert-items { grid-template-columns: 1fr 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .inquiry-form { padding: 28px 20px; }
+      .product-content { padding: 32px 28px; }
+    }
+    @media (max-width: 480px) {
+      .cards-grid { grid-template-columns: 1fr; }
+      .industries-grid { grid-template-columns: 1fr; }
+      .about-features { grid-template-columns: 1fr; }
+      .hero-stats { gap: 28px; }
+      .cert-items { grid-template-columns: 1fr; }
+    }
+
+    /* ══════════════════════════════════════
+       SCROLL ANIMATION
+    ══════════════════════════════════════ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ── Active nav highlight ── */
+    .nav-links a.active { color: var(--gold); }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════
+     NAVBAR
+══════════════════════════════════════ -->
+<nav id="navbar">
+  <div class="container nav-inner">
+    <a href="#hero" class="nav-logo">
+      <div class="logo-icon">
+        <svg viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <text x="2" y="20" font-family="Barlow Condensed, sans-serif" font-size="18" font-weight="900" fill="#1B3A2F">PL</text>
+          <!-- gauge needle -->
+          <line x1="13" y1="24" x2="20" y2="8" stroke="#1B3A2F" stroke-width="1.5" stroke-linecap="round"/>
+          <circle cx="13" cy="24" r="2" fill="#1B3A2F"/>
+        </svg>
+      </div>
+      <div class="logo-text">
+        <div class="logo-text-en">PULIAN</div>
+        <div class="logo-text-cn" data-en="Instruments" data-cn="仪表">Instruments</div>
+      </div>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about"        data-en="About"    data-cn="关于我们">About</a></li>
+      <li><a href="#products"     data-en="Products" data-cn="核心产品">Products</a></li>
+      <li><a href="#product-line" data-en="Catalog"  data-cn="产品目录">Catalog</a></li>
+      <li><a href="#industries"   data-en="Industries" data-cn="行业应用">Industries</a></li>
+      <li><a href="#contact"      data-en="Contact"  data-cn="联系我们">Contact</a></li>
+    </ul>
+    <button class="lang-btn" id="langBtn" onclick="toggleLang()">中文</button>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════════
+     HERO
+══════════════════════════════════════ -->
+<section id="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-eyebrow" data-en="ISO 9001-2015 Certified · Est. 2005 · Hefei, China" data-cn="ISO 9001-2015 认证 · 成立于2005年 · 中国合肥">
+        ISO 9001-2015 Certified · Est. 2005 · Hefei, China
+      </div>
+      <h1 class="hero-title">
+        <span data-en="Precision" data-cn="精密">Precision</span>
+        <span class="highlight"> Flow</span><br>
+        <span data-en="Measurement" data-cn="流量测量">Measurement</span>
+      </h1>
+      <p class="hero-subtitle" data-en="Miniature · Industrial · Certified" data-cn="小微 · 工业 · 认证">
+        Miniature · Industrial · Certified
+      </p>
+      <p class="hero-desc" data-en="Hefei Pulian Automated Instruments specializes in precision flow meters for oil & gas, chemical, military, and scientific applications. Trusted by customers across China and Russia." data-cn="合肥普联自动化仪表有限公司专注于精密流量计的研发与生产，服务于石油化工、军工、化工及科研领域，产品远销中国及俄罗斯。">
+        Hefei Pulian Automated Instruments specializes in precision flow meters for oil & gas, chemical, military, and scientific applications. Trusted by customers across China and Russia.
+      </p>
+      <div class="hero-btns">
+        <a href="#products" class="btn btn-gold" data-en="View Core Products" data-cn="查看核心产品">View Core Products</a>
+        <a href="#contact" class="btn btn-outline" data-en="Request a Quote" data-cn="索取报价">Request a Quote</a>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <div class="hero-stat-num">20+</div>
+          <div class="hero-stat-label" data-en="Years in Operation" data-cn="年运营历史">Years in Operation</div>
+        </div>
+        <div>
+          <div class="hero-stat-num">20,000</div>
+          <div class="hero-stat-label" data-en="Units / Year Capacity" data-cn="套/年产能">Units / Year Capacity</div>
+        </div>
+        <div>
+          <div class="hero-stat-num">±0.2%</div>
+          <div class="hero-stat-label" data-en="Measurement Accuracy" data-cn="测量精度">Measurement Accuracy</div>
+        </div>
+        <div>
+          <div class="hero-stat-num">6+</div>
+          <div class="hero-stat-label" data-en="Industry Sectors Served" data-cn="服务行业领域">Industry Sectors Served</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     ABOUT
+══════════════════════════════════════ -->
+<section id="about" class="section section-cream">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-img-wrap reveal">
+        <img src="https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?w=800&q=80" alt="Pulian manufacturing facility" loading="lazy" />
+        <div class="about-badge">
+          <div class="about-badge-num">2005</div>
+          <div class="about-badge-label" data-en="ESTABLISHED" data-cn="创立年份">ESTABLISHED</div>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="section-label" data-en="About Us" data-cn="关于我们">About Us</div>
+        <h2 class="section-title" style="color:var(--green-dark)">
+          <span data-en="Built on Precision," data-cn="以精密为基础，">Built on Precision,</span><br>
+          <span data-en="Driven by Industry" data-cn="以行业为驱动">Driven by Industry</span>
+        </h2>
+        <div class="divider"></div>
+        <p style="font-size:16px; color:var(--ink-light); margin-bottom:20px; line-height:1.75" data-en="Hefei Pulian Automated Instruments Co., Ltd. was established in 2005 with a registered capital of RMB 10.5 million. We are ISO 9001-2015 certified and specialize in the R&D, manufacturing, and export of precision flow measurement instruments." data-cn="合肥普联自动化仪表有限公司成立于2005年，注册资本1050万元人民币，通过ISO 9001-2015质量管理体系认证，专注于精密流量测量仪表的研发、生产与出口。">
+          Hefei Pulian Automated Instruments Co., Ltd. was established in 2005 with a registered capital of RMB 10.5 million. We are ISO 9001-2015 certified and specialize in the R&D, manufacturing, and export of precision flow measurement instruments.
+        </p>
+        <p style="font-size:16px; color:var(--ink-light); margin-bottom:32px; line-height:1.75" data-en="Our products serve demanding sectors including petrochemical, military, metallurgy, and marine engineering, with active exports to Russia and CIS countries." data-cn="我们的产品广泛应用于石油化工、军工、冶金、船舶等高要求行业，出口至俄罗斯及独联体国家。">
+          Our products serve demanding sectors including petrochemical, military, metallurgy, and marine engineering, with active exports to Russia and CIS countries.
+        </p>
+        <div class="about-features">
+          <div class="about-feature">
+            <div class="about-feature-title" data-en="ISO 9001-2015" data-cn="质量认证">ISO 9001-2015</div>
+            <div class="about-feature-text" data-en="Quality Management System Certified" data-cn="质量管理体系认证">Quality Management System Certified</div>
+          </div>
+          <div class="about-feature">
+            <div class="about-feature-title" data-en="20,000 Units/yr" data-cn="年产能2万套">20,000 Units/yr</div>
+            <div class="about-feature-text" data-en="Annual production capacity" data-cn="年产能">Annual production capacity</div>
+          </div>
+          <div class="about-feature">
+            <div class="about-feature-title" data-en="Russia Export" data-cn="出口俄罗斯">Russia Export</div>
+            <div class="about-feature-text" data-en="Active CIS market presence" data-cn="俄罗斯及独联体市场">Active CIS market presence</div>
+          </div>
+          <div class="about-feature">
+            <div class="about-feature-title" data-en="Custom Solutions" data-cn="定制方案">Custom Solutions</div>
+            <div class="about-feature-text" data-en="OEM & project-specific designs" data-cn="OEM及项目定制">OEM & project-specific designs</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     CORE PRODUCTS
+══════════════════════════════════════ -->
+<section id="products" class="section section-dark">
+  <div class="container">
+    <div class="products-header reveal">
+      <div class="section-label" data-en="Core Products" data-cn="核心产品">Core Products</div>
+      <h2 class="section-title" style="color:var(--white)">
+        <span data-en="Our Flagship" data-cn="旗舰产品">Our Flagship</span>
+        <span style="color:var(--gold)" data-en=" Instruments" data-cn="仪表"> Instruments</span>
+      </h2>
+      <div class="divider"></div>
+      <p class="section-subtitle" data-en="Two industry-leading flow meters engineered for precision, reliability, and performance in the most demanding environments." data-cn="两款行业领先流量计，专为精密性、可靠性及在最苛刻环境下的卓越性能而设计。">
+        Two industry-leading flow meters engineered for precision, reliability, and performance in the most demanding environments.
+      </p>
+    </div>
+
+    <!-- Product 1: Miniature Flowmeter -->
+    <div class="product-block reveal">
+      <div class="product-img-wrap">
+        <div class="product-priority" data-en="★ FEATURED" data-cn="★ 重点推荐">★ FEATURED</div>
+        <img src="https://images.unsplash.com/photo-1530587191325-3db32d826c18?w=900&q=85" alt="Miniature Flowmeter — precision laboratory instrument" loading="lazy" />
+      </div>
+      <div class="product-content">
+        <div>
+          <div class="product-tag" data-en="Product 01" data-cn="产品 01">Product 01</div>
+          <h3 class="product-name" data-en="Miniature Flowmeter" data-cn="小微流量计">Miniature Flowmeter</h3>
+          <div class="product-name-cn" data-en="小微流量计" data-cn="Miniature Flowmeter">小微流量计</div>
+          <p class="product-tagline" data-en="Ultra-low flow precision measurement for laboratory, chemical dosing, and filling applications. Non-contact sensing design with zero mechanical wear." data-cn="超小流量精密测量，适用于实验室、化工定量及灌装场景。非接触式传感设计，零机械磨损。">
+            Ultra-low flow precision measurement for laboratory, chemical dosing, and filling applications. Non-contact sensing design with zero mechanical wear.
+          </p>
+          <div class="product-highlights">
+            <div class="highlight-item">
+              <div class="highlight-num">±0.2%</div>
+              <div class="highlight-label" data-en="Accuracy" data-cn="精度">Accuracy</div>
+            </div>
+            <div class="highlight-item">
+              <div class="highlight-num">DN4–20</div>
+              <div class="highlight-label" data-en="Bore Range" data-cn="口径范围">Bore Range</div>
+            </div>
+            <div class="highlight-item">
+              <div class="highlight-num">1–1800</div>
+              <div class="highlight-label" data-en="L/h Flow Range" data-cn="L/h 流量范围">L/h Flow Range</div>
+            </div>
+          </div>
+          <table class="spec-table">
+            <tr><td data-en="Bore Range" data-cn="口径范围">Bore Range</td><td>DN4 ~ DN20</td></tr>
+            <tr><td data-en="Flow Range" data-cn="流量范围">Flow Range</td><td data-en="1 L/h (DN4) ~ 1800 L/h (DN20)" data-cn="1 L/h（DN4）~ 1800 L/h（DN20）">1 L/h (DN4) ~ 1800 L/h (DN20)</td></tr>
+            <tr><td data-en="Accuracy" data-cn="精度">Accuracy</td><td>±0.2%</td></tr>
+            <tr><td data-en="Media Temperature" data-cn="介质温度">Media Temperature</td><td>-20°C ~ +150°C</td></tr>
+            <tr><td data-en="Rated Pressure" data-cn="额定压力">Rated Pressure</td><td>0.3 / 0.6 / 1.0 / 1.6 / 2.5 / 4.0 MPa</td></tr>
+            <tr><td data-en="Signal Output" data-cn="信号输出">Signal Output</td><td>Pulse / 4-20mA / RS485 / HART</td></tr>
+            <tr><td data-en="Material" data-cn="材质">Material</td><td data-en="Stainless Steel 304" data-cn="不锈钢 304">Stainless Steel 304</td></tr>
+            <tr><td data-en="Power Supply" data-cn="供电">Power Supply</td><td data-en="Built-in Lithium Battery" data-cn="内置锂电池">Built-in Lithium Battery</td></tr>
+          </table>
+          <div class="product-icons">
+            <div class="product-icon-item">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+              <span data-en="Non-contact Sensing" data-cn="非接触式传感">Non-contact Sensing</span>
+            </div>
+            <div class="product-icon-item">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+              <span data-en="Ultra-low Pressure Drop" data-cn="超低压损">Ultra-low Pressure Drop</span>
+            </div>
+            <div class="product-icon-item">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+              <span data-en="Multi-protocol Output" data-cn="多协议输出">Multi-protocol Output</span>
+            </div>
+          </div>
+        </div>
+        <a href="#contact" class="btn btn-gold" data-en="Request a Quote →" data-cn="索取报价 →">Request a Quote →</a>
+      </div>
+    </div>
+
+    <!-- Product 2: Scraper Flowmeter -->
+    <div class="product-block reverse reveal">
+      <div class="product-img-wrap">
+        <div class="product-priority" data-en="★ FEATURED" data-cn="★ 重点推荐">★ FEATURED</div>
+        <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=900&q=85" alt="Scraper Flowmeter — industrial pipeline application" loading="lazy" />
+      </div>
+      <div class="product-content">
+        <div>
+          <div class="product-tag" data-en="Product 02" data-cn="产品 02">Product 02</div>
+          <h3 class="product-name" data-en="Scraper Flowmeter" data-cn="刮板流量计">Scraper Flowmeter</h3>
+          <div class="product-name-cn" data-en="刮板流量计" data-cn="Scraper Flowmeter">刮板流量计</div>
+          <p class="product-tagline" data-en="High-flow industrial metering for aviation refueling, marine fuel loading, and petrochemical processes. Explosion-proof rated for hazardous zones." data-cn="大流量工业计量，适用于航空加油、船舶燃油装卸及炼化工程。符合爆炸危险场所防爆要求。">
+            High-flow industrial metering for aviation refueling, marine fuel loading, and petrochemical processes. Explosion-proof rated for hazardous zones.
+          </p>
+          <div class="product-highlights">
+            <div class="highlight-item">
+              <div class="highlight-num">0.2</div>
+              <div class="highlight-label" data-en="Accuracy Class" data-cn="精度等级">Accuracy Class</div>
+            </div>
+            <div class="highlight-item">
+              <div class="highlight-num">2000</div>
+              <div class="highlight-label" data-en="L/min Max Flow" data-cn="L/min 最大流量">L/min Max Flow</div>
+            </div>
+            <div class="highlight-item">
+              <div class="highlight-num">Ex-Proof</div>
+              <div class="highlight-label" data-en="Zone 1 Rated" data-cn="1区防爆">Zone 1 Rated</div>
+            </div>
+          </div>
+          <table class="spec-table">
+            <tr><td data-en="Bore" data-cn="口径">Bore</td><td>DN80</td></tr>
+            <tr><td data-en="Max Flow Rate" data-cn="最大流量">Max Flow Rate</td><td>2000 L/min</td></tr>
+            <tr><td data-en="Min Flow Rate" data-cn="最小流量">Min Flow Rate</td><td>100 L/min</td></tr>
+            <tr><td data-en="Accuracy" data-cn="精度">Accuracy</td><td data-en="Class 0.2" data-cn="0.2级">Class 0.2</td></tr>
+            <tr><td data-en="Working Temperature" data-cn="工作温度">Working Temperature</td><td>-41°C ~ +60°C</td></tr>
+            <tr><td data-en="Working Pressure" data-cn="工作压力">Working Pressure</td><td>1.0 MPa</td></tr>
+            <tr><td data-en="Signal Output" data-cn="信号输出">Signal Output</td><td data-en="Pulse 24V (3-wire)" data-cn="脉冲24V（三线制）">Pulse 24V (3-wire)</td></tr>
+            <tr><td data-en="Explosion Proof" data-cn="防爆等级">Explosion Proof</td><td data-en="Zone 1 Hazardous Area" data-cn="符合1区爆炸危险场所">Zone 1 Hazardous Area</td></tr>
+            <tr><td data-en="MTBF" data-cn="平均无故障时间">MTBF</td><td data-en="≥ 240 hours" data-cn="≥ 240 小时">≥ 240 hours</td></tr>
+            <tr><td data-en="Weight" data-cn="整机重量">Weight</td><td data-en="≤ 45 kg" data-cn="≤ 45 kg">≤ 45 kg</td></tr>
+          </table>
+          <div class="product-icons">
+            <div class="product-icon-item">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              <span data-en="Explosion-proof Zone 1" data-cn="1区防爆认证">Explosion-proof Zone 1</span>
+            </div>
+            <div class="product-icon-item">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+              <span data-en="High-flow Industrial" data-cn="大流量工业级">High-flow Industrial</span>
+            </div>
+            <div class="product-icon-item">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+              <span data-en="Military Grade Reliability" data-cn="军工级可靠性">Military Grade Reliability</span>
+            </div>
+          </div>
+        </div>
+        <a href="#contact" class="btn btn-gold" data-en="Request a Quote →" data-cn="索取报价 →">Request a Quote →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     FULL PRODUCT LINE
+══════════════════════════════════════ -->
+<section id="product-line" class="section section-cream">
+  <div class="container">
+    <div class="reveal" style="margin-bottom:56px">
+      <div class="section-label" data-en="Full Catalog" data-cn="完整产品线">Full Catalog</div>
+      <h2 class="section-title" style="color:var(--green-dark)" data-en="Complete Product Range" data-cn="完整产品目录">Complete Product Range</h2>
+      <div class="divider"></div>
+      <p class="section-subtitle dark" data-en="In addition to our flagship instruments, Pulian offers a comprehensive range of flow measurement solutions for every application." data-cn="除旗舰产品外，普联还提供全面的流量测量解决方案，满足各类应用需求。">
+        In addition to our flagship instruments, Pulian offers a comprehensive range of flow measurement solutions for every application.
+      </p>
+    </div>
+    <div class="cards-grid">
+      <div class="product-card reveal">
+        <img class="card-img" src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&q=80" alt="Oval Gear Flowmeter" loading="lazy" />
+        <div class="card-body">
+          <div class="card-tag" data-en="Product 03" data-cn="产品 03">Product 03</div>
+          <div class="card-title" data-en="Oval Gear Flowmeter" data-cn="椭圆齿轮流量计">Oval Gear Flowmeter</div>
+          <div class="card-cn" data-en="椭圆齿轮流量计" data-cn="Oval Gear Flowmeter">椭圆齿轮流量计</div>
+          <div class="card-desc" data-en="Positive displacement meter for viscous liquids and fuel oils. Reliable, simple mechanical design." data-cn="适用于粘性液体及燃油的容积式流量计，机械结构简单可靠。">Positive displacement meter for viscous liquids and fuel oils. Reliable, simple mechanical design.</div>
+          <div class="card-params">DN25 ~ DN50 &nbsp;·&nbsp; ±0.2% ~ ±0.5%</div>
+        </div>
+      </div>
+      <div class="product-card reveal">
+        <img class="card-img" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Helical Dual Rotor Flowmeter" loading="lazy" />
+        <div class="card-body">
+          <div class="card-tag" data-en="Product 04" data-cn="产品 04">Product 04</div>
+          <div class="card-title" data-en="Helical Dual Rotor" data-cn="螺旋双转子流量计">Helical Dual Rotor</div>
+          <div class="card-cn" data-en="螺旋双转子流量计" data-cn="Helical Dual Rotor Flowmeter">螺旋双转子流量计</div>
+          <div class="card-desc" data-en="Handles a wide viscosity range from thin solvents to heavy oils. Available in large bore sizes." data-cn="适用于低粘度溶剂到重油的宽粘度范围，可选大口径型号。">Handles a wide viscosity range from thin solvents to heavy oils. Available in large bore sizes.</div>
+          <div class="card-params">DN25 ~ DN350 &nbsp;·&nbsp; Multi-viscosity</div>
+        </div>
+      </div>
+      <div class="product-card reveal">
+        <img class="card-img" src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&q=80" alt="Turbine / Vortex Flowmeter" loading="lazy" />
+        <div class="card-body">
+          <div class="card-tag" data-en="Product 05" data-cn="产品 05">Product 05</div>
+          <div class="card-title" data-en="Turbine / Vortex Series" data-cn="涡轮/涡街系列">Turbine / Vortex Series</div>
+          <div class="card-cn" data-en="涡轮 / 涡街 / 腰轮系列" data-cn="Turbine / Vortex / Roots Series">涡轮 / 涡街 / 腰轮系列</div>
+          <div class="card-desc" data-en="Versatile gas and liquid measurement for multi-industry use. High frequency pulse output for precision control." data-cn="气液两用多行业通用流量计，高频脉冲输出适用于精密控制。">Versatile gas and liquid measurement for multi-industry use. High frequency pulse output for precision control.</div>
+          <div class="card-params" data-en="Gas & Liquid · Multi-industry" data-cn="气液两用 · 多行业">Gas &amp; Liquid · Multi-industry</div>
+        </div>
+      </div>
+      <div class="product-card reveal">
+        <img class="card-img" src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=600&q=80" alt="Automation Equipment" loading="lazy" />
+        <div class="card-body">
+          <div class="card-tag" data-en="Product 06" data-cn="产品 06">Product 06</div>
+          <div class="card-title" data-en="Automation Equipment" data-cn="自动化配套设备">Automation Equipment</div>
+          <div class="card-cn" data-en="自动化配套设备" data-cn="Automation Equipment">自动化配套设备</div>
+          <div class="card-desc" data-en="Custom automation and control equipment designed to integrate with Pulian flow meters and client systems." data-cn="定制自动化及控制设备，可与普联流量计及客户系统无缝集成。">Custom automation and control equipment designed to integrate with Pulian flow meters and client systems.</div>
+          <div class="card-params" data-en="20,000 Units/yr · Custom OEM" data-cn="年产能2万套 · 支持OEM">20,000 Units/yr · Custom OEM</div>
+        </div>
+      </div>
+      <div class="product-card reveal">
+        <img class="card-img" src="https://images.unsplash.com/photo-1543286386-2e659306cd6c?w=600&q=80" alt="Roots Flowmeter" loading="lazy" />
+        <div class="card-body">
+          <div class="card-tag" data-en="Product 07" data-cn="产品 07">Product 07</div>
+          <div class="card-title" data-en="Roots Flowmeter" data-cn="腰轮流量计">Roots Flowmeter</div>
+          <div class="card-cn" data-en="腰轮流量计" data-cn="Roots Flowmeter">腰轮流量计</div>
+          <div class="card-desc" data-en="High-precision gas measurement with low pressure drop. Suitable for natural gas and compressed air systems." data-cn="高精度气体测量，压损低，适用于天然气及压缩空气系统。">High-precision gas measurement with low pressure drop. Suitable for natural gas and compressed air systems.</div>
+          <div class="card-params" data-en="Gas Measurement · Low ΔP" data-cn="气体计量 · 低压损">Gas Measurement · Low ΔP</div>
+        </div>
+      </div>
+      <div class="product-card reveal" style="background:var(--green-dark); color:var(--white)">
+        <div style="height:200px; background:var(--green-mid); display:flex; align-items:center; justify-content:center;">
+          <div style="text-align:center; padding:20px;">
+            <div style="font-family:'Barlow Condensed',sans-serif; font-size:48px; font-weight:800; color:var(--gold)">OEM</div>
+            <div style="font-size:14px; color:var(--silver); margin-top:8px" data-en="Custom Solutions" data-cn="定制方案">Custom Solutions</div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-tag" style="color:var(--gold)" data-en="Custom" data-cn="定制">Custom</div>
+          <div class="card-title" style="color:var(--white)" data-en="Project-Specific Design" data-cn="项目定制设计">Project-Specific Design</div>
+          <div class="card-cn" style="color:var(--silver)" data-en="定制化方案" data-cn="Custom Solutions">定制化方案</div>
+          <div class="card-desc" style="color:var(--silver)" data-en="Have a unique application? Pulian's engineering team provides custom flow measurement solutions tailored to your process requirements." data-cn="有特殊应用需求？普联工程团队可根据您的工艺要求提供定制化流量测量解决方案。">Have a unique application? Pulian's engineering team provides custom flow measurement solutions tailored to your process requirements.</div>
+          <a href="#contact" class="btn btn-gold" style="font-size:13px; padding:10px 20px" data-en="Inquire Now" data-cn="立即咨询">Inquire Now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     INDUSTRIES
+══════════════════════════════════════ -->
+<section id="industries" class="section" style="padding:0; background:var(--green-dark)">
+  <div class="container" style="padding-top:96px; padding-bottom:56px">
+    <div class="reveal" style="margin-bottom:56px">
+      <div class="section-label" data-en="Industries Served" data-cn="服务行业">Industries Served</div>
+      <h2 class="section-title" style="color:var(--white)" data-en="Trusted Across Industries" data-cn="服务多个行业领域">Trusted Across Industries</h2>
+      <div class="divider"></div>
+    </div>
+  </div>
+  <div class="industries-grid">
+    <div class="industry-item">
+      <img src="https://images.unsplash.com/photo-1518709766631-a6a7f45921c3?w=700&q=80" alt="Oil & Gas industry" loading="lazy" />
+      <div class="industry-overlay">
+        <div class="industry-icon">🛢️</div>
+        <div class="industry-name" data-en="Oil & Gas" data-cn="石油化工">Oil &amp; Gas</div>
+        <div class="industry-name-cn" data-en="石油化工" data-cn="Oil & Gas">石油化工</div>
+        <div class="industry-desc" data-en="Pipeline metering, loading & unloading, refinery process control" data-cn="管道计量、装卸油品、炼化工艺控制">Pipeline metering, loading &amp; unloading, refinery process control</div>
+      </div>
+    </div>
+    <div class="industry-item">
+      <img src="https://images.unsplash.com/photo-1616400619175-5beda3a17896?w=700&q=80" alt="Chemical industry" loading="lazy" />
+      <div class="industry-overlay">
+        <div class="industry-icon">⚗️</div>
+        <div class="industry-name" data-en="Chemical" data-cn="化工">Chemical</div>
+        <div class="industry-name-cn" data-en="化工" data-cn="Chemical">化工</div>
+        <div class="industry-desc" data-en="Dosing, reaction monitoring, solvent measurement, filling lines" data-cn="定量加注、反应监测、溶剂计量、灌装生产线">Dosing, reaction monitoring, solvent measurement, filling lines</div>
+      </div>
+    </div>
+    <div class="industry-item">
+      <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=700&q=80" alt="Military & Defense" loading="lazy" />
+      <div class="industry-overlay">
+        <div class="industry-icon">✈️</div>
+        <div class="industry-name" data-en="Military" data-cn="军工">Military</div>
+        <div class="industry-name-cn" data-en="军工国防" data-cn="Military & Defense">军工国防</div>
+        <div class="industry-desc" data-en="Aircraft refueling, vehicle fuel metering, naval applications" data-cn="飞机加油、车辆燃油计量、船舶军工应用">Aircraft refueling, vehicle fuel metering, naval applications</div>
+      </div>
+    </div>
+    <div class="industry-item">
+      <img src="https://images.unsplash.com/photo-1565043666747-69f6646db940?w=700&q=80" alt="Metallurgy industry" loading="lazy" />
+      <div class="industry-overlay">
+        <div class="industry-icon">🏭</div>
+        <div class="industry-name" data-en="Metallurgy" data-cn="冶金">Metallurgy</div>
+        <div class="industry-name-cn" data-en="冶金" data-cn="Metallurgy">冶金</div>
+        <div class="industry-desc" data-en="Cooling water flow, hydraulic fluid monitoring, lubrication systems" data-cn="冷却水流量、液压液监测、润滑系统">Cooling water flow, hydraulic fluid monitoring, lubrication systems</div>
+      </div>
+    </div>
+    <div class="industry-item">
+      <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=700&q=80" alt="Scientific research" loading="lazy" />
+      <div class="industry-overlay">
+        <div class="industry-icon">🔬</div>
+        <div class="industry-name" data-en="Scientific" data-cn="科研">Scientific</div>
+        <div class="industry-name-cn" data-en="科研实验" data-cn="Scientific Research">科研实验</div>
+        <div class="industry-desc" data-en="Laboratory micro-flow measurement, research instrumentation" data-cn="实验室微流量测量、科研仪器配套">Laboratory micro-flow measurement, research instrumentation</div>
+      </div>
+    </div>
+    <div class="industry-item">
+      <img src="https://images.unsplash.com/photo-1545608444-f045a6db6133?w=700&q=80" alt="Marine & Shipping" loading="lazy" />
+      <div class="industry-overlay">
+        <div class="industry-icon">🚢</div>
+        <div class="industry-name" data-en="Marine" data-cn="船舶">Marine</div>
+        <div class="industry-name-cn" data-en="船舶海工" data-cn="Marine Engineering">船舶海工</div>
+        <div class="industry-desc" data-en="Fuel bunkering, onboard metering, offshore process systems" data-cn="船舶加油计量、船载仪表、海工过程系统">Fuel bunkering, onboard metering, offshore process systems</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     CERTIFICATIONS
+══════════════════════════════════════ -->
+<section id="certifications" class="section section-white">
+  <div class="container">
+    <div class="cert-grid">
+      <div class="reveal">
+        <div class="section-label" data-en="Quality & Certifications" data-cn="质量与认证">Quality &amp; Certifications</div>
+        <h2 class="section-title" style="color:var(--green-dark)">
+          <span data-en="Built to the" data-cn="达到">Built to the</span>
+          <span style="color:var(--green-mid)" data-en=" Highest Standards" data-cn="最高标准"> Highest Standards</span>
+        </h2>
+        <div class="divider"></div>
+        <p style="font-size:16px; color:var(--ink-light); margin-bottom:32px; line-height:1.75" data-en="Every Pulian instrument is manufactured and tested to ISO 9001-2015 quality management standards. Our production facility maintains rigorous quality control from raw materials to final calibration." data-cn="每台普联仪表均依据ISO 9001-2015质量管理标准制造与测试。我们的生产设施从原材料到最终校准实施严格的质量管控。">
+          Every Pulian instrument is manufactured and tested to ISO 9001-2015 quality management standards. Our production facility maintains rigorous quality control from raw materials to final calibration.
+        </p>
+        <div class="capacity-bars">
+          <div class="cap-bar">
+            <div class="cap-bar-header">
+              <span data-en="Annual Production Capacity" data-cn="年产能">Annual Production Capacity</span>
+              <span>20,000 units</span>
+            </div>
+            <div class="cap-bar-track"><div class="cap-bar-fill" style="width:80%"></div></div>
+          </div>
+          <div class="cap-bar">
+            <div class="cap-bar-header">
+              <span data-en="Quality Pass Rate" data-cn="质量合格率">Quality Pass Rate</span>
+              <span>99.5%</span>
+            </div>
+            <div class="cap-bar-track"><div class="cap-bar-fill" style="width:99.5%"></div></div>
+          </div>
+          <div class="cap-bar">
+            <div class="cap-bar-header">
+              <span data-en="Export Market Share" data-cn="出口市场占比">Export Market Share</span>
+              <span>~30%</span>
+            </div>
+            <div class="cap-bar-track"><div class="cap-bar-fill" style="width:30%"></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="cert-items reveal">
+        <div class="cert-item">
+          <div class="cert-icon">🏅</div>
+          <div class="cert-title">ISO 9001-2015</div>
+          <div class="cert-desc" data-en="Quality Management System — internationally recognized certification" data-cn="质量管理体系——国际认可认证">Quality Management System — internationally recognized certification</div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-icon">🛡️</div>
+          <div class="cert-title" data-en="Explosion Proof" data-cn="防爆认证">Explosion Proof</div>
+          <div class="cert-desc" data-en="Zone 1 hazardous area compliant for oil & gas applications" data-cn="符合石油化工应用的1区爆炸危险场所要求">Zone 1 hazardous area compliant for oil &amp; gas applications</div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-icon">🎯</div>
+          <div class="cert-title" data-en="±0.2% Accuracy" data-cn="±0.2%精度">±0.2% Accuracy</div>
+          <div class="cert-desc" data-en="Factory calibration with traceable measurement standards" data-cn="可溯源计量标准的出厂校准">Factory calibration with traceable measurement standards</div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-icon">🌍</div>
+          <div class="cert-title" data-en="Export Ready" data-cn="出口合规">Export Ready</div>
+          <div class="cert-desc" data-en="Active exports to Russia and CIS markets since establishment" data-cn="建厂以来持续出口至俄罗斯及独联体国家">Active exports to Russia and CIS markets since establishment</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     CONTACT + INQUIRY FORM
+══════════════════════════════════════ -->
+<section id="contact" class="section section-dark">
+  <div class="container">
+    <div class="reveal" style="margin-bottom:64px">
+      <div class="section-label" data-en="Contact Us" data-cn="联系我们">Contact Us</div>
+      <h2 class="section-title" style="color:var(--white)">
+        <span data-en="Get in Touch" data-cn="与我们联系">Get in Touch</span>
+        <span style="color:var(--gold)" data-en=" & Request a Quote" data-cn="·索取报价"> &amp; Request a Quote</span>
+      </h2>
+      <div class="divider"></div>
+    </div>
+    <div class="contact-grid">
+      <!-- Contact Info -->
+      <div class="reveal">
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.07a16 16 0 006.28 6.28l1.46-1.16a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          </div>
+          <div>
+            <div class="contact-label" data-en="Phone" data-cn="电话">Phone</div>
+            <div class="contact-value"><a href="tel:+8613810380577">+86 138 1038 0577</a></div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div>
+            <div class="contact-label" data-en="Email" data-cn="邮箱">Email</div>
+            <div class="contact-value"><a href="mailto:Pulian.Technology@outlook.com">Pulian.Technology@outlook.com</a></div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <div class="contact-label" data-en="Address" data-cn="地址">Address</div>
+            <div class="contact-value" data-en="Intersection of Dabeng Rd & Tangan Rd, Tangan Community, Cuozhen Town, Feidong County, Hefei, Anhui Province, China" data-cn="安徽省合肥市肥东县撮镇镇汤岗社区大蚌路与汤岗路交叉口">
+              Intersection of Dabeng Rd &amp; Tangan Rd, Tangan Community,<br>Cuozhen Town, Feidong County, Hefei, Anhui Province, China
+            </div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+          <div>
+            <div class="contact-label" data-en="Est. / Capital" data-cn="成立/资本">Est. / Capital</div>
+            <div class="contact-value" data-en="Founded 2005 · RMB 10.5M Registered Capital" data-cn="成立于2005年 · 注册资本人民币1050万元">Founded 2005 · RMB 10.5M Registered Capital</div>
+          </div>
+        </div>
+        <div style="margin-top:16px; padding:20px 24px; background:rgba(212,168,67,0.08); border:1px solid rgba(212,168,67,0.2); border-radius:2px;">
+          <div style="font-family:'Barlow Condensed',sans-serif; font-size:13px; font-weight:700; letter-spacing:1px; color:var(--gold); margin-bottom:8px" data-en="RESPONSE TIME" data-cn="响应时间">RESPONSE TIME</div>
+          <div style="font-size:15px; color:rgba(255,255,255,0.85)" data-en="We typically respond to all inquiries within 1 business day. For urgent requests, please call directly." data-cn="我们通常在1个工作日内回复所有询价。如需紧急处理，请直接致电。">We typically respond to all inquiries within 1 business day. For urgent requests, please call directly.</div>
+        </div>
+      </div>
+
+      <!-- Inquiry Form -->
+      <div class="reveal">
+        <div class="inquiry-form" id="inquiryFormWrap">
+          <div class="form-title" data-en="Request a Quote" data-cn="发起询价">Request a Quote</div>
+          <div class="form-subtitle" data-en="Fill in the form below and our team will get back to you with pricing and specifications." data-cn="填写以下表单，我们的团队将尽快回复您的报价及规格需求。">Fill in the form below and our team will get back to you with pricing and specifications.</div>
+
+          <form id="inquiryForm" action="https://formspree.io/f/xgopreve" method="POST">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="fname" data-en="Your Name" data-cn="姓名">Your Name <span class="form-required">*</span></label>
+                <input type="text" id="fname" name="name" required placeholder="John Smith" />
+              </div>
+              <div class="form-group">
+                <label for="fcompany" data-en="Company" data-cn="公司名称">Company</label>
+                <input type="text" id="fcompany" name="company" placeholder="Acme Corp" />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="femail" data-en="Email Address" data-cn="邮箱地址">Email Address <span class="form-required">*</span></label>
+                <input type="email" id="femail" name="email" required placeholder="you@company.com" />
+              </div>
+              <div class="form-group">
+                <label for="fphone" data-en="Phone / WhatsApp" data-cn="电话/WhatsApp">Phone / WhatsApp</label>
+                <input type="tel" id="fphone" name="phone" placeholder="+1 555 0000" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="fproduct" data-en="Product of Interest" data-cn="感兴趣的产品">Product of Interest <span class="form-required">*</span></label>
+              <select id="fproduct" name="product" required>
+                <option value="" disabled selected data-en="— Select a product —" data-cn="— 请选择产品 —">— Select a product —</option>
+                <option value="miniature" data-en="Miniature Flowmeter (小微流量计)" data-cn="小微流量计 (Miniature Flowmeter)">Miniature Flowmeter (小微流量计)</option>
+                <option value="scraper" data-en="Scraper Flowmeter (刮板流量计)" data-cn="刮板流量计 (Scraper Flowmeter)">Scraper Flowmeter (刮板流量计)</option>
+                <option value="oval" data-en="Oval Gear Flowmeter (椭圆齿轮)" data-cn="椭圆齿轮流量计 (Oval Gear)">Oval Gear Flowmeter (椭圆齿轮)</option>
+                <option value="helical" data-en="Helical Dual Rotor (螺旋双转子)" data-cn="螺旋双转子流量计 (Helical Dual Rotor)">Helical Dual Rotor (螺旋双转子)</option>
+                <option value="turbine" data-en="Turbine / Vortex Series (涡轮/涡街)" data-cn="涡轮/涡街系列 (Turbine/Vortex)">Turbine / Vortex Series (涡轮/涡街)</option>
+                <option value="custom" data-en="Custom / OEM Solution" data-cn="定制/OEM方案">Custom / OEM Solution</option>
+                <option value="other" data-en="Other / Not sure" data-cn="其他/不确定">Other / Not sure</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="fmessage" data-en="Inquiry Details" data-cn="询价详情">Inquiry Details <span class="form-required">*</span></label>
+              <textarea id="fmessage" name="message" required placeholder="Please describe your application, required flow range, quantity, and any other specifications..."></textarea>
+            </div>
+            <input type="hidden" name="_subject" value="New Inquiry — Pulian Instruments Website" />
+            <input type="text" name="_gotcha" style="display:none" />
+            <button type="submit" class="form-submit" data-en="SEND INQUIRY →" data-cn="发送询价 →">SEND INQUIRY →</button>
+            <div class="form-note" data-en="Your information is kept strictly confidential and will only be used to respond to your inquiry." data-cn="您的信息将被严格保密，仅用于回复您的询价。">Your information is kept strictly confidential and will only be used to respond to your inquiry.</div>
+          </form>
+
+          <div class="form-success" id="formSuccess">
+            <svg width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="16 12 12 8 8 12"/><line x1="12" y1="16" x2="12" y2="8"/></svg>
+            <p style="font-size:20px; font-weight:600; margin-bottom:8px" data-en="Inquiry Sent!" data-cn="询价已发送！">Inquiry Sent!</p>
+            <p data-en="Thank you. We will respond within 1 business day." data-cn="感谢您的询价，我们将在1个工作日内回复您。">Thank you. We will respond within 1 business day.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     FOOTER
+══════════════════════════════════════ -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-logo">
+          <div style="font-family:'Barlow Condensed',sans-serif; font-size:22px; font-weight:800; color:var(--white)">
+            <span style="color:var(--gold)">PL</span> PULIAN
+          </div>
+          <div style="font-family:'Noto Sans SC',sans-serif; font-size:11px; color:#555; letter-spacing:2px; margin-top:2px">合肥普联自动化仪表有限公司</div>
+        </div>
+        <div class="footer-copy">
+          © 2026 Hefei Pulian Automated Instruments Co., Ltd.<br>
+          <span data-en="All rights reserved." data-cn="版权所有。">All rights reserved.</span>
+        </div>
+      </div>
+      <ul class="footer-links">
+        <li><a href="#about" data-en="About" data-cn="关于我们">About</a></li>
+        <li><a href="#products" data-en="Products" data-cn="核心产品">Products</a></li>
+        <li><a href="#product-line" data-en="Catalog" data-cn="产品目录">Catalog</a></li>
+        <li><a href="#industries" data-en="Industries" data-cn="行业应用">Industries</a></li>
+        <li><a href="#certifications" data-en="Certifications" data-cn="资质认证">Certifications</a></li>
+        <li><a href="#contact" data-en="Contact" data-cn="联系我们">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<!-- ══════════════════════════════════════
+     JAVASCRIPT
+══════════════════════════════════════ -->
+<script>
+  /* ── Language Toggle ── */
+  let currentLang = localStorage.getItem('pl_lang') || 'en';
+
+  function applyLang(lang) {
+    currentLang = lang;
+    localStorage.setItem('pl_lang', lang);
+    document.documentElement.lang = lang === 'en' ? 'en' : 'zh';
+    const btn = document.getElementById('langBtn');
+    btn.textContent = lang === 'en' ? '中文' : 'EN';
+
+    document.querySelectorAll('[data-en]').forEach(el => {
+      const val = lang === 'en' ? el.dataset.en : el.dataset.cn;
+      if (val !== undefined) {
+        // For inputs/selects don't touch textContent
+        if (el.tagName === 'INPUT' || el.tagName === 'SELECT' || el.tagName === 'TEXTAREA') return;
+        // Preserve child elements (icons, spans, etc.) — only update if no child elements
+        if (el.children.length === 0) {
+          el.textContent = val;
+        }
+      }
+    });
+  }
+
+  function toggleLang() {
+    applyLang(currentLang === 'en' ? 'cn' : 'en');
+  }
+
+  // Init on load
+  applyLang(currentLang);
+
+  /* ── Navbar scroll effect ── */
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 20);
+  }, { passive: true });
+
+  /* ── Mobile nav toggle ── */
+  const navToggle = document.getElementById('navToggle');
+  const navLinks  = document.getElementById('navLinks');
+  navToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+  });
+  navLinks.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => navLinks.classList.remove('open'));
+  });
+
+  /* ── Active nav link on scroll ── */
+  const sections = document.querySelectorAll('section[id]');
+  const navAnchors = document.querySelectorAll('.nav-links a[href^="#"]');
+
+  function updateActiveNav() {
+    let current = '';
+    sections.forEach(sec => {
+      if (window.scrollY >= sec.offsetTop - 120) current = sec.id;
+    });
+    navAnchors.forEach(a => {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+    });
+  }
+  window.addEventListener('scroll', updateActiveNav, { passive: true });
+
+  /* ── Reveal on scroll ── */
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => observer.observe(el));
+
+  /* ── Form submission (AJAX) ── */
+  const form = document.getElementById('inquiryForm');
+  const successDiv = document.getElementById('formSuccess');
+  if (form) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = form.querySelector('.form-submit');
+      btn.textContent = '…';
+      btn.disabled = true;
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) {
+          form.style.display = 'none';
+          successDiv.style.display = 'block';
+        } else {
+          btn.textContent = currentLang === 'en' ? 'SEND INQUIRY →' : '发送询价 →';
+          btn.disabled = false;
+          alert(currentLang === 'en'
+            ? 'Submission failed. Please email us directly at Pulian.Technology@outlook.com'
+            : '提交失败，请直接发送邮件至 Pulian.Technology@outlook.com');
+        }
+      } catch {
+        btn.textContent = currentLang === 'en' ? 'SEND INQUIRY →' : '发送询价 →';
+        btn.disabled = false;
+        alert(currentLang === 'en'
+          ? 'Network error. Please email us at Pulian.Technology@outlook.com'
+          : '网络错误，请发邮件至 Pulian.Technology@outlook.com');
+      }
+    });
+  }
+</script>
+
+</body>
+</html>
