@@ -184,12 +184,27 @@
     #hero {
       min-height: 100vh;
       background:
-        linear-gradient(to bottom, rgba(27,58,47,0.82) 0%, rgba(27,58,47,0.65) 60%, rgba(27,58,47,0.90) 100%),
-        url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=1600&q=85') center/cover no-repeat;
+        radial-gradient(ellipse at 78% 35%, rgba(212,168,67,0.14), transparent 55%),
+        repeating-linear-gradient(0deg, rgba(255,255,255,0.035) 0 1px, transparent 1px 64px),
+        repeating-linear-gradient(90deg, rgba(255,255,255,0.035) 0 1px, transparent 1px 64px),
+        linear-gradient(160deg, #22483A 0%, var(--green-dark) 55%, #10241C 100%);
       display: flex; align-items: center;
       padding-top: 68px;
       color: var(--white);
+      position: relative;
+      overflow: hidden;
     }
+    #hero::after {
+      content: '';
+      position: absolute;
+      top: 50%; right: -120px;
+      width: 640px; height: 640px;
+      transform: translateY(-50%);
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200' fill='none' stroke='%23D4A843'%3E%3Ccircle cx='100' cy='100' r='96' stroke-width='0.8'/%3E%3Ccircle cx='100' cy='100' r='80' stroke-width='6' stroke-dasharray='1.2 7.18'/%3E%3Ccircle cx='100' cy='100' r='62' stroke-width='0.8'/%3E%3Cpath d='M100 100 L146 54' stroke-width='3' stroke-linecap='round'/%3E%3Ccircle cx='100' cy='100' r='6' fill='%23D4A843'/%3E%3C/svg%3E") center/contain no-repeat;
+      opacity: 0.16;
+      pointer-events: none;
+    }
+    #hero > .container { position: relative; z-index: 1; width: 100%; }
     .hero-inner {
       max-width: 800px;
       padding: 60px 24px;
@@ -264,10 +279,39 @@
     .about-img-wrap {
       position: relative;
     }
-    .about-img-wrap img {
+    .about-img-wrap img,
+    .about-visual {
       width: 100%; height: 420px;
       object-fit: cover;
       border-radius: 2px;
+    }
+    .about-visual {
+      display: flex; flex-direction: column;
+      align-items: flex-start; justify-content: flex-end;
+      padding: 40px;
+      background:
+        radial-gradient(circle at 85% 20%, rgba(212,168,67,0.18), transparent 50%),
+        repeating-linear-gradient(0deg, rgba(255,255,255,0.04) 0 1px, transparent 1px 40px),
+        repeating-linear-gradient(90deg, rgba(255,255,255,0.04) 0 1px, transparent 1px 40px),
+        linear-gradient(150deg, var(--green-mid), var(--green-dark));
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+    .about-visual svg {
+      position: absolute; top: 32px; right: 32px;
+      width: 140px; height: 140px;
+      color: var(--gold); opacity: 0.55;
+    }
+    .about-visual-name {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 64px; font-weight: 800; line-height: 1;
+      letter-spacing: 2px;
+    }
+    .about-visual-sub {
+      font-family: 'Noto Sans SC', sans-serif;
+      font-size: 14px; color: var(--silver);
+      letter-spacing: 3px; margin-top: 8px;
     }
     .about-badge {
       position: absolute;
@@ -333,6 +377,34 @@
       transition: transform .5s;
     }
     .product-block:hover .product-img-wrap img { transform: scale(1.04); }
+
+    /* Transitional product image placeholder (until real photos arrive) */
+    .ph {
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 14px;
+      text-align: center;
+      background:
+        radial-gradient(circle at 30% 20%, rgba(212,168,67,0.12), transparent 55%),
+        repeating-linear-gradient(0deg, rgba(255,255,255,0.04) 0 1px, transparent 1px 32px),
+        repeating-linear-gradient(90deg, rgba(255,255,255,0.04) 0 1px, transparent 1px 32px),
+        linear-gradient(160deg, var(--green-mid), var(--green-dark));
+    }
+    .ph svg { width: 104px; height: 104px; color: var(--gold); opacity: 0.85; }
+    .ph-note {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 13px; font-weight: 600;
+      letter-spacing: 2px; text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+    }
+    .product-img-wrap .ph {
+      position: absolute; inset: 0;
+      transition: transform .5s;
+    }
+    .product-block:hover .product-img-wrap .ph { transform: scale(1.04); }
+    .card-img.ph { gap: 10px; }
+    .card-img.ph svg { width: 64px; height: 64px; }
+    .card-img.ph .ph-note { font-size: 12px; }
     .product-priority {
       position: absolute;
       top: 20px; left: 20px;
@@ -491,6 +563,21 @@
       transition: filter .3s, transform .4s;
     }
     .industry-item:hover img { filter: brightness(0.35); transform: scale(1.05); }
+    .industry-bg {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(circle at 75% 25%, rgba(212,168,67,0.16), transparent 55%),
+        repeating-linear-gradient(135deg, rgba(255,255,255,0.035) 0 2px, transparent 2px 22px),
+        var(--industry-grad);
+      transition: filter .3s, transform .4s;
+    }
+    .industry-item:hover .industry-bg { filter: brightness(0.75); transform: scale(1.05); }
+    .industry-bg--oil        { --industry-grad: linear-gradient(150deg, #4A3714, #1B3A2F 75%); }
+    .industry-bg--chemical   { --industry-grad: linear-gradient(150deg, #155049, #0F2A26 75%); }
+    .industry-bg--military   { --industry-grad: linear-gradient(150deg, #3C4A2C, #1A2219 75%); }
+    .industry-bg--metallurgy { --industry-grad: linear-gradient(150deg, #5A2A14, #221A16 75%); }
+    .industry-bg--scientific { --industry-grad: linear-gradient(150deg, #1F3A56, #142027 75%); }
+    .industry-bg--marine     { --industry-grad: linear-gradient(150deg, #134062, #0D2230 75%); }
     .industry-overlay {
       position: absolute; inset: 0;
       display: flex; flex-direction: column;
@@ -725,7 +812,8 @@
     ══════════════════════════════════════ */
     @media (max-width: 1024px) {
       .about-grid { grid-template-columns: 1fr; gap: 48px; }
-      .about-img-wrap img { height: 320px; }
+      .about-img-wrap img, .about-visual { height: 320px; }
+      #hero::after { right: -260px; opacity: 0.08; }
       .about-badge { bottom: -16px; right: 16px; }
       .product-block { grid-template-columns: 1fr; }
       .product-block.reverse { direction: ltr; }
@@ -770,6 +858,17 @@
   </style>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="ico-meter" viewBox="0 0 96 96" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="48" cy="32" r="20"/>
+    <path d="M48 32l9-9"/>
+    <circle cx="48" cy="32" r="2.5" fill="currentColor"/>
+    <path d="M36 22h2M58 22h2M48 15v2"/>
+    <path d="M42 52v10M54 52v10"/>
+    <rect x="12" y="62" width="72" height="16" rx="2"/>
+    <path d="M18 57v26M78 57v26"/>
+  </symbol>
+</svg>
 
 <!-- ══════════════════════════════════════
      NAVBAR
@@ -856,7 +955,7 @@
   <div class="container">
     <div class="about-grid">
       <div class="about-img-wrap reveal">
-        <img src="https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?w=800&q=80" alt="Pulian manufacturing facility" data-alt-en="Pulian manufacturing facility" data-alt-cn="普联生产厂区" loading="lazy" />
+        <div class="about-visual" aria-hidden="true"><svg><use href="#ico-meter"/></svg><div class="about-visual-name">PULIAN</div><div class="about-visual-sub">合肥普联自动化仪表有限公司</div></div>
         <div class="about-badge">
           <div class="about-badge-num">2005</div>
           <div class="about-badge-label" data-en="ESTABLISHED" data-cn="创立年份">ESTABLISHED</div>
@@ -919,7 +1018,7 @@
     <div class="product-block reveal">
       <div class="product-img-wrap">
         <div class="product-priority" data-en="★ FEATURED" data-cn="★ 重点推荐">★ FEATURED</div>
-        <img src="https://images.unsplash.com/photo-1530587191325-3db32d826c18?w=900&q=85" alt="Miniature Flowmeter — precision laboratory instrument" data-alt-en="Miniature Flowmeter — precision laboratory instrument" data-alt-cn="小微流量计——精密实验室仪表" loading="lazy" />
+        <div class="ph" role="img" aria-label="Miniature Flowmeter — product photo coming soon" data-aria-label-en="Miniature Flowmeter — product photo coming soon" data-aria-label-cn="小微流量计——产品图片待更新"><svg aria-hidden="true"><use href="#ico-meter"/></svg><span class="ph-note" data-en="Product photo coming soon" data-cn="产品图片待更新">Product photo coming soon</span></div>
       </div>
       <div class="product-content">
         <div>
@@ -976,7 +1075,7 @@
     <div class="product-block reverse reveal">
       <div class="product-img-wrap">
         <div class="product-priority" data-en="★ FEATURED" data-cn="★ 重点推荐">★ FEATURED</div>
-        <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=900&q=85" alt="Scraper Flowmeter — industrial pipeline application" data-alt-en="Scraper Flowmeter — industrial pipeline application" data-alt-cn="刮板流量计——工业管道应用" loading="lazy" />
+        <div class="ph" role="img" aria-label="Scraper Flowmeter — product photo coming soon" data-aria-label-en="Scraper Flowmeter — product photo coming soon" data-aria-label-cn="刮板流量计——产品图片待更新"><svg aria-hidden="true"><use href="#ico-meter"/></svg><span class="ph-note" data-en="Product photo coming soon" data-cn="产品图片待更新">Product photo coming soon</span></div>
       </div>
       <div class="product-content">
         <div>
@@ -1048,7 +1147,7 @@
     </div>
     <div class="cards-grid">
       <div class="product-card reveal">
-        <img class="card-img" src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&q=80" alt="Oval Gear Flowmeter" data-alt-en="Oval Gear Flowmeter" data-alt-cn="椭圆齿轮流量计" loading="lazy" />
+        <div class="card-img ph" role="img" aria-label="Oval Gear Flowmeter — product photo coming soon" data-aria-label-en="Oval Gear Flowmeter — product photo coming soon" data-aria-label-cn="椭圆齿轮流量计——产品图片待更新"><svg aria-hidden="true"><use href="#ico-meter"/></svg><span class="ph-note" data-en="Product photo coming soon" data-cn="产品图片待更新">Product photo coming soon</span></div>
         <div class="card-body">
           <div class="card-tag" data-en="Product 03" data-cn="产品 03">Product 03</div>
           <div class="card-title" data-en="Oval Gear Flowmeter" data-cn="椭圆齿轮流量计">Oval Gear Flowmeter</div>
@@ -1058,7 +1157,7 @@
         </div>
       </div>
       <div class="product-card reveal">
-        <img class="card-img" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Helical Dual Rotor Flowmeter" data-alt-en="Helical Dual Rotor Flowmeter" data-alt-cn="螺旋双转子流量计" loading="lazy" />
+        <div class="card-img ph" role="img" aria-label="Helical Dual Rotor Flowmeter — product photo coming soon" data-aria-label-en="Helical Dual Rotor Flowmeter — product photo coming soon" data-aria-label-cn="螺旋双转子流量计——产品图片待更新"><svg aria-hidden="true"><use href="#ico-meter"/></svg><span class="ph-note" data-en="Product photo coming soon" data-cn="产品图片待更新">Product photo coming soon</span></div>
         <div class="card-body">
           <div class="card-tag" data-en="Product 04" data-cn="产品 04">Product 04</div>
           <div class="card-title" data-en="Helical Dual Rotor" data-cn="螺旋双转子流量计">Helical Dual Rotor</div>
@@ -1068,7 +1167,7 @@
         </div>
       </div>
       <div class="product-card reveal">
-        <img class="card-img" src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&q=80" alt="Turbine / Vortex Flowmeter" data-alt-en="Turbine / Vortex Flowmeter" data-alt-cn="涡轮/涡街流量计" loading="lazy" />
+        <div class="card-img ph" role="img" aria-label="Turbine / Vortex Flowmeter — product photo coming soon" data-aria-label-en="Turbine / Vortex Flowmeter — product photo coming soon" data-aria-label-cn="涡轮/涡街流量计——产品图片待更新"><svg aria-hidden="true"><use href="#ico-meter"/></svg><span class="ph-note" data-en="Product photo coming soon" data-cn="产品图片待更新">Product photo coming soon</span></div>
         <div class="card-body">
           <div class="card-tag" data-en="Product 05" data-cn="产品 05">Product 05</div>
           <div class="card-title" data-en="Turbine / Vortex Series" data-cn="涡轮/涡街系列">Turbine / Vortex Series</div>
@@ -1078,7 +1177,7 @@
         </div>
       </div>
       <div class="product-card reveal">
-        <img class="card-img" src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=600&q=80" alt="Automation Equipment" data-alt-en="Automation Equipment" data-alt-cn="自动化配套设备" loading="lazy" />
+        <div class="card-img ph" role="img" aria-label="Automation Equipment — product photo coming soon" data-aria-label-en="Automation Equipment — product photo coming soon" data-aria-label-cn="自动化配套设备——产品图片待更新"><svg aria-hidden="true"><use href="#ico-meter"/></svg><span class="ph-note" data-en="Product photo coming soon" data-cn="产品图片待更新">Product photo coming soon</span></div>
         <div class="card-body">
           <div class="card-tag" data-en="Product 06" data-cn="产品 06">Product 06</div>
           <div class="card-title" data-en="Automation Equipment" data-cn="自动化配套设备">Automation Equipment</div>
@@ -1088,7 +1187,7 @@
         </div>
       </div>
       <div class="product-card reveal">
-        <img class="card-img" src="https://images.unsplash.com/photo-1543286386-2e659306cd6c?w=600&q=80" alt="Roots Flowmeter" data-alt-en="Roots Flowmeter" data-alt-cn="腰轮流量计" loading="lazy" />
+        <div class="card-img ph" role="img" aria-label="Roots Flowmeter — product photo coming soon" data-aria-label-en="Roots Flowmeter — product photo coming soon" data-aria-label-cn="腰轮流量计——产品图片待更新"><svg aria-hidden="true"><use href="#ico-meter"/></svg><span class="ph-note" data-en="Product photo coming soon" data-cn="产品图片待更新">Product photo coming soon</span></div>
         <div class="card-body">
           <div class="card-tag" data-en="Product 07" data-cn="产品 07">Product 07</div>
           <div class="card-title" data-en="Roots Flowmeter" data-cn="腰轮流量计">Roots Flowmeter</div>
@@ -1129,7 +1228,7 @@
   </div>
   <div class="industries-grid">
     <div class="industry-item">
-      <img src="https://images.unsplash.com/photo-1518709766631-a6a7f45921c3?w=700&q=80" alt="Oil & Gas industry" data-alt-en="Oil & Gas industry" data-alt-cn="石油化工行业" loading="lazy" />
+      <div class="industry-bg industry-bg--oil" aria-hidden="true"></div>
       <div class="industry-overlay">
         <div class="industry-icon">🛢️</div>
         <div class="industry-name" data-en="Oil & Gas" data-cn="石油化工">Oil &amp; Gas</div>
@@ -1138,7 +1237,7 @@
       </div>
     </div>
     <div class="industry-item">
-      <img src="https://images.unsplash.com/photo-1616400619175-5beda3a17896?w=700&q=80" alt="Chemical industry" data-alt-en="Chemical industry" data-alt-cn="化工行业" loading="lazy" />
+      <div class="industry-bg industry-bg--chemical" aria-hidden="true"></div>
       <div class="industry-overlay">
         <div class="industry-icon">⚗️</div>
         <div class="industry-name" data-en="Chemical" data-cn="化工">Chemical</div>
@@ -1147,7 +1246,7 @@
       </div>
     </div>
     <div class="industry-item">
-      <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=700&q=80" alt="Military & Defense" data-alt-en="Military & Defense" data-alt-cn="军工国防" loading="lazy" />
+      <div class="industry-bg industry-bg--military" aria-hidden="true"></div>
       <div class="industry-overlay">
         <div class="industry-icon">✈️</div>
         <div class="industry-name" data-en="Military" data-cn="军工">Military</div>
@@ -1156,7 +1255,7 @@
       </div>
     </div>
     <div class="industry-item">
-      <img src="https://images.unsplash.com/photo-1565043666747-69f6646db940?w=700&q=80" alt="Metallurgy industry" data-alt-en="Metallurgy industry" data-alt-cn="冶金行业" loading="lazy" />
+      <div class="industry-bg industry-bg--metallurgy" aria-hidden="true"></div>
       <div class="industry-overlay">
         <div class="industry-icon">🏭</div>
         <div class="industry-name" data-en="Metallurgy" data-cn="冶金">Metallurgy</div>
@@ -1165,7 +1264,7 @@
       </div>
     </div>
     <div class="industry-item">
-      <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=700&q=80" alt="Scientific research" data-alt-en="Scientific research" data-alt-cn="科研实验" loading="lazy" />
+      <div class="industry-bg industry-bg--scientific" aria-hidden="true"></div>
       <div class="industry-overlay">
         <div class="industry-icon">🔬</div>
         <div class="industry-name" data-en="Scientific" data-cn="科研">Scientific</div>
@@ -1174,7 +1273,7 @@
       </div>
     </div>
     <div class="industry-item">
-      <img src="https://images.unsplash.com/photo-1545608444-f045a6db6133?w=700&q=80" alt="Marine & Shipping" data-alt-en="Marine & Shipping" data-alt-cn="船舶海工" loading="lazy" />
+      <div class="industry-bg industry-bg--marine" aria-hidden="true"></div>
       <div class="industry-overlay">
         <div class="industry-icon">🚢</div>
         <div class="industry-name" data-en="Marine" data-cn="船舶">Marine</div>
