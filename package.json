@@ -1,0 +1,12 @@
+{
+  "name": "pulian-website",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20.11"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "build:preview": "node scripts/build.mjs --preview"
+  }
+}
