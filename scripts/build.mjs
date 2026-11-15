@@ -1,6 +1,7 @@
 // Generates static pages per language from src/ templates, src/products.json and locales/<lang>.json:
 //   dist/<lang>/index.html                     home page
 //   dist/<lang>/products/<slug>/index.html     one page per product
+//   dist/<lang>/about/index.html               company profile, factory photos, certificates
 import fs from 'node:fs';
 import path from 'node:path';
 
@@ -28,7 +29,9 @@ const escapeHtml = value => String(value)
 const readJson = file => JSON.parse(fs.readFileSync(file, 'utf8'));
 const homeTemplate = fs.readFileSync(path.join(ROOT, 'src/index.html'), 'utf8');
 const productTemplate = fs.readFileSync(path.join(ROOT, 'src/product.html'), 'utf8');
+const aboutTemplate = fs.readFileSync(path.join(ROOT, 'src/about.html'), 'utf8');
 const products = readJson(path.join(ROOT, 'src/products.json'));
+const certificates = readJson(path.join(ROOT, 'src/certificates.json'));
 const source = readJson(path.join(ROOT, 'locales/en.json'));
 
 // Shared page chrome lives in the home template; product pages reuse it.
@@ -40,6 +43,7 @@ const extract = (pattern, name) => {
 const SPRITE = extract(/<svg width="0"[\s\S]*?<\/svg>/, 'icon sprite');
 const NAV = extract(/<nav id="navbar">[\s\S]*?<\/nav>/, 'navbar');
 const FOOTER = extract(/<footer>[\s\S]*?<\/footer>/, 'footer');
+const FACTORY = extract(/<section id="factory"[\s\S]*?<\/section>/, 'factory section');
 
 function loadStrings(code) {
   const strings = readJson(path.join(ROOT, `locales/${code}.json`));
@@ -104,6 +108,10 @@ const jsStringsFor = strings => JSON.stringify({
   submit: strings['send-inquiry'],
   submitFailed: strings['js-submit-failed'],
   networkError: strings['js-network-error'],
+  close: strings['lightbox-close'],
+  prev: strings['carousel-prev'],
+  next: strings['carousel-next'],
+  enlarge: strings['view-larger'],
 }).replaceAll('<', '\\u003c');
 
 // Product fragments contain {{key}} placeholders that the translation pass resolves.
@@ -243,6 +251,34 @@ function renderProduct(code, product) {
   return translate(html, code, strings);
 }
 
+function certificatesHtml() {
+  const items = certificates.items.map(c =>
+    `        <figure class="cert-card"><img src="${c.src}" alt="{{${c.titleKey}}}" loading="lazy" data-lightbox="certificates" /><figcaption>{{${c.titleKey}}}</figcaption></figure>`);
+  const empty = Math.max(0, certificates.slots - certificates.items.length);
+  for (let i = 0; i < empty; i++) {
+    items.push(`        <figure class="cert-card"><div class="ph cert-ph" role="img" aria-label="{{certificate-coming-soon}}"><svg aria-hidden="true"><use href="#ico-certificate"/></svg><span class="ph-note">{{certificate-coming-soon}}</span></div></figure>`);
+  }
+  return items.join('\n');
+}
+
+function renderAbout(code) {
+  const strings = loadStrings(code);
+  const page = 'about/';
+  let html = inject(aboutTemplate, {
+    ...common(code, strings, page),
+    sprite: SPRITE,
+    nav: localizeAnchors(NAV, code),
+    footer: localizeAnchors(FOOTER, code),
+    lang: code,
+    factorySection: FACTORY,
+    certificates: certificatesHtml(),
+    whatsappUrl: WHATSAPP_URL,
+  });
+  // The shared nav carries its own {{@langMenu}}, so this page needs a second pass.
+  html = inject(html, common(code, strings, page));
+  return translate(html, code, strings);
+}
+
 function renderRoot() {
   const links = built.map(code =>
     `    <li><a href="/${code}/" hreflang="${LANGS[code].htmlLang}" lang="${LANGS[code].htmlLang}">${escapeHtml(LANGS[code].label)}</a></li>`).join('\n');
@@ -289,7 +325,7 @@ ${links}
 }
 
 function renderSitemap() {
-  const pages = ['', ...products.map(p => `products/${p.slug}/`)];
+  const pages = ['', 'about/', ...products.map(p => `products/${p.slug}/`)];
   const urls = built.flatMap(code => pages.map(page => `  <url><loc>${SITE_URL}/${code}/${page}</loc></url>`)).join('\n');
   return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -303,6 +339,8 @@ fs.cpSync(path.join(ROOT, 'public'), DIST, { recursive: true });
 for (const code of built) {
   fs.mkdirSync(path.join(DIST, code), { recursive: true });
   fs.writeFileSync(path.join(DIST, code, 'index.html'), renderHome(code));
+  fs.mkdirSync(path.join(DIST, code, 'about'), { recursive: true });
+  fs.writeFileSync(path.join(DIST, code, 'about', 'index.html'), renderAbout(code));
   for (const product of products) {
     const dir = path.join(DIST, code, 'products', product.slug);
     fs.mkdirSync(dir, { recursive: true });

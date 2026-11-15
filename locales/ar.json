@@ -217,5 +217,15 @@
   "medium-viscous-fuel": "السوائل اللزجة وزيوت الوقود",
   "medium-solvents-heavy-oils": "من المذيبات الخفيفة إلى الزيوت الثقيلة",
   "medium-gas-liquid": "الغاز والسائل",
-  "medium-gas": "الغاز الطبيعي والهواء المضغوط"
+  "medium-gas": "الغاز الطبيعي والهواء المضغوط",
+  "learn-more": "اعرف المزيد",
+  "view-certificates": "عرض الشهادات",
+  "about-page-title": "عن بوليان",
+  "company-profile": "نبذة عن الشركة",
+  "certificates-label": "الشهادات",
+  "certificates-title": "المؤهلات والشهادات",
+  "certificates-subtitle": "انقر على الشهادة لعرضها بالحجم الكامل.",
+  "certificate-coming-soon": "صورة الشهادة قريبًا",
+  "lightbox-close": "إغلاق",
+  "view-larger": "عرض بحجم أكبر"
 }

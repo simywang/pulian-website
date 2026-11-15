@@ -123,6 +123,79 @@ document.querySelectorAll('[data-carousel]').forEach(carousel => {
   carousel.querySelector('.carousel-next').addEventListener('click', () => goTo(current + 1));
 });
 
+/* ── Lightbox: photos with data-lightbox="<group>" open full size ── */
+const zoomable = [...document.querySelectorAll('img[data-lightbox]')];
+if (zoomable.length) {
+  const box = document.createElement('div');
+  box.className = 'lightbox';
+  box.hidden = true;
+  box.setAttribute('role', 'dialog');
+  box.setAttribute('aria-modal', 'true');
+  box.innerHTML = `
+    <figure class="lightbox-figure"><img alt="" /><figcaption></figcaption></figure>
+    <button class="lightbox-close" type="button"><span aria-hidden="true">×</span></button>
+    <button class="lightbox-prev" type="button"><span aria-hidden="true">‹</span></button>
+    <button class="lightbox-next" type="button"><span aria-hidden="true">›</span></button>`;
+  document.body.appendChild(box);
+  const [boxImg, boxCaption] = [box.querySelector('img'), box.querySelector('figcaption')];
+  const closeBtn = box.querySelector('.lightbox-close');
+  closeBtn.setAttribute('aria-label', T.close);
+  box.querySelector('.lightbox-prev').setAttribute('aria-label', T.prev);
+  box.querySelector('.lightbox-next').setAttribute('aria-label', T.next);
+
+  let group = [], index = 0, opener = null;
+  const captionOf = img => img.closest('figure')?.querySelector('figcaption')?.textContent || img.alt;
+  const show = i => {
+    index = (i + group.length) % group.length;
+    const img = group[index];
+    boxImg.src = img.currentSrc || img.src;
+    boxImg.alt = img.alt;
+    boxCaption.textContent = captionOf(img);
+    box.setAttribute('aria-label', captionOf(img));
+  };
+  const open = img => {
+    group = zoomable.filter(z => z.dataset.lightbox === img.dataset.lightbox);
+    opener = img;
+    box.toggleAttribute('data-single', group.length < 2);
+    show(group.indexOf(img));
+    box.hidden = false;
+    document.body.style.overflow = 'hidden';
+    closeBtn.focus();
+  };
+  const close = () => {
+    box.hidden = true;
+    document.body.style.overflow = '';
+    opener?.focus();
+  };
+
+  zoomable.forEach(img => {
+    img.tabIndex = 0;
+    img.setAttribute('role', 'button');
+    img.setAttribute('aria-label', `${T.enlarge}: ${captionOf(img)}`);
+    img.addEventListener('click', () => open(img));
+    img.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(img); }
+    });
+  });
+  closeBtn.addEventListener('click', close);
+  box.querySelector('.lightbox-prev').addEventListener('click', () => show(index - 1));
+  box.querySelector('.lightbox-next').addEventListener('click', () => show(index + 1));
+  box.addEventListener('click', e => { if (e.target === box) close(); });
+  box.addEventListener('keydown', e => {
+    const rtl = document.documentElement.dir === 'rtl';
+    if (e.key === 'Escape') close();
+    if (e.key === 'ArrowRight') show(index + (rtl ? -1 : 1));
+    if (e.key === 'ArrowLeft') show(index + (rtl ? 1 : -1));
+    // Keep keyboard focus inside the dialog.
+    if (e.key === 'Tab') {
+      const buttons = [...box.querySelectorAll('button')].filter(b => b.offsetParent);
+      const first = buttons[0], last = buttons[buttons.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+  });
+}
+
 /* ── Preselect the product when arriving from a product page (?product=scraper) ── */
 const productSelect = document.getElementById('fproduct');
 const wantedProduct = new URLSearchParams(location.search).get('product');

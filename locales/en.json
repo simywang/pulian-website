@@ -216,5 +216,15 @@
   "medium-viscous-fuel": "Viscous liquids, fuel oils",
   "medium-solvents-heavy-oils": "Thin solvents to heavy oils",
   "medium-gas-liquid": "Gas and liquid",
-  "medium-gas": "Natural gas, compressed air"
+  "medium-gas": "Natural gas, compressed air",
+  "learn-more": "Learn More",
+  "view-certificates": "View Certificates",
+  "about-page-title": "About Pulian",
+  "company-profile": "Company Profile",
+  "certificates-label": "Certificates",
+  "certificates-title": "Qualifications & Certificates",
+  "certificates-subtitle": "Click a certificate to view it in full size.",
+  "certificate-coming-soon": "Certificate photo coming soon",
+  "lightbox-close": "Close",
+  "view-larger": "View larger"
 }

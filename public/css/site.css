@@ -1122,6 +1122,97 @@ a.product-card:hover .card-more { color: var(--green-dark); }
   .detail-grid { grid-template-columns: 1fr; gap: 32px; }
 }
 
+/* ══════════════════════════════════════
+   "LEARN MORE" LINKS + ABOUT PAGE
+══════════════════════════════════════ */
+.about-more { margin-top: 32px; }
+.text-link {
+  display: inline-block; margin-top: 28px;
+  font-family: var(--font-head);
+  font-size: 15px; font-weight: 700;
+  letter-spacing: 1px; text-transform: uppercase;
+  color: var(--green-mid);
+  border-bottom: 2px solid var(--gold);
+  padding-bottom: 2px;
+}
+.text-link:hover { color: var(--gold-dark); }
+.about-profile {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 56px;
+  align-items: start;
+}
+.about-profile .about-features { margin-top: 0; }
+.about-cta .section-title { color: var(--white); }
+.cert-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.cert-card { margin: 0; }
+.cert-card > img,
+.cert-card > .ph {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  border-radius: 2px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+}
+.cert-card > img { object-fit: contain; background: var(--white); padding: 12px; }
+.cert-card figcaption {
+  margin-top: 12px;
+  font-size: 15px; font-weight: 600; color: var(--green-dark);
+  text-align: center;
+}
+.cert-ph svg { width: 72px; height: 72px; }
+@media (max-width: 1024px) {
+  .about-profile { grid-template-columns: 1fr; gap: 32px; }
+}
+@media (max-width: 768px) {
+  .cert-gallery { grid-template-columns: 1fr 1fr; gap: 16px; }
+}
+
+/* ══════════════════════════════════════
+   LIGHTBOX (click a photo to view it full size)
+══════════════════════════════════════ */
+img[data-lightbox] { cursor: zoom-in; }
+img[data-lightbox]:focus-visible { outline: 3px solid var(--gold); outline-offset: -3px; }
+.lightbox {
+  position: fixed; inset: 0; z-index: 2000;
+  display: grid; place-items: center;
+  background: rgba(10,20,16,0.92);
+  padding: 56px 72px;
+}
+.lightbox[hidden] { display: none; }
+.lightbox-figure { margin: 0; max-width: 100%; max-height: 100%; display: flex; flex-direction: column; align-items: center; }
+.lightbox-figure img {
+  max-width: 100%;
+  max-height: calc(100vh - 160px);
+  object-fit: contain;
+  background: var(--white);
+  border-radius: 2px;
+}
+.lightbox-figure figcaption { margin-top: 14px; color: var(--white); font-size: 15px; text-align: center; }
+.lightbox button {
+  position: absolute;
+  width: 48px; height: 48px;
+  border: none; border-radius: 50%;
+  background: rgba(255,255,255,0.12); color: var(--white);
+  font-size: 28px; line-height: 1;
+  cursor: pointer;
+}
+.lightbox button:hover { background: rgba(255,255,255,0.24); }
+.lightbox-close { top: 16px; inset-inline-end: 16px; }
+.lightbox-prev { top: 50%; margin-top: -24px; inset-inline-start: 12px; }
+.lightbox-next { top: 50%; margin-top: -24px; inset-inline-end: 12px; }
+[dir="rtl"] .lightbox-prev span,
+[dir="rtl"] .lightbox-next span { display: inline-block; transform: scaleX(-1); }
+.lightbox[data-single] .lightbox-prev,
+.lightbox[data-single] .lightbox-next { display: none; }
+@media (max-width: 768px) {
+  .lightbox { padding: 56px 8px; }
+  .lightbox-prev, .lightbox-next { top: auto; bottom: 16px; margin-top: 0; }
+}
+
 /* English names appear as sub-names on non-English pages only. */
 html[lang="en"] .sub-name { display: none; }
 

@@ -217,5 +217,15 @@
   "medium-viscous-fuel": "Вязкие жидкости, топливо",
   "medium-solvents-heavy-oils": "От лёгких растворителей до тяжёлых масел",
   "medium-gas-liquid": "Газ и жидкость",
-  "medium-gas": "Природный газ, сжатый воздух"
+  "medium-gas": "Природный газ, сжатый воздух",
+  "learn-more": "Подробнее о компании",
+  "view-certificates": "Смотреть сертификаты",
+  "about-page-title": "О компании Pulian",
+  "company-profile": "Профиль компании",
+  "certificates-label": "Сертификаты",
+  "certificates-title": "Квалификации и сертификаты",
+  "certificates-subtitle": "Нажмите на сертификат, чтобы открыть его в полном размере.",
+  "certificate-coming-soon": "Фото сертификата скоро появится",
+  "lightbox-close": "Закрыть",
+  "view-larger": "Увеличить"
 }

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="{{@htmlLang}}" dir="{{@dir}}">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{about-page-title}} | PULIAN</title>
+  <meta name="description" content="{{hefei-pulian-automated-instruments-co-lt}}" />
+{{@head}}
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+{{@fonts}}
+  <link rel="stylesheet" href="/css/site.css" />
+</head>
+<body class="about-page">
+{{@sprite}}
+
+{{@nav}}
+
+<main>
+  <section class="section section-cream detail-hero" id="profile">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="{{breadcrumb}}">
+        <a href="/{{@lang}}/">{{home}}</a>
+        <span aria-hidden="true">/</span>
+        <span aria-current="page">{{about-page-title}}</span>
+      </nav>
+      <div class="about-profile">
+        <div>
+          <div class="section-label">{{company-profile}}</div>
+          <h1 class="section-title" style="color:var(--green-dark)">
+            <span>{{built-on-precision}}</span><br>
+            <span>{{driven-by-industry}}</span>
+          </h1>
+          <div class="divider"></div>
+          <p class="detail-desc">{{hefei-pulian-automated-instruments-co-lt}}</p>
+          <p class="detail-desc">{{our-products-serve-demanding-sectors-inc}}</p>
+        </div>
+        <div class="about-features">
+          <div class="about-feature">
+            <div class="about-feature-title">2005</div>
+            <div class="about-feature-text">{{established}}</div>
+          </div>
+          <div class="about-feature">
+            <div class="about-feature-title">{{iso-9001-2015}}</div>
+            <div class="about-feature-text">{{quality-management-system-certified}}</div>
+          </div>
+          <div class="about-feature">
+            <div class="about-feature-title">{{20-000-units-yr}}</div>
+            <div class="about-feature-text">{{annual-production-capacity}}</div>
+          </div>
+          <div class="about-feature">
+            <div class="about-feature-title">{{russia-export}}</div>
+            <div class="about-feature-text">{{active-cis-market-presence}}</div>
+          </div>
+          <div class="about-feature">
+            <div class="about-feature-title">{{custom-solutions}}</div>
+            <div class="about-feature-text">{{oem-project-specific-designs}}</div>
+          </div>
+          <div class="about-feature">
+            <div class="about-feature-title">{{est-capital}}</div>
+            <div class="about-feature-text">{{founded-2005-rmb-10-5m-registered-capita}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+{{@factorySection}}
+
+  <section id="certificates" class="section section-cream">
+    <div class="container">
+      <div style="margin-bottom:48px">
+        <div class="section-label">{{certificates-label}}</div>
+        <h2 class="section-title" style="color:var(--green-dark)">{{certificates-title}}</h2>
+        <div class="divider"></div>
+        <p class="section-subtitle dark">{{certificates-subtitle}}</p>
+      </div>
+      <div class="cert-gallery">
+{{@certificates}}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-dark about-cta">
+    <div class="container">
+      <h2 class="section-title">
+        <span>{{get-in-touch}}</span>
+        <span style="color:var(--gold)">{{request-a-quote-3}}</span>
+      </h2>
+      <div class="divider"></div>
+      <div class="detail-actions">
+        <a class="btn btn-gold" href="/{{@lang}}/#contact">{{request-a-quote-2}}</a>
+        <a class="btn btn-outline" href="{{@whatsappUrl}}" target="_blank" rel="noopener">{{whatsapp}}</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+{{@footer}}
+
+<script>
+  /* Page strings, injected per language at build time; read by /js/site.js */
+  const T = {{@jsStrings}};
+</script>
+<script src="/js/site.js"></script>
+</body>
+</html>

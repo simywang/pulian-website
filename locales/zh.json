@@ -216,5 +216,15 @@
   "medium-viscous-fuel": "粘性液体、燃油",
   "medium-solvents-heavy-oils": "低粘度溶剂至重油",
   "medium-gas-liquid": "气体、液体",
-  "medium-gas": "天然气、压缩空气"
+  "medium-gas": "天然气、压缩空气",
+  "learn-more": "了解更多",
+  "view-certificates": "查看资质证书",
+  "about-page-title": "关于普联",
+  "company-profile": "公司简介",
+  "certificates-label": "资质证书",
+  "certificates-title": "资质与证书",
+  "certificates-subtitle": "点击证书可查看大图。",
+  "certificate-coming-soon": "证书照片待上传",
+  "lightbox-close": "关闭",
+  "view-larger": "查看大图"
 }
