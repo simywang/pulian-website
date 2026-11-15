@@ -502,5 +502,11 @@
   "cert-business-license": "Business License",
   "cert-iso9001": "ISO 9001:2015 Quality Management System Certificate",
   "cert-work-safety": "Work Safety Standardization Certificate",
-  "cert-bank-permit": "Bank Account Opening Permit (account details hidden)"
+  "cert-bank-permit": "Bank Account Opening Permit (account details hidden)",
+  "helical-alt-1": "Helical dual rotor flowmeter with blue cast body and mechanical register",
+  "helical-alt-2": "Stainless steel helical dual rotor flowmeter with LCD display head",
+  "helical-alt-3": "Helical dual rotor flowmeter with red body and large-digit counter",
+  "helical-alt-4": "DN250 helical dual rotor flowmeter with pressure gauge",
+  "helical-alt-5": "Vertical helical dual rotor flowmeter with counter and transmitter",
+  "helical-alt-6": "Vertical helical dual rotor flowmeter, front view"
 }

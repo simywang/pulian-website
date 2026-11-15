@@ -502,5 +502,11 @@
   "cert-business-license": "营业执照（副本）",
   "cert-iso9001": "ISO 9001:2015 质量管理体系认证证书",
   "cert-work-safety": "安全生产标准化证书",
-  "cert-bank-permit": "开户许可证（账号信息已隐藏）"
+  "cert-bank-permit": "开户许可证（账号信息已隐藏）",
+  "helical-alt-1": "螺旋双转子流量计：蓝色铸造表体，机械计数表头",
+  "helical-alt-2": "不锈钢螺旋双转子流量计，液晶显示表头",
+  "helical-alt-3": "红色表体螺旋双转子流量计，大字码计数器",
+  "helical-alt-4": "DN250 螺旋双转子流量计，带压力表",
+  "helical-alt-5": "立式螺旋双转子流量计，带计数器和变送器",
+  "helical-alt-6": "立式螺旋双转子流量计正面"
 }

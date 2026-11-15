@@ -767,7 +767,44 @@
     },
     "placeholderKey": "helical-dual-rotor-flowmeter-product-pho",
     "formValue": "helical",
-    "images": [],
+    "images": [
+      {
+        "src": "/images/products/helical-1.jpg",
+        "altKey": "helical-alt-1",
+        "width": 1200,
+        "height": 1097
+      },
+      {
+        "src": "/images/products/helical-2.jpg",
+        "altKey": "helical-alt-2",
+        "width": 1200,
+        "height": 800
+      },
+      {
+        "src": "/images/products/helical-3.jpg",
+        "altKey": "helical-alt-3",
+        "width": 1200,
+        "height": 1097
+      },
+      {
+        "src": "/images/products/helical-4.jpg",
+        "altKey": "helical-alt-4",
+        "width": 1200,
+        "height": 1097
+      },
+      {
+        "src": "/images/products/helical-5.jpg",
+        "altKey": "helical-alt-5",
+        "width": 800,
+        "height": 1200
+      },
+      {
+        "src": "/images/products/helical-6.jpg",
+        "altKey": "helical-alt-6",
+        "width": 800,
+        "height": 1200
+      }
+    ],
     "highlights": [
       {
         "value": "0.2",
@@ -1199,7 +1236,8 @@
       "LXZ80 B 重油原文\"86100 / 86120\"，网页显示\"待确认\"",
       "LXZ200 间歇 1000–2000\"12~290\"大于 200–1000\"12~230\"，疑有误",
       "LXZ300 间歇 2000–3500 原文\"45~4000\"，网页写 45–400",
-      "材质表（壳体、盖板、轴套）未写入，需公司提供"
+      "材质表（壳体、盖板、轴套）未写入，需公司提供",
+      "照片 helical-6 计数器上有他牌商标\"HQH®\"，上线前需替换或处理"
     ],
     "introKey": "helical-intro",
     "principle": {
