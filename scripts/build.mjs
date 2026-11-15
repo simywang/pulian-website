@@ -167,6 +167,7 @@ ${urls}
 }
 
 fs.rmSync(DIST, { recursive: true, force: true });
+fs.cpSync(path.join(ROOT, 'public'), DIST, { recursive: true });
 for (const code of built) {
   fs.mkdirSync(path.join(DIST, code), { recursive: true });
   fs.writeFileSync(path.join(DIST, code, 'index.html'), renderPage(code));
