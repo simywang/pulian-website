@@ -205,5 +205,17 @@
   "please-describe-your-application-require": "يُرجى وصف التطبيق ونطاق التدفق المطلوب والكمية وأي مواصفات أخرى…",
   "js-sending": "جارٍ الإرسال…",
   "js-submit-failed": "تعذّر الإرسال. يُرجى مراسلتنا مباشرة على Pulian.Technology@outlook.com",
-  "js-network-error": "خطأ في الشبكة. يُرجى مراسلتنا على Pulian.Technology@outlook.com"
+  "js-network-error": "خطأ في الشبكة. يُرجى مراسلتنا على Pulian.Technology@outlook.com",
+  "view-details": "عرض التفاصيل",
+  "home": "الرئيسية",
+  "breadcrumb": "مسار التنقل",
+  "specifications": "المواصفات الفنية",
+  "key-features": "المزايا الرئيسية",
+  "other-products": "منتجات أخرى",
+  "more-specs-coming": "يجري إعداد المواصفات التفصيلية والأوساط المناسبة لهذا المنتج. للحصول على ورقة البيانات الكاملة، يُرجى التواصل معنا.",
+  "medium": "الوسط المناسب",
+  "medium-viscous-fuel": "السوائل اللزجة وزيوت الوقود",
+  "medium-solvents-heavy-oils": "من المذيبات الخفيفة إلى الزيوت الثقيلة",
+  "medium-gas-liquid": "الغاز والسائل",
+  "medium-gas": "الغاز الطبيعي والهواء المضغوط"
 }

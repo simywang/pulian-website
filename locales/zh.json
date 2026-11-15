@@ -204,5 +204,17 @@
   "address-value": "安徽省合肥市肥东县撮镇镇汤岗社区大蚌路与汤岗路交叉口",
   "js-sending": "发送中…",
   "js-submit-failed": "提交失败，请直接发送邮件至 Pulian.Technology@outlook.com",
-  "js-network-error": "网络错误，请发邮件至 Pulian.Technology@outlook.com"
+  "js-network-error": "网络错误，请发邮件至 Pulian.Technology@outlook.com",
+  "view-details": "查看详情",
+  "home": "首页",
+  "breadcrumb": "当前位置",
+  "specifications": "技术参数",
+  "key-features": "产品特点",
+  "other-products": "其他产品",
+  "more-specs-coming": "该产品的详细参数与适用介质正在整理中，如需完整规格书，请与我们联系。",
+  "medium": "适用介质",
+  "medium-viscous-fuel": "粘性液体、燃油",
+  "medium-solvents-heavy-oils": "低粘度溶剂至重油",
+  "medium-gas-liquid": "气体、液体",
+  "medium-gas": "天然气、压缩空气"
 }

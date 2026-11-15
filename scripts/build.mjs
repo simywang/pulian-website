@@ -1,4 +1,6 @@
-// Generates one static page per language (dist/<lang>/index.html) from src/index.html and locales/<lang>.json.
+// Generates static pages per language from src/ templates, src/products.json and locales/<lang>.json:
+//   dist/<lang>/index.html                     home page
+//   dist/<lang>/products/<slug>/index.html     one page per product
 import fs from 'node:fs';
 import path from 'node:path';
 
@@ -6,6 +8,7 @@ const ROOT = path.resolve(import.meta.dirname, '..');
 const DIST = path.join(ROOT, 'dist');
 const SITE_URL = 'https://pulian-website.vercel.app';
 const CJK_COMPANY_NAME = '合肥普联自动化仪表有限公司';
+const WHATSAPP_URL = 'https://wa.me/31645228942';
 
 // "draft" languages are built only for Preview deployments and never reach production.
 const LANGS = {
@@ -23,8 +26,20 @@ const escapeHtml = value => String(value)
   .replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;');
 
 const readJson = file => JSON.parse(fs.readFileSync(file, 'utf8'));
-const template = fs.readFileSync(path.join(ROOT, 'src/index.html'), 'utf8');
+const homeTemplate = fs.readFileSync(path.join(ROOT, 'src/index.html'), 'utf8');
+const productTemplate = fs.readFileSync(path.join(ROOT, 'src/product.html'), 'utf8');
+const products = readJson(path.join(ROOT, 'src/products.json'));
 const source = readJson(path.join(ROOT, 'locales/en.json'));
+
+// Shared page chrome lives in the home template; product pages reuse it.
+const extract = (pattern, name) => {
+  const match = homeTemplate.match(pattern);
+  if (!match) throw new Error(`Could not find ${name} in src/index.html`);
+  return match[0];
+};
+const SPRITE = extract(/<svg width="0"[\s\S]*?<\/svg>/, 'icon sprite');
+const NAV = extract(/<nav id="navbar">[\s\S]*?<\/nav>/, 'navbar');
+const FOOTER = extract(/<footer>[\s\S]*?<\/footer>/, 'footer');
 
 function loadStrings(code) {
   const strings = readJson(path.join(ROOT, `locales/${code}.json`));
@@ -52,21 +67,22 @@ function fontsFor(code) {
   return links.map(href => `  <link href="${escapeHtml(href)}" rel="stylesheet" />`).join('\n');
 }
 
-function headFor(code) {
-  const lines = [`  <link rel="canonical" href="${SITE_URL}/${code}/" />`];
+// `page` is the path after the language prefix, e.g. '' or 'products/scraper-flowmeter/'.
+function headFor(code, page) {
+  const lines = [`  <link rel="canonical" href="${SITE_URL}/${code}/${page}" />`];
   for (const other of built) {
-    lines.push(`  <link rel="alternate" hreflang="${LANGS[other].htmlLang}" href="${SITE_URL}/${other}/" />`);
+    lines.push(`  <link rel="alternate" hreflang="${LANGS[other].htmlLang}" href="${SITE_URL}/${other}/${page}" />`);
   }
   lines.push(`  <link rel="alternate" hreflang="x-default" href="${SITE_URL}/" />`);
   if (isPreview) lines.push('  <meta name="robots" content="noindex" />');
   return lines.join('\n');
 }
 
-function langMenuFor(code, strings) {
+function langMenuFor(code, strings, page) {
   const items = built.map(other => {
     const { htmlLang, label } = LANGS[other];
     const current = other === code ? ' aria-current="page"' : '';
-    return `        <li><a href="/${other}/" hreflang="${htmlLang}" lang="${htmlLang}" data-lang="${other}"${current}>${escapeHtml(label)}</a></li>`;
+    return `        <li><a href="/${other}/${page}" hreflang="${htmlLang}" lang="${htmlLang}" data-lang="${other}"${current}>${escapeHtml(label)}</a></li>`;
   }).join('\n');
   const { short, label } = LANGS[code];
   return `    <div class="lang-menu">
@@ -82,34 +98,149 @@ function draftBannerFor(code, strings) {
   return `<div class="draft-banner" role="note">${escapeHtml(strings['draft-banner'] ?? 'Draft translation — not reviewed')}</div>`;
 }
 
-function renderPage(code) {
-  const strings = loadStrings(code);
-  const injections = {
-    htmlLang: LANGS[code].htmlLang,
-    dir: LANGS[code].dir,
-    head: headFor(code),
-    fonts: fontsFor(code),
-    langMenu: langMenuFor(code, strings),
-    // Escape "<" so translated text can never close the surrounding <script>.
-    jsStrings: JSON.stringify({
-      sending: strings['js-sending'],
-      submit: strings['send-inquiry'],
-      submitFailed: strings['js-submit-failed'],
-      networkError: strings['js-network-error'],
-    }).replaceAll('<', '\\u003c'),
-  };
-  let html = template.replace(/\{\{@(\w+)\}\}/g, (match, name) => {
-    if (!(name in injections)) throw new Error(`Unknown injection ${match}`);
-    return injections[name];
-  });
+// Escape "<" so translated text can never close the surrounding <script>.
+const jsStringsFor = strings => JSON.stringify({
+  sending: strings['js-sending'],
+  submit: strings['send-inquiry'],
+  submitFailed: strings['js-submit-failed'],
+  networkError: strings['js-network-error'],
+}).replaceAll('<', '\\u003c');
+
+// Product fragments contain {{key}} placeholders that the translation pass resolves.
+const textOrKey = item => item.valueKey ? `{{${item.valueKey}}}` : escapeHtml(item.value);
+const productUrl = (code, product) => `/${code}/products/${product.slug}/`;
+
+function placeholderHtml(product, extraClass = '') {
+  return `<div class="ph ${extraClass}" role="img" aria-label="{{${product.placeholderKey}}}"><svg aria-hidden="true"><use href="#ico-meter"/></svg><span class="ph-note">{{product-photo-coming-soon}}</span></div>`;
+}
+
+function galleryHtml(product) {
+  if (!product.images.length) return placeholderHtml(product);
+  const slides = product.images.map((img, i) =>
+    `<img class="carousel-slide" src="${img.src}" alt="{{${img.altKey}}}" width="1200" height="900"${i ? ' loading="lazy"' : ''} />`).join('\n            ');
+  return `<div class="carousel" data-carousel data-photo-label="{{carousel-photo}}" role="region" aria-roledescription="carousel" aria-label="{{${product.nameKey}}}">
+          <div class="carousel-track">
+            ${slides}
+          </div>
+          <button class="carousel-btn carousel-prev" type="button" aria-label="{{carousel-prev}}"><span aria-hidden="true">‹</span></button>
+          <button class="carousel-btn carousel-next" type="button" aria-label="{{carousel-next}}"><span aria-hidden="true">›</span></button>
+          <div class="carousel-dots"></div>
+        </div>`;
+}
+
+function cardHtml(code, product) {
+  const image = product.images[0]
+    ? `<img class="card-img card-photo" src="${product.images[0].src}" alt="{{${product.images[0].altKey}}}" width="1200" height="900" loading="lazy" />`
+    : placeholderHtml(product, 'card-img');
+  return `<a class="product-card reveal" href="${productUrl(code, product)}">
+        ${image}
+        <div class="card-body">
+          <div class="card-tag">{{${product.tagKey}}}</div>
+          <div class="card-title">{{${product.nameKey}}}</div>
+          <div class="card-cn sub-name">${escapeHtml(product.subName)}</div>
+          <div class="card-desc">{{${product.descKey}}}</div>
+          <div class="card-params">${product.cardParams.key ? `{{${product.cardParams.key}}}` : escapeHtml(product.cardParams.value)}</div>
+          <span class="card-more">{{view-details}} <span class="arrow" aria-hidden="true">→</span></span>
+        </div>
+      </a>`;
+}
+
+function highlightsHtml(product) {
+  if (!product.highlights.length) return '';
+  const items = product.highlights.map(h =>
+    `<div class="highlight-item"><div class="highlight-num">${escapeHtml(h.value)}</div><div class="highlight-label">{{${h.labelKey}}}</div></div>`).join('');
+  return `<div class="product-highlights">${items}</div>`;
+}
+
+function specsHtml(product) {
+  if (!product.specs.length) return '';
+  const rows = product.specs.map(s => `<tr><td>{{${s.labelKey}}}</td><td>${textOrKey(s)}</td></tr>`).join('\n          ');
+  return `<table class="spec-table detail-specs">
+          ${rows}
+        </table>`;
+}
+
+function featuresHtml(product) {
+  if (!product.featureKeys.length) return '';
+  const items = product.featureKeys.map(k => `<li>{{${k}}}</li>`).join('');
+  return `<h3 class="detail-subtitle">{{key-features}}</h3><ul class="detail-features">${items}</ul>`;
+}
+
+// Products without verified detailed data say so instead of showing invented values.
+function moreComingHtml(product) {
+  if (product.highlights.length) return '';
+  return `<div class="detail-note">{{more-specs-coming}} <a href="#" data-quote>{{contact-us}} <span class="arrow" aria-hidden="true">→</span></a></div>`;
+}
+
+const localizeAnchors = (html, code) => html
+  .replace(/href="#hero"/g, `href="/${code}/"`)
+  .replace(/href="#/g, `href="/${code}/#`);
+
+function translate(html, code, strings) {
   html = html.replace(/\{\{([a-z0-9-]+)\}\}/g, (match, key) => {
-    if (!(key in strings)) throw new Error(`Unknown translation key ${match}`);
+    if (!(key in strings)) throw new Error(`Unknown translation key ${match} (${code})`);
     return escapeHtml(strings[key]);
   });
   html = html.replace('</body>', `${draftBannerFor(code, strings)}\n</body>`);
   const leftover = html.match(/\{\{[^}]*\}\}/);
   if (leftover) throw new Error(`Unresolved placeholder ${leftover[0]} in ${code}`);
   return html;
+}
+
+function inject(template, injections) {
+  return template.replace(/\{\{@(\w+)\}\}/g, (match, name) => {
+    if (!(name in injections)) throw new Error(`Unknown injection ${match}`);
+    return injections[name];
+  });
+}
+
+function common(code, strings, page) {
+  return {
+    htmlLang: LANGS[code].htmlLang,
+    dir: LANGS[code].dir,
+    head: headFor(code, page),
+    fonts: fontsFor(code),
+    langMenu: langMenuFor(code, strings, page),
+    jsStrings: jsStringsFor(strings),
+  };
+}
+
+function renderHome(code) {
+  const strings = loadStrings(code);
+  const html = inject(homeTemplate, {
+    ...common(code, strings, ''),
+    catalogCards: products.map(p => cardHtml(code, p)).join('\n      '),
+  });
+  return translate(html, code, strings);
+}
+
+function renderProduct(code, product) {
+  const strings = loadStrings(code);
+  const page = `products/${product.slug}/`;
+  const quoteHref = product.formValue ? `/${code}/?product=${product.formValue}#contact` : `/${code}/#contact`;
+  let html = inject(productTemplate, {
+    ...common(code, strings, page),
+    sprite: SPRITE,
+    nav: localizeAnchors(NAV, code),
+    footer: localizeAnchors(FOOTER, code),
+    lang: code,
+    nameKey: `{{${product.nameKey}}}`,
+    descKey: `{{${product.descKey}}}`,
+    tagKey: `{{${product.tagKey}}}`,
+    subName: escapeHtml(product.subName),
+    gallery: galleryHtml(product),
+    highlights: highlightsHtml(product),
+    specs: specsHtml(product),
+    features: featuresHtml(product),
+    moreComing: moreComingHtml(product),
+    quoteHref,
+    whatsappUrl: WHATSAPP_URL,
+    otherProducts: products.filter(p => p !== product).map(p => cardHtml(code, p)).join('\n      '),
+  });
+  // The shared nav carries its own {{@langMenu}}, so product pages need a second pass.
+  html = inject(html, common(code, strings, page));
+  html = html.replace(/href="#" data-quote/g, `href="${quoteHref}"`);
+  return translate(html, code, strings);
 }
 
 function renderRoot() {
@@ -158,7 +289,8 @@ ${links}
 }
 
 function renderSitemap() {
-  const urls = built.map(code => `  <url><loc>${SITE_URL}/${code}/</loc></url>`).join('\n');
+  const pages = ['', ...products.map(p => `products/${p.slug}/`)];
+  const urls = built.flatMap(code => pages.map(page => `  <url><loc>${SITE_URL}/${code}/${page}</loc></url>`)).join('\n');
   return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${urls}
@@ -170,11 +302,16 @@ fs.rmSync(DIST, { recursive: true, force: true });
 fs.cpSync(path.join(ROOT, 'public'), DIST, { recursive: true });
 for (const code of built) {
   fs.mkdirSync(path.join(DIST, code), { recursive: true });
-  fs.writeFileSync(path.join(DIST, code, 'index.html'), renderPage(code));
+  fs.writeFileSync(path.join(DIST, code, 'index.html'), renderHome(code));
+  for (const product of products) {
+    const dir = path.join(DIST, code, 'products', product.slug);
+    fs.mkdirSync(dir, { recursive: true });
+    fs.writeFileSync(path.join(dir, 'index.html'), renderProduct(code, product));
+  }
 }
 fs.writeFileSync(path.join(DIST, 'index.html'), renderRoot());
 fs.writeFileSync(path.join(DIST, 'sitemap.xml'), renderSitemap());
 fs.writeFileSync(path.join(DIST, 'robots.txt'), isPreview
   ? 'User-agent: *\nDisallow: /\n'
   : `User-agent: *\nAllow: /\nSitemap: ${SITE_URL}/sitemap.xml\n`);
-console.log(`Built ${built.join(', ')} (${isPreview ? 'preview' : 'production-safe'}) into dist/`);
+console.log(`Built ${built.join(', ')} (${isPreview ? 'preview' : 'production-safe'}) with ${products.length} product pages each into dist/`);

@@ -205,5 +205,17 @@
   "please-describe-your-application-require": "Опишите задачу: среда, требуемый диапазон расхода, количество и другие характеристики…",
   "js-sending": "ОТПРАВКА…",
   "js-submit-failed": "Не удалось отправить. Напишите нам напрямую: Pulian.Technology@outlook.com",
-  "js-network-error": "Ошибка сети. Напишите нам: Pulian.Technology@outlook.com"
+  "js-network-error": "Ошибка сети. Напишите нам: Pulian.Technology@outlook.com",
+  "view-details": "Подробнее",
+  "home": "Главная",
+  "breadcrumb": "Навигационная цепочка",
+  "specifications": "Технические характеристики",
+  "key-features": "Особенности",
+  "other-products": "Другие изделия",
+  "more-specs-coming": "Подробные характеристики и допустимые среды для этого изделия готовятся. Чтобы получить полный технический паспорт, свяжитесь с нами.",
+  "medium": "Рабочая среда",
+  "medium-viscous-fuel": "Вязкие жидкости, топливо",
+  "medium-solvents-heavy-oils": "От лёгких растворителей до тяжёлых масел",
+  "medium-gas-liquid": "Газ и жидкость",
+  "medium-gas": "Природный газ, сжатый воздух"
 }

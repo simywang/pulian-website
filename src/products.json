@@ -1,0 +1,267 @@
+[
+  {
+    "slug": "miniature-flowmeter",
+    "tagKey": "product-01",
+    "nameKey": "miniature-flowmeter",
+    "subName": "Miniature Flowmeter",
+    "descKey": "ultra-low-flow-precision-measurement-for",
+    "cardParams": {
+      "value": "DN4 ~ DN20 · ±0.2%"
+    },
+    "placeholderKey": "miniature-flowmeter-product-photo-coming",
+    "formValue": "miniature",
+    "images": [],
+    "highlights": [
+      {
+        "value": "±0.2%",
+        "labelKey": "accuracy"
+      },
+      {
+        "value": "DN4–20",
+        "labelKey": "bore-range"
+      },
+      {
+        "value": "1–1800",
+        "labelKey": "l-h-flow-range"
+      }
+    ],
+    "specs": [
+      {
+        "labelKey": "bore-range",
+        "value": "DN4 ~ DN20"
+      },
+      {
+        "labelKey": "flow-range",
+        "valueKey": "1-l-h-dn4-1800-l-h-dn20"
+      },
+      {
+        "labelKey": "accuracy",
+        "value": "±0.2%"
+      },
+      {
+        "labelKey": "media-temperature",
+        "value": "-20°C ~ +150°C"
+      },
+      {
+        "labelKey": "rated-pressure",
+        "value": "0.3 / 0.6 / 1.0 / 1.6 / 2.5 / 4.0 MPa"
+      },
+      {
+        "labelKey": "signal-output",
+        "value": "Pulse / 4-20mA / RS485 / HART"
+      },
+      {
+        "labelKey": "material",
+        "valueKey": "stainless-steel-304"
+      },
+      {
+        "labelKey": "power-supply",
+        "valueKey": "built-in-lithium-battery"
+      }
+    ],
+    "featureKeys": [
+      "non-contact-sensing",
+      "ultra-low-pressure-drop",
+      "multi-protocol-output"
+    ]
+  },
+  {
+    "slug": "scraper-flowmeter",
+    "tagKey": "product-02",
+    "nameKey": "scraper-flowmeter",
+    "subName": "Scraper Flowmeter",
+    "descKey": "high-flow-industrial-metering-for-aviati",
+    "cardParams": {
+      "value": "DN80 · 2000 L/min"
+    },
+    "placeholderKey": "scraper-flowmeter-product-photo-coming-s",
+    "formValue": "scraper",
+    "images": [
+      {
+        "src": "/images/products/scraper-1.jpg",
+        "altKey": "scraper-alt-1"
+      },
+      {
+        "src": "/images/products/scraper-2.jpg",
+        "altKey": "scraper-alt-2"
+      },
+      {
+        "src": "/images/products/scraper-3.jpg",
+        "altKey": "scraper-alt-3"
+      }
+    ],
+    "highlights": [
+      {
+        "value": "0.2",
+        "labelKey": "accuracy-class"
+      },
+      {
+        "value": "2000",
+        "labelKey": "l-min-max-flow"
+      },
+      {
+        "value": "Ex-Proof",
+        "labelKey": "zone-1-rated"
+      }
+    ],
+    "specs": [
+      {
+        "labelKey": "bore",
+        "value": "DN80"
+      },
+      {
+        "labelKey": "max-flow-rate",
+        "value": "2000 L/min"
+      },
+      {
+        "labelKey": "min-flow-rate",
+        "value": "100 L/min"
+      },
+      {
+        "labelKey": "accuracy",
+        "valueKey": "class-0-2"
+      },
+      {
+        "labelKey": "working-temperature",
+        "value": "-41°C ~ +60°C"
+      },
+      {
+        "labelKey": "working-pressure",
+        "value": "1.0 MPa"
+      },
+      {
+        "labelKey": "signal-output",
+        "valueKey": "pulse-24v-3-wire"
+      },
+      {
+        "labelKey": "explosion-proof",
+        "valueKey": "zone-1-hazardous-area"
+      },
+      {
+        "labelKey": "mtbf",
+        "valueKey": "240-hours"
+      },
+      {
+        "labelKey": "weight",
+        "valueKey": "45-kg"
+      }
+    ],
+    "featureKeys": [
+      "explosion-proof-zone-1",
+      "high-flow-industrial",
+      "military-grade-reliability"
+    ]
+  },
+  {
+    "slug": "oval-gear-flowmeter",
+    "tagKey": "product-03",
+    "nameKey": "oval-gear-flowmeter",
+    "subName": "Oval Gear Flowmeter",
+    "descKey": "positive-displacement-meter-for-viscous",
+    "cardParams": {
+      "value": "DN25 ~ DN50 · ±0.2% ~ ±0.5%"
+    },
+    "placeholderKey": "oval-gear-flowmeter-product-photo-coming",
+    "formValue": "oval",
+    "images": [],
+    "highlights": [],
+    "specs": [
+      {
+        "labelKey": "bore-range",
+        "value": "DN25 ~ DN50"
+      },
+      {
+        "labelKey": "accuracy",
+        "value": "±0.2% ~ ±0.5%"
+      },
+      {
+        "labelKey": "medium",
+        "valueKey": "medium-viscous-fuel"
+      }
+    ],
+    "featureKeys": []
+  },
+  {
+    "slug": "helical-dual-rotor-flowmeter",
+    "tagKey": "product-04",
+    "nameKey": "helical-dual-rotor",
+    "subName": "Helical Dual Rotor Flowmeter",
+    "descKey": "handles-a-wide-viscosity-range-from-thin",
+    "cardParams": {
+      "value": "DN25 ~ DN350 · Multi-viscosity"
+    },
+    "placeholderKey": "helical-dual-rotor-flowmeter-product-pho",
+    "formValue": "helical",
+    "images": [],
+    "highlights": [],
+    "specs": [
+      {
+        "labelKey": "bore-range",
+        "value": "DN25 ~ DN350"
+      },
+      {
+        "labelKey": "medium",
+        "valueKey": "medium-solvents-heavy-oils"
+      }
+    ],
+    "featureKeys": []
+  },
+  {
+    "slug": "turbine-vortex-flowmeter",
+    "tagKey": "product-05",
+    "nameKey": "turbine-vortex-series",
+    "subName": "Turbine / Vortex / Roots Series",
+    "descKey": "versatile-gas-and-liquid-measurement-for",
+    "cardParams": {
+      "key": "gas-liquid-multi-industry"
+    },
+    "placeholderKey": "turbine-vortex-flowmeter-product-photo-c",
+    "formValue": "turbine",
+    "images": [],
+    "highlights": [],
+    "specs": [
+      {
+        "labelKey": "medium",
+        "valueKey": "medium-gas-liquid"
+      }
+    ],
+    "featureKeys": []
+  },
+  {
+    "slug": "automation-equipment",
+    "tagKey": "product-06",
+    "nameKey": "automation-equipment",
+    "subName": "Automation Equipment",
+    "descKey": "custom-automation-and-control-equipment",
+    "cardParams": {
+      "key": "20-000-units-yr-custom-oem"
+    },
+    "placeholderKey": "automation-equipment-product-photo-comin",
+    "formValue": "custom",
+    "images": [],
+    "highlights": [],
+    "specs": [],
+    "featureKeys": []
+  },
+  {
+    "slug": "roots-flowmeter",
+    "tagKey": "product-07",
+    "nameKey": "roots-flowmeter",
+    "subName": "Roots Flowmeter",
+    "descKey": "high-precision-gas-measurement-with-low",
+    "cardParams": {
+      "key": "gas-measurement-low-p"
+    },
+    "placeholderKey": "roots-flowmeter-product-photo-coming-soo",
+    "formValue": null,
+    "images": [],
+    "highlights": [],
+    "specs": [
+      {
+        "labelKey": "medium",
+        "valueKey": "medium-gas"
+      }
+    ],
+    "featureKeys": []
+  }
+]

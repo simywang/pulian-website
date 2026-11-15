@@ -204,5 +204,17 @@
   "address-value": "Intersection of Dabeng Rd & Tangan Rd, Tangan Community, Cuozhen Town, Feidong County, Hefei, Anhui Province, China",
   "js-sending": "SENDING…",
   "js-submit-failed": "Submission failed. Please email us directly at Pulian.Technology@outlook.com",
-  "js-network-error": "Network error. Please email us at Pulian.Technology@outlook.com"
+  "js-network-error": "Network error. Please email us at Pulian.Technology@outlook.com",
+  "view-details": "View Details",
+  "home": "Home",
+  "breadcrumb": "Breadcrumb",
+  "specifications": "Specifications",
+  "key-features": "Key Features",
+  "other-products": "Other Products",
+  "more-specs-coming": "Detailed specifications and suitable media for this product are being prepared. For the full datasheet, please get in touch.",
+  "medium": "Medium",
+  "medium-viscous-fuel": "Viscous liquids, fuel oils",
+  "medium-solvents-heavy-oils": "Thin solvents to heavy oils",
+  "medium-gas-liquid": "Gas and liquid",
+  "medium-gas": "Natural gas, compressed air"
 }
