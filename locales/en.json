@@ -226,5 +226,12 @@
   "certificates-subtitle": "Click a certificate to view it in full size.",
   "certificate-coming-soon": "Certificate photo coming soon",
   "lightbox-close": "Close",
-  "view-larger": "View larger"
+  "view-larger": "View larger",
+  "miniature-alt-1": "Miniature flowmeter with LCD display, front view",
+  "miniature-alt-2": "Miniature flow transmitter with signal cable",
+  "oval-alt-1": "Oval gear flowmeter with mechanical register, three-quarter view",
+  "oval-alt-2": "Oval gear flowmeter, front view of the body and flanges",
+  "oval-alt-3": "Oval gear flowmeter, side view of the inlet flange",
+  "oval-alt-4": "Mechanical register dial in litres",
+  "oval-alt-5": "Oval gear flowmeter with electronic display"
 }

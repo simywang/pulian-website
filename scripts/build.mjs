@@ -117,6 +117,11 @@ const jsStringsFor = strings => JSON.stringify({
 // Product fragments contain {{key}} placeholders that the translation pass resolves.
 const textOrKey = item => item.valueKey ? `{{${item.valueKey}}}` : escapeHtml(item.value);
 const productUrl = (code, product) => `/${code}/products/${product.slug}/`;
+const productBySlug = slug => {
+  const product = products.find(p => p.slug === slug);
+  if (!product) throw new Error(`Unknown product ${slug}`);
+  return product;
+};
 
 function placeholderHtml(product, extraClass = '') {
   return `<div class="ph ${extraClass}" role="img" aria-label="{{${product.placeholderKey}}}"><svg aria-hidden="true"><use href="#ico-meter"/></svg><span class="ph-note">{{product-photo-coming-soon}}</span></div>`;
@@ -125,7 +130,7 @@ function placeholderHtml(product, extraClass = '') {
 function galleryHtml(product) {
   if (!product.images.length) return placeholderHtml(product);
   const slides = product.images.map((img, i) =>
-    `<img class="carousel-slide" src="${img.src}" alt="{{${img.altKey}}}" width="1200" height="900"${i ? ' loading="lazy"' : ''} />`).join('\n            ');
+    `<img class="carousel-slide" src="${img.src}" alt="{{${img.altKey}}}" width="${img.width}" height="${img.height}"${i ? ' loading="lazy"' : ''} />`).join('\n            ');
   return `<div class="carousel" data-carousel data-photo-label="{{carousel-photo}}" role="region" aria-roledescription="carousel" aria-label="{{${product.nameKey}}}">
           <div class="carousel-track">
             ${slides}
@@ -138,7 +143,7 @@ function galleryHtml(product) {
 
 function cardHtml(code, product) {
   const image = product.images[0]
-    ? `<img class="card-img card-photo" src="${product.images[0].src}" alt="{{${product.images[0].altKey}}}" width="1200" height="900" loading="lazy" />`
+    ? `<img class="card-img card-photo" src="${product.images[0].src}" alt="{{${product.images[0].altKey}}}" width="${product.images[0].width}" height="${product.images[0].height}" loading="lazy" />`
     : placeholderHtml(product, 'card-img');
   return `<a class="product-card reveal" href="${productUrl(code, product)}">
         ${image}
@@ -218,6 +223,8 @@ function renderHome(code) {
   const html = inject(homeTemplate, {
     ...common(code, strings, ''),
     catalogCards: products.map(p => cardHtml(code, p)).join('\n      '),
+    featuredGalleryMiniature: galleryHtml(productBySlug('miniature-flowmeter')),
+    featuredGalleryScraper: galleryHtml(productBySlug('scraper-flowmeter')),
   });
   return translate(html, code, strings);
 }

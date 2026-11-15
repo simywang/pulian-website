@@ -199,7 +199,7 @@
     <div class="product-block reveal">
       <div class="product-img-wrap">
         <div class="product-priority">{{featured}}</div>
-        <div class="ph" role="img" aria-label="{{miniature-flowmeter-product-photo-coming}}"><svg aria-hidden="true"><use href="#ico-meter"/></svg><span class="ph-note">{{product-photo-coming-soon}}</span></div>
+        {{@featuredGalleryMiniature}}
       </div>
       <div class="product-content">
         <div>
@@ -257,16 +257,7 @@
     <div class="product-block reverse reveal">
       <div class="product-img-wrap">
         <div class="product-priority">{{featured}}</div>
-        <div class="carousel" data-carousel data-photo-label="{{carousel-photo}}" role="region" aria-roledescription="carousel" aria-label="{{scraper-flowmeter}}">
-          <div class="carousel-track">
-            <img class="carousel-slide" src="/images/products/scraper-1.jpg" alt="{{scraper-alt-1}}" width="1200" height="900" />
-            <img class="carousel-slide" src="/images/products/scraper-2.jpg" alt="{{scraper-alt-2}}" width="1200" height="900" loading="lazy" />
-            <img class="carousel-slide" src="/images/products/scraper-3.jpg" alt="{{scraper-alt-3}}" width="1200" height="900" loading="lazy" />
-          </div>
-          <button class="carousel-btn carousel-prev" type="button" aria-label="{{carousel-prev}}"><span aria-hidden="true">‹</span></button>
-          <button class="carousel-btn carousel-next" type="button" aria-label="{{carousel-next}}"><span aria-hidden="true">›</span></button>
-          <div class="carousel-dots"></div>
-        </div>
+        {{@featuredGalleryScraper}}
       </div>
       <div class="product-content">
         <div>

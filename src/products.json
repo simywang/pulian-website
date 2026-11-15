@@ -10,7 +10,20 @@
     },
     "placeholderKey": "miniature-flowmeter-product-photo-coming",
     "formValue": "miniature",
-    "images": [],
+    "images": [
+      {
+        "src": "/images/products/miniature-1.jpg",
+        "altKey": "miniature-alt-1",
+        "width": 800,
+        "height": 1200
+      },
+      {
+        "src": "/images/products/miniature-2.jpg",
+        "altKey": "miniature-alt-2",
+        "width": 1096,
+        "height": 1200
+      }
+    ],
     "highlights": [
       {
         "value": "±0.2%",
@@ -79,15 +92,21 @@
     "images": [
       {
         "src": "/images/products/scraper-1.jpg",
-        "altKey": "scraper-alt-1"
+        "altKey": "scraper-alt-1",
+        "width": 1200,
+        "height": 900
       },
       {
         "src": "/images/products/scraper-2.jpg",
-        "altKey": "scraper-alt-2"
+        "altKey": "scraper-alt-2",
+        "width": 1200,
+        "height": 900
       },
       {
         "src": "/images/products/scraper-3.jpg",
-        "altKey": "scraper-alt-3"
+        "altKey": "scraper-alt-3",
+        "width": 1200,
+        "height": 900
       }
     ],
     "highlights": [
@@ -163,7 +182,38 @@
     },
     "placeholderKey": "oval-gear-flowmeter-product-photo-coming",
     "formValue": "oval",
-    "images": [],
+    "images": [
+      {
+        "src": "/images/products/oval-1.jpg",
+        "altKey": "oval-alt-1",
+        "width": 1200,
+        "height": 900
+      },
+      {
+        "src": "/images/products/oval-2.jpg",
+        "altKey": "oval-alt-2",
+        "width": 900,
+        "height": 1200
+      },
+      {
+        "src": "/images/products/oval-3.jpg",
+        "altKey": "oval-alt-3",
+        "width": 900,
+        "height": 1200
+      },
+      {
+        "src": "/images/products/oval-4.jpg",
+        "altKey": "oval-alt-4",
+        "width": 1200,
+        "height": 1200
+      },
+      {
+        "src": "/images/products/oval-5.jpg",
+        "altKey": "oval-alt-5",
+        "width": 1200,
+        "height": 1096
+      }
+    ],
     "highlights": [],
     "specs": [
       {

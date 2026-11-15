@@ -226,5 +226,12 @@
   "certificates-subtitle": "点击证书可查看大图。",
   "certificate-coming-soon": "证书照片待上传",
   "lightbox-close": "关闭",
-  "view-larger": "查看大图"
+  "view-larger": "查看大图",
+  "miniature-alt-1": "小微流量计正面：液晶显示表头",
+  "miniature-alt-2": "小微流量变送器及信号线缆",
+  "oval-alt-1": "椭圆齿轮流量计侧前方视角：机械计数表头",
+  "oval-alt-2": "椭圆齿轮流量计正面：表体与法兰",
+  "oval-alt-3": "椭圆齿轮流量计侧面：进口法兰",
+  "oval-alt-4": "机械计数表盘（升）",
+  "oval-alt-5": "电子显示型椭圆齿轮流量计"
 }
