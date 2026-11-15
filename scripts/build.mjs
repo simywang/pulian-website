@@ -4,6 +4,7 @@
 //   dist/<lang>/about/index.html               company profile, factory photos, certificates
 import fs from 'node:fs';
 import path from 'node:path';
+import { DIAGRAMS } from './diagrams.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const DIST = path.join(ROOT, 'dist');
@@ -167,6 +168,10 @@ function highlightsHtml(product) {
 
 function specsHtml(product) {
   if (!product.specs.length) return '';
+  return `<h3 class="detail-subtitle">{{specifications}}</h3>${specsTable(product)}`;
+}
+
+function specsTable(product) {
   const rows = product.specs.map(s => `<tr><td>{{${s.labelKey}}}</td><td>${textOrKey(s)}</td></tr>`).join('\n          ');
   return `<table class="spec-table detail-specs">
           ${rows}
@@ -182,12 +187,19 @@ function listHtml(titleKey, keys) {
 const cellText = cell => cell.key ? `{{${cell.key}}}` : escapeHtml(cell.text);
 const spanAttrs = cell => `${cell.colspan ? ` colspan="${cell.colspan}"` : ''}${cell.rowspan ? ` rowspan="${cell.rowspan}"` : ''}`;
 
-function flowTablesHtml(product) {
-  return product.flowTables.map(table => {
+// Body cells are plain strings or {text|key, rowspan, colspan, th}; a plain string in the first column is the row header.
+function bodyCell(cell, isFirst) {
+  if (typeof cell === 'string') return isFirst ? `<th scope="row">${escapeHtml(cell)}</th>` : `<td>${escapeHtml(cell)}</td>`;
+  const tag = cell.th ? 'th' : 'td';
+  return `<${tag}${cell.th ? ' scope="row"' : ''}${spanAttrs(cell)}>${cellText(cell)}</${tag}>`;
+}
+
+function tablesHtml(tables) {
+  return tables.map(table => {
     const head = table.head.map(row =>
       `<tr>${row.map(cell => `<th scope="col"${spanAttrs(cell)}>${cellText(cell)}</th>`).join('')}</tr>`).join('');
-    const body = table.rows.map(([first, ...rest]) =>
-      `<tr><th scope="row">${escapeHtml(first)}</th>${rest.map(v => `<td>${escapeHtml(v)}</td>`).join('')}</tr>`).join('\n            ');
+    const body = table.rows.map(row =>
+      `<tr>${row.map((cell, i) => bodyCell(cell, i === 0)).join('')}</tr>`).join('\n            ');
     const note = table.noteKey ? `<p class="table-note">{{${table.noteKey}}}</p>` : '';
     return `<h3 class="detail-subtitle">{{${table.captionKey}}}</h3>
         ${note}
@@ -200,6 +212,40 @@ function flowTablesHtml(product) {
           </table>
         </div>`;
   }).join('\n        ');
+}
+
+function figureHtml(fig) {
+  const legend = fig.legendKeys?.length
+    ? `<ul class="diagram-legend">${fig.legendKeys.map((k, i) =>
+        `<li>${fig.numbered ? `<span class="n">${i + 1}</span>` : ''}{{${k}}}</li>`).join('')}</ul>`
+    : '';
+  return `<figure class="principle-figure">
+          <div class="diagram-wrap">${DIAGRAMS[fig.diagram]('{{' + fig.captionKey + '}}')}</div>
+          <figcaption>{{${fig.captionKey}}}</figcaption>
+        </figure>
+        ${legend}`;
+}
+
+function overviewHtml(product) {
+  if (!product.introKey) return '';
+  return `<h3 class="detail-subtitle">{{product-overview}}</h3><p class="detail-intro">{{${product.introKey}}}</p>`;
+}
+
+function principleHtml(product) {
+  const pr = product.principle;
+  if (!pr) return '';
+  return `<h3 class="detail-subtitle">{{working-principle}}</h3>
+        ${figureHtml(pr)}
+        <p class="principle-text">{{${pr.textKey}}}</p>`;
+}
+
+function installationHtml(product) {
+  const ins = product.installation;
+  if (!ins) return '';
+  return `<h3 class="detail-subtitle">{{installation-notes}}</h3>
+        ${ins.figure ? figureHtml(ins.figure) : ''}
+        ${ins.tables ? tablesHtml(ins.tables) : ''}
+        <ul class="detail-features">${ins.noteKeys.map(k => `<li>{{${k}}}</li>`).join('')}</ul>`;
 }
 
 // Products without verified detailed data say so instead of showing invented values.
@@ -271,7 +317,13 @@ function renderProduct(code, product) {
     specs: specsHtml(product),
     features: listHtml('key-features', product.featureKeys),
     applications: listHtml('applications', product.applicationKeys),
-    flowTables: flowTablesHtml(product),
+    variants: product.variantList ? listHtml(product.variantList.titleKey, product.variantList.keys) : '',
+    options: product.optionList ? listHtml(product.optionList.titleKey, product.optionList.keys) : '',
+    overview: overviewHtml(product),
+    principle: principleHtml(product),
+    tables: tablesHtml(product.tables),
+    installation: installationHtml(product),
+    flowTables: tablesHtml(product.flowTables),
     moreComing: moreComingHtml(product),
     quoteHref,
     whatsappUrl: WHATSAPP_URL,

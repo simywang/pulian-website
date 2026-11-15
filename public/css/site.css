@@ -1148,6 +1148,66 @@ a.product-card:hover .card-more { color: var(--green-dark); }
 }
 .patent-box .detail-features { margin-bottom: 16px; }
 .patent-box .table-note { margin: 0; }
+/* ── Working-principle diagrams ── */
+.principle-figure { margin: 0 0 20px; }
+.principle-figure .diagram-wrap {
+  background: var(--white);
+  border: 1px solid rgba(27,58,47,0.12);
+  border-radius: 2px;
+  padding: 20px 16px 12px;
+  overflow-x: auto;
+  direction: ltr; /* physical flow direction in the drawings is left to right */
+}
+.diagram { display: block; width: 100%; min-width: 520px; height: auto; }
+.principle-figure figcaption { margin-top: 10px; font-size: 14px; color: var(--ink-light); }
+.diagram-legend {
+  display: flex; flex-wrap: wrap; gap: 6px 20px;
+  list-style: none; margin: 0 0 18px; padding: 0;
+  font-size: 14px; color: var(--ink);
+}
+.diagram-legend li { display: inline-flex; align-items: center; gap: 8px; }
+.diagram-legend .n {
+  display: inline-grid; place-items: center;
+  width: 22px; height: 22px; border-radius: 50%;
+  background: var(--green-dark); color: var(--white);
+  font-size: 12px; font-weight: 700;
+}
+.principle-text { font-size: 16px; line-height: 1.8; color: var(--ink-light); margin-bottom: 40px; }
+.detail-intro { font-size: 16px; line-height: 1.8; color: var(--ink-light); margin-bottom: 40px; }
+.dg-wall { fill: none; stroke: var(--green-dark); stroke-width: 3; stroke-linejoin: round; stroke-linecap: round; }
+.dg-fluid { fill: #8EC3DA; fill-opacity: 0.55; }
+.dg-gear-a { fill: var(--gold); stroke: var(--green-dark); stroke-width: 1.5; }
+.dg-gear-b { fill: #CFD6D1; stroke: var(--green-dark); stroke-width: 1.5; }
+.dg-rotor { fill: var(--white); stroke: var(--green-dark); stroke-width: 1.8; }
+.dg-hub { fill: var(--white); stroke: var(--green-dark); stroke-width: 1.5; }
+.dg-hub-text { font: 700 12px sans-serif; fill: var(--green-dark); }
+.dg-arrow { stroke: #C0392B; stroke-width: 3; }
+.dg-arrowhead { fill: #C0392B; }
+.dg-text { font: 600 15px sans-serif; fill: var(--green-dark); }
+.dg-italic { font-style: italic; }
+.dg-sub { font-size: 11px; }
+.dg-label { font: 600 13px sans-serif; fill: var(--green-mid); }
+.dg-num { font: 700 12px sans-serif; fill: var(--white); }
+.dg-num-bg { fill: var(--green-dark); }
+.dg-num-plain { font: 700 14px sans-serif; fill: var(--green-dark); }
+.dg-leader, .dg-dim { stroke: var(--ink-light); stroke-width: 1.2; }
+.dg-shaft { stroke: var(--green-dark); stroke-width: 3; }
+.dg-hub-rect { fill: #CFD6D1; stroke: var(--green-dark); stroke-width: 1.5; }
+.dg-flange { fill: #CFD6D1; stroke: var(--green-dark); stroke-width: 1.5; }
+.dg-pickup { fill: #E8ECE9; stroke: var(--green-dark); stroke-width: 1.5; }
+.dg-coil { fill: none; stroke: #B8892A; stroke-width: 1.6; }
+.dg-magnet { fill: #C0392B; }
+.dg-wire { fill: none; stroke: var(--green-dark); stroke-width: 1.6; }
+.dg-wire-thin { fill: none; stroke: var(--green-mid); stroke-width: 1.4; }
+.dg-box { fill: #E8ECE9; stroke: var(--green-dark); stroke-width: 1.5; }
+.dg-amp { fill: none; stroke: var(--green-dark); stroke-width: 1.6; }
+.dg-pulse { fill: none; stroke: #B8892A; stroke-width: 2.2; }
+.dg-rot { fill: none; stroke: #C0392B; stroke-width: 2; }
+.dg-pipe { stroke: var(--green-dark); stroke-width: 6; stroke-linecap: square; }
+.dg-valve { fill: var(--white); stroke: var(--green-dark); stroke-width: 1.8; }
+.dg-mesh { fill: none; stroke: var(--green-mid); stroke-width: 1; }
+.dg-sensor { fill: var(--gold); stroke: var(--green-dark); stroke-width: 1.5; }
+
 @media (max-width: 1024px) {
   .capabilities-grid { grid-template-columns: 1fr; gap: 32px; }
 }

@@ -45,11 +45,11 @@
       },
       {
         "labelKey": "accuracy",
-        "value": "±0.2%"
+        "value": "±0.2% / ±0.5% / ±1%"
       },
       {
         "labelKey": "material",
-        "valueKey": "stainless-steel-304"
+        "valueKey": "miniature-material-value"
       },
       {
         "labelKey": "media-temperature",
@@ -93,6 +93,7 @@
       "mf-2",
       "mf-3",
       "mf-4",
+      "mf-6",
       "mf-5"
     ],
     "detailed": true,
@@ -100,6 +101,9 @@
       "ma-1",
       "ma-2",
       "ma-3",
+      "ma-5",
+      "ma-6",
+      "ma-7",
       "ma-4"
     ],
     "flowTables": [
@@ -140,14 +144,40 @@
             "DN20",
             "50–1800"
           ]
-        ]
+        ],
+        "noteKey": "miniature-table-note"
       }
     ],
     "review": [
-      "流量表标题单位：宣传册写\"粘度 2-200 Pa·s\"，网页按 mPa·s",
-      "照片 miniature-1 显示他牌\"KTRANITE DH-6430B\"",
-      "照片 miniature-2 铭牌（DF-002，±0.5%FS，0-100mL/min，12-24VDC）与参数不符"
-    ]
+      "照片 miniature-1 显示他牌\"KTRANITE DH-6430B\"（PDF 内同款照片亦然），由公司决定",
+      "照片 miniature-2 铭牌 ±0.5%FS / 12-24VDC 与 PDF 精度选项、BPLZ-I 输出一致，已不再矛盾",
+      "工作原理文字依据原理图及特点撰写"
+    ],
+    "introKey": "miniature-intro",
+    "principle": {
+      "diagram": "ovalGear",
+      "captionKey": "miniature-caption",
+      "legendKeys": [
+        "oval-legend-ab",
+        "oval-legend-p"
+      ],
+      "numbered": false,
+      "textKey": "miniature-principle"
+    },
+    "optionList": {
+      "titleKey": "display-output-options",
+      "keys": [
+        "mo-1",
+        "mo-2",
+        "mo-3",
+        "mo-4",
+        "mo-5",
+        "mo-6"
+      ]
+    },
+    "tables": [],
+    "variantList": null,
+    "installation": null
   },
   {
     "slug": "scraper-flowmeter",
@@ -258,7 +288,13 @@
     "flowTables": [],
     "review": [
       "平均故障间隔时间 ≥240 h 与宣传册一致，仍建议公司确认"
-    ]
+    ],
+    "tables": [],
+    "variantList": null,
+    "optionList": null,
+    "installation": null,
+    "introKey": null,
+    "principle": null
   },
   {
     "slug": "oval-gear-flowmeter",
@@ -267,7 +303,7 @@
     "subName": "Oval Gear Flowmeter",
     "descKey": "positive-displacement-meter-for-viscous",
     "cardParams": {
-      "value": "DN25 / DN40 / DN50 · ±0.2% ~ ±0.5%"
+      "key": "card-params-oval"
     },
     "placeholderKey": "oval-gear-flowmeter-product-photo-coming",
     "formValue": "oval",
@@ -305,62 +341,78 @@
     ],
     "highlights": [
       {
-        "value": "±0.2%",
-        "labelKey": "accuracy"
+        "value": "0.2",
+        "labelKey": "accuracy-class"
       },
       {
-        "value": "DN25–50",
+        "value": "DN10–200",
         "labelKey": "bore-range"
       },
       {
-        "value": "-41 ~ +200",
-        "labelKey": "media-temperature-c"
+        "value": "0.04–340",
+        "labelKey": "m3h-range"
       }
     ],
     "specs": [
       {
         "labelKey": "bore-range",
-        "value": "DN25 / DN40 / DN50"
+        "value": "DN10 ~ DN200"
       },
       {
-        "labelKey": "accuracy",
-        "value": "±0.2% ~ ±0.5%"
+        "labelKey": "measuring-range",
+        "value": "0.04 ~ 340 m³/h"
+      },
+      {
+        "labelKey": "accuracy-class",
+        "valueKey": "class-05-02"
       },
       {
         "labelKey": "material",
-        "valueKey": "aluminium-alloy"
+        "valueKey": "oval-material-value"
+      },
+      {
+        "labelKey": "measured-media",
+        "valueKey": "oval-media-value"
       },
       {
         "labelKey": "media-temperature",
-        "value": "-41 ~ +200 °C"
-      },
-      {
-        "labelKey": "ambient-temperature",
-        "value": "-40 ~ +65 °C"
-      },
-      {
-        "labelKey": "viscosity",
-        "value": "0.6 ~ 200 mPa·s"
+        "value": "LC-A, LC-Q: -20 ~ +200 °C; LC-B, E, L: -41 ~ +200 °C"
       },
       {
         "labelKey": "nominal-pressure",
-        "value": "1.0 / 1.6 MPa"
+        "value": "1.6 / 2.5 / 6.4 MPa"
+      },
+      {
+        "labelKey": "register-display",
+        "valueKey": "oval-display-value"
       },
       {
         "labelKey": "signal-output",
-        "valueKey": "oval-signal-value"
+        "valueKey": "pulse-4-20-rs485-hart"
       },
       {
-        "labelKey": "transmission-distance",
-        "valueKey": "oval-transmission-value"
+        "labelKey": "power-supply",
+        "valueKey": "oval-power-value"
       },
       {
         "labelKey": "installation",
-        "valueKey": "oval-installation-value"
+        "valueKey": "flange-thread"
       },
       {
-        "labelKey": "medium",
-        "valueKey": "medium-viscous-fuel"
+        "labelKey": "explosion-rating",
+        "value": "Ex d IIB T4"
+      },
+      {
+        "labelKey": "ip-rating",
+        "value": "IP65"
+      },
+      {
+        "labelKey": "flange-standard",
+        "valueKey": "flange-std-value"
+      },
+      {
+        "labelKey": "high-viscosity-label",
+        "valueKey": "oval-highvisc-value"
       }
     ],
     "featureKeys": [
@@ -374,24 +426,44 @@
     ],
     "detailed": true,
     "applicationKeys": [
+      "oa-2",
+      "oa-3",
       "oa-1"
     ],
     "flowTables": [
       {
         "captionKey": "flow-range-m3h",
+        "noteKey": "oval-table-note",
         "head": [
           [
             {
-              "key": "bore",
+              "key": "model",
               "rowspan": 2
             },
             {
-              "text": "0.6–2 mPa·s",
+              "text": "DN",
+              "rowspan": 2
+            },
+            {
+              "text": "<0.3"
+            },
+            {
+              "text": "0.3–0.8"
+            },
+            {
+              "text": "0.8–2",
               "colspan": 2
             },
             {
-              "text": "2–200 mPa·s",
+              "text": "2–200",
               "colspan": 2
+            },
+            {
+              "text": "200–1000",
+              "colspan": 2
+            },
+            {
+              "text": "1000–2000"
             }
           ],
           [
@@ -399,6 +471,9 @@
               "key": "class-05"
             },
             {
+              "key": "class-05"
+            },
+            {
               "key": "class-02"
             },
             {
@@ -406,40 +481,280 @@
             },
             {
               "key": "class-02"
+            },
+            {
+              "key": "class-05"
+            },
+            {
+              "key": "class-02"
+            },
+            {
+              "key": "class-05"
+            },
+            {
+              "key": "class-05"
             }
           ]
         ],
         "rows": [
           [
-            "DN25",
-            "1.2–7",
+            "LC-10",
+            "10",
+            "—",
+            "0.2–0.5",
+            "—",
+            "0.08–0.5",
+            "0.08–0.5",
+            "0.05–0.5",
+            "0.06–0.3",
+            "0.03–0.3",
+            "0.03–0.2"
+          ],
+          [
+            "LC-15",
+            "15",
+            "—",
+            "0.75–1.5",
+            "—",
+            "0.3–1.5",
+            "0.3–1.5",
+            "0.15–1.5",
+            "0.2–1.0",
+            "0.1–1.05",
+            "0.07–0.75"
+          ],
+          [
+            "LC-20",
+            "20",
+            "—",
+            "1.5–3",
+            "1–3",
+            "0.4–3",
+            "0.5–3",
+            "0.3–3",
+            "0.4–2.1",
+            "1.2–2.1",
+            "0.15–1.5"
+          ],
+          [
+            "LC-25",
+            "25",
+            "4–6",
+            "3–6",
+            "2–6",
+            "0.8–6",
+            "1–6",
+            "0.6–6",
+            "0.8–4.2",
+            "0.4–4.2",
+            "0.3–3"
+          ],
+          [
+            "LC-40",
+            "40",
+            "9–15",
+            "7.5–15",
+            "5–15",
+            "2–15",
+            "2.5–15",
+            "1.5–15",
+            "2.1–10.5",
+            "1.0–10.5",
+            "0.7–7.5"
+          ],
+          [
+            "LC-50",
+            "50",
+            "10–24",
+            "8–24",
+            "8–24",
+            "3–24",
+            "4.8–24",
+            "2.4–24",
+            "3.36–16.8",
+            "1.6–16.8",
+            "1.2–12"
+          ],
+          [
+            "LC-B40",
+            "40",
+            "8–20",
+            "6–20",
+            "6–20",
+            "4–20",
+            "4–20",
+            "2–20",
+            "2.8–14",
+            "1.4–14",
+            "1.0–10"
+          ],
+          [
+            "LC-B50",
+            "50",
+            "8–20",
+            "6–20",
+            "6–20",
+            "4–20",
+            "4–20",
+            "2–20",
+            "2.8–14",
+            "1.4–14",
+            "1.0–10"
+          ],
+          [
+            "LC-65",
+            "65",
+            "27–40",
+            "20–40",
+            "15–40",
+            "5–40",
+            "8–40",
+            "4–40",
+            "5.6–28",
+            "2.8–28",
+            "2–20"
+          ],
+          [
+            "LC-80",
+            "80",
+            "40–60",
+            "30–60",
+            "20–60",
+            "8–60",
+            "12–60",
+            "6–60",
+            "8.4–42",
+            "4.2–42",
+            "3–30"
+          ],
+          [
+            "LC-100",
+            "100",
+            "67–100",
+            "50–100",
+            "34–100",
+            "13–100",
+            "20–100",
+            "10–100",
+            "14–70",
+            "6–70",
+            "5–50"
+          ],
+          [
+            "LC-150",
+            "150",
+            "127–190",
+            "95–190",
+            "64–190",
+            "38–190",
+            "38–190",
+            "19–190",
+            "26.6–133",
+            "13.3–133",
+            "9.5–95"
+          ],
+          [
+            "LC-200",
+            "200",
+            "227–340",
+            "170–340",
+            "114–340",
+            "56–340",
+            "56–340",
+            "34–340",
+            "23.8–238",
+            "23.8–238",
+            "17–170"
+          ],
+          [
+            "RB-LL25",
+            "25",
+            "4–7",
+            "2.5–7",
             "1.8–7",
-            "0.6–7",
-            "1–7"
+            "1–7",
+            "1.2–7",
+            "0.7–7",
+            "0.8–5",
+            "0.5–5",
+            "0.36–3.6"
           ],
           [
-            "DN40",
-            "2.5–16",
-            "3.2–7",
-            "1.5–16",
-            "2.5–16"
+            "RB-LL40",
+            "40",
+            "15–28",
+            "10–28",
+            "8.3–28",
+            "4–28",
+            "4–28",
+            "2.8–28",
+            "3.5–20",
+            "2–20",
+            "1.5–16"
           ],
           [
-            "DN50",
-            "4–30",
-            "6–30",
-            "2.5–30",
-            "5–30"
+            "RB-LL50",
+            "50",
+            "15–28",
+            "10–28",
+            "8.3–28",
+            "4–28",
+            "4–28",
+            "2.8–28",
+            "3.5–20",
+            "2–20",
+            "1.5–16"
+          ],
+          [
+            "JP-LL40",
+            "40",
+            "9–15",
+            "7.5–15",
+            "5–15",
+            "2.5–15",
+            "2.5–15",
+            "1.5–15",
+            "2.1–10.5",
+            "1.0–10.5",
+            "0.7–7.5"
           ]
         ]
       }
     ],
     "review": [
-      "DN40、0.2 级、粘度 0.6–2 一格为 3.2–7，疑为 3.2–16",
-      "安装方式\"法兰/螺纹连接（DN25）\"的理解",
-      "材质为铝合金；照片 oval-5 看似不锈钢电子表头款",
-      "\"适用介质\"一行取自网站原简介，非宣传册"
-    ]
+      "公称压力：技术参数写 6.4 MPa，选型代码写 6.3 MPa",
+      "法兰标准原文\"GT/T 9112\"，网页写 GB/T 9112",
+      "LC-20 行 200–1000、0.5 级\"1.2–2.1\"疑为\"0.2–2.1\"",
+      "宣传册版本（铝合金、DN25/40/50、1.0/1.6 MPa）已改为 PDF 完整 LC 系列",
+      "工作原理文字依据原理图撰写，PDF 无原理文字",
+      "材质铝合金 vs 照片 oval-5 不锈钢（已不再矛盾：PDF 含不锈钢款）"
+    ],
+    "introKey": "oval-intro",
+    "principle": {
+      "diagram": "ovalGear",
+      "captionKey": "oval-caption",
+      "legendKeys": [
+        "oval-legend-ab",
+        "oval-legend-p"
+      ],
+      "numbered": false,
+      "textKey": "oval-principle"
+    },
+    "variantList": {
+      "titleKey": "models-and-media",
+      "keys": [
+        "ov-1",
+        "ov-2",
+        "ov-3",
+        "ov-4",
+        "ov-5",
+        "ov-6",
+        "ov-7"
+      ]
+    },
+    "tables": [],
+    "optionList": null,
+    "installation": null
   },
   {
     "slug": "helical-dual-rotor-flowmeter",
@@ -459,7 +774,7 @@
         "labelKey": "accuracy-class"
       },
       {
-        "value": "DN25–350",
+        "value": "DN25–300",
         "labelKey": "bore-range"
       },
       {
@@ -470,7 +785,7 @@
     "specs": [
       {
         "labelKey": "bore-range",
-        "value": "DN25 ~ DN350"
+        "value": "DN25 ~ DN300"
       },
       {
         "labelKey": "accuracy-class",
@@ -498,7 +813,7 @@
       },
       {
         "labelKey": "stainless-grades",
-        "value": "LLT-B: 0Cr18Ni9Ti; LLT-C: 0Cr18Ni12Mo2Ti"
+        "value": "LXZ-B: 0Cr18Ni9Ti; LXZ-C: 0Cr18Ni12Mo2Ti"
       },
       {
         "labelKey": "pressure-test",
@@ -515,7 +830,12 @@
       "of-6",
       "hf-4",
       "hf-5",
-      "hf-6"
+      "hf-6",
+      "hf-7",
+      "hf-8",
+      "hf-9",
+      "hf-10",
+      "hf-11"
     ],
     "detailed": true,
     "applicationKeys": [
@@ -524,8 +844,8 @@
     ],
     "flowTables": [
       {
-        "captionKey": "flow-range-class-05",
-        "noteKey": "viscosity-columns-note",
+        "captionKey": "flow-range-m3h",
+        "noteKey": "helical-table-note",
         "head": [
           [
             {
@@ -533,23 +853,28 @@
               "rowspan": 2
             },
             {
-              "key": "bore",
+              "text": "DN",
               "rowspan": 2
             },
             {
-              "text": "0.3–0.8"
+              "key": "operating-condition",
+              "rowspan": 2
             },
             {
-              "text": "0.8–2"
+              "text": "0.3–2",
+              "colspan": 2
             },
             {
-              "text": "2–15"
+              "text": "2–5"
             },
             {
-              "text": "15–400"
+              "text": "5–15"
             },
             {
-              "text": "400–1000"
+              "text": "15–200"
+            },
+            {
+              "text": "200–1000"
             },
             {
               "text": "1000–2000"
@@ -566,265 +891,13 @@
               "key": "kerosene"
             },
             {
-              "key": "diesel-oil"
+              "key": "diesel"
             },
             {
-              "key": "heavy-oil"
+              "key": "heavy-oil-a"
             },
             {
-              "key": "high-viscosity",
-              "colspan": 3
-            }
-          ]
-        ],
-        "rows": [
-          [
-            "LLT-0252",
-            "DN25",
-            "3–9",
-            "1.5–10",
-            "1–10",
-            "1–10",
-            "1–8",
-            "1–8",
-            "1–6"
-          ],
-          [
-            "LLT-0401",
-            "DN40",
-            "3–9",
-            "1.5–10",
-            "1–10",
-            "1–10",
-            "1–8",
-            "1–8",
-            "1–6"
-          ],
-          [
-            "LLT-0402",
-            "DN40",
-            "7–20",
-            "3–22",
-            "2.5–25",
-            "2.5–25",
-            "2–18",
-            "2–18",
-            "3–12"
-          ],
-          [
-            "LLT-0501",
-            "DN50",
-            "7–20",
-            "3–22",
-            "2.5–25",
-            "2.5–25",
-            "2–18",
-            "2–18",
-            "3–12"
-          ],
-          [
-            "LLT-0502",
-            "DN50",
-            "9–36",
-            "4.5–36",
-            "3.6–36",
-            "3.6–36",
-            "2.8–25",
-            "2.8–25",
-            "4.5–18"
-          ],
-          [
-            "LLT-0801",
-            "DN80",
-            "9–36",
-            "4.5–36",
-            "3.6–36",
-            "3.6–36",
-            "2.8–25",
-            "2.8–25",
-            "4.5–18"
-          ],
-          [
-            "LLT-0802",
-            "DN80",
-            "20–80",
-            "10–80",
-            "10–100",
-            "10–100",
-            "6.5–56",
-            "6.5–56",
-            "5–40"
-          ],
-          [
-            "LLT-1001",
-            "DN100",
-            "20–80",
-            "10–80",
-            "10–100",
-            "10–100",
-            "6.5–56",
-            "6.5–56",
-            "5–40"
-          ],
-          [
-            "LLT-1002",
-            "DN100",
-            "25–100",
-            "18–100",
-            "15–150",
-            "15–150",
-            "8.5–80",
-            "8.5–80",
-            "6.5–55"
-          ],
-          [
-            "LLT-1501",
-            "DN150",
-            "25–100",
-            "18–100",
-            "15–150",
-            "15–150",
-            "8.5–80",
-            "8.5–80",
-            "6.5–55"
-          ],
-          [
-            "LLT-1502",
-            "DN150",
-            "55–225",
-            "30–250",
-            "25–250",
-            "25–250",
-            "18–150",
-            "18–150",
-            "10–100"
-          ],
-          [
-            "LLT-2001",
-            "DN200",
-            "55–225",
-            "30–250",
-            "25–250",
-            "25–250",
-            "18–150",
-            "18–150",
-            "10–100"
-          ],
-          [
-            "LLT-2002",
-            "DN200",
-            "90–360",
-            "50–400",
-            "40–400",
-            "40–400",
-            "28–240",
-            "28–240",
-            "20–160"
-          ],
-          [
-            "LLT-2501",
-            "DN250",
-            "90–360",
-            "50–400",
-            "40–400",
-            "40–400",
-            "28–240",
-            "28–240",
-            "20–160"
-          ],
-          [
-            "LLT-2502",
-            "DN250",
-            "130–540",
-            "65–540",
-            "60–600",
-            "60–600",
-            "42–360",
-            "42–360",
-            "30–240"
-          ],
-          [
-            "LLT-3001",
-            "DN300",
-            "130–540",
-            "65–540",
-            "60–600",
-            "60–600",
-            "42–360",
-            "42–360",
-            "30–240"
-          ],
-          [
-            "LLT-3002",
-            "DN300",
-            "220–800",
-            "110–900",
-            "95–950",
-            "95–950",
-            "70–600",
-            "70–600",
-            "54–450"
-          ],
-          [
-            "LLT-3501",
-            "DN350",
-            "220–800",
-            "110–900",
-            "95–950",
-            "95–950",
-            "70–600",
-            "70–600",
-            "54–450"
-          ]
-        ]
-      },
-      {
-        "captionKey": "flow-range-class-02",
-        "noteKey": "viscosity-columns-note",
-        "head": [
-          [
-            {
-              "key": "model",
-              "rowspan": 2
-            },
-            {
-              "key": "bore",
-              "rowspan": 2
-            },
-            {
-              "text": "0.3–0.8"
-            },
-            {
-              "text": "0.8–2"
-            },
-            {
-              "text": "2–15"
-            },
-            {
-              "text": "15–400"
-            },
-            {
-              "text": "400–1000"
-            },
-            {
-              "text": "1000–2000"
-            },
-            {
-              "text": "2000–3500"
-            }
-          ],
-          [
-            {
-              "key": "gasoline"
-            },
-            {
-              "key": "kerosene"
-            },
-            {
-              "key": "diesel-oil"
-            },
-            {
-              "key": "heavy-oil"
+              "key": "heavy-oil-b"
             },
             {
               "key": "high-viscosity",
@@ -834,236 +907,809 @@
         ],
         "rows": [
           [
-            "LLT-0252",
-            "DN25",
-            "3.5–8",
-            "3–10",
-            "2–10",
-            "2–10",
-            "2–8",
-            "2–8",
-            "2–6"
+            {
+              "text": "LXZ25",
+              "rowspan": 2,
+              "th": true
+            },
+            {
+              "text": "25",
+              "rowspan": 2
+            },
+            {
+              "key": "continuous"
+            },
+            "1.8–7.2",
+            "1.5–7.2",
+            "1–9",
+            "1–8",
+            "0.8–8",
+            "0.5–5.4",
+            "0.5–4.5",
+            "0.5–3.6"
           ],
           [
-            "LLT-0401",
-            "DN40",
-            "3.5–8",
-            "3–10",
-            "2–10",
-            "2–10",
-            "2–8",
-            "2–8",
-            "2–6"
+            {
+              "key": "intermittent"
+            },
+            "1.8–7.5",
+            "1.5–7.5",
+            "1–10",
+            "1–9",
+            "0.8–9",
+            "0.5–6",
+            "0.5–5",
+            "0.5–4"
           ],
           [
-            "LLT-0402",
-            "DN40",
-            "8–20",
-            "5.5–22",
-            "4.5–22",
-            "4.5–22",
-            "4–18",
-            "4–18",
-            "3–12"
+            {
+              "text": "LXZ50 (LXZ50S)",
+              "rowspan": 2,
+              "th": true
+            },
+            {
+              "text": "50 (40)",
+              "rowspan": 2
+            },
+            {
+              "key": "continuous"
+            },
+            "8–32",
+            "6–32",
+            "5–40",
+            "4.0–35",
+            "3.5–35",
+            "2.5–24",
+            "2.5–20",
+            "2.5–16"
           ],
           [
-            "LLT-0501",
-            "DN50",
-            "8–20",
-            "5.5–22",
-            "4.5–22",
-            "4.5–22",
-            "4–18",
-            "4–18",
-            "3–12"
+            {
+              "key": "intermittent"
+            },
+            "8–36",
+            "6–36",
+            "5–45",
+            "4.0–40",
+            "3.5–40",
+            "2.5–30",
+            "2.5–24",
+            "2.5–20"
           ],
           [
-            "LLT-0502",
-            "DN50",
-            "15–36",
-            "9–36",
-            "7–36",
-            "7–36",
-            "6–25",
-            "6–25",
-            "4.5–18"
+            {
+              "text": "LXZ80 (LXZ80S)",
+              "rowspan": 2,
+              "th": true
+            },
+            {
+              "text": "80 (65)",
+              "rowspan": 2
+            },
+            {
+              "key": "continuous"
+            },
+            "20–77",
+            "15–77",
+            "12–100",
+            "8–100",
+            {
+              "key": "tbc"
+            },
+            "5–55",
+            "5–39",
+            "5–39"
           ],
           [
-            "LLT-0801",
-            "DN80",
-            "15–36",
-            "9–36",
-            "7–36",
-            "7–36",
-            "6–25",
-            "6–25",
-            "4.5–18"
+            {
+              "key": "intermittent"
+            },
+            "20–110",
+            "15–110",
+            "12–120",
+            "8–120",
+            {
+              "key": "tbc"
+            },
+            "5–65",
+            "5–53",
+            "5–47"
           ],
           [
-            "LLT-0802",
-            "DN80",
-            "30–80",
-            "20–80",
-            "15–80",
-            "15–80",
-            "14–56",
-            "14–56",
-            "10–40"
+            {
+              "text": "LXZ100",
+              "rowspan": 2,
+              "th": true
+            },
+            {
+              "text": "100",
+              "rowspan": 2
+            },
+            {
+              "key": "continuous"
+            },
+            "28–110",
+            "20–110",
+            "17–150",
+            "13–150",
+            "8.5–150",
+            "7–80",
+            "7–63",
+            "7–55"
           ],
           [
-            "LLT-1001",
-            "DN100",
-            "30–80",
-            "20–80",
-            "15–80",
-            "15–80",
-            "14–56",
-            "14–56",
-            "10–40"
+            {
+              "key": "intermittent"
+            },
+            "28–160",
+            "20–160",
+            "17–180",
+            "13–180",
+            "8.5–180",
+            "7–95",
+            "7–75",
+            "7–65"
           ],
           [
-            "LLT-1002",
-            "DN100",
-            "40–100",
-            "25–100",
-            "20–120",
-            "20–120",
-            "18–72",
-            "18–72",
-            "14–55"
+            {
+              "text": "LXZ150",
+              "rowspan": 2,
+              "th": true
+            },
+            {
+              "text": "150",
+              "rowspan": 2
+            },
+            {
+              "key": "continuous"
+            },
+            "35–180",
+            "30–180",
+            "25–250",
+            "17–250",
+            "10–250",
+            "8.5–130",
+            "8.5–110",
+            "8.5–97"
           ],
           [
-            "LLT-1501",
-            "DN150",
-            "40–100",
-            "25–100",
-            "20–120",
-            "20–120",
-            "18–72",
-            "18–72",
-            "14–55"
+            {
+              "key": "intermittent"
+            },
+            "35–270",
+            "30–270",
+            "25–300",
+            "17–300",
+            "10–300",
+            "8.5–160",
+            "8.5–130",
+            "8.5–115"
           ],
           [
-            "LLT-1502",
-            "DN150",
-            "88–220",
-            "57–225",
-            "44–220",
-            "44–220",
-            "38–150",
-            "38–150",
-            "25–100"
+            {
+              "text": "LXZ200",
+              "rowspan": 2,
+              "th": true
+            },
+            {
+              "text": "200",
+              "rowspan": 2
+            },
+            {
+              "key": "continuous"
+            },
+            "50–260",
+            "40–260",
+            "34–340",
+            "20–340",
+            "17–340",
+            "12–190",
+            "12–160",
+            "12–140"
           ],
           [
-            "LLT-2001",
-            "DN200",
-            "88–220",
-            "57–225",
-            "44–220",
-            "44–220",
-            "38–150",
-            "38–150",
-            "25–100"
+            {
+              "key": "intermittent"
+            },
+            "50–380",
+            "40–380",
+            "34–410",
+            "20–410",
+            "17–410",
+            "12–230",
+            "12–290",
+            "12–165"
           ],
           [
-            "LLT-2002",
-            "DN200",
-            "150–360",
-            "90–360",
-            "72–360",
-            "72–360",
-            "50–210",
-            "50–210",
-            "40–160"
+            {
+              "text": "LXZ250",
+              "rowspan": 2,
+              "th": true
+            },
+            {
+              "text": "250",
+              "rowspan": 2
+            },
+            {
+              "key": "continuous"
+            },
+            "70–380",
+            "55–380",
+            "50–500",
+            "35–500",
+            "30–500",
+            "25–280",
+            "25–220",
+            "25–200"
           ],
           [
-            "LLT-2501",
-            "DN250",
-            "150–360",
-            "90–360",
-            "72–360",
-            "72–360",
-            "50–210",
-            "50–210",
-            "40–160"
+            {
+              "key": "intermittent"
+            },
+            "70–550",
+            "55–550",
+            "50–590",
+            "35–590",
+            "30–590",
+            "25–330",
+            "25–270",
+            "25–240"
           ],
           [
-            "LLT-2502",
-            "DN250",
-            "180–540",
-            "135–540",
-            "100–540",
-            "100–540",
-            "90–360",
-            "90–360",
-            "60–240"
+            {
+              "text": "LXZ300",
+              "rowspan": 2,
+              "th": true
+            },
+            {
+              "text": "300",
+              "rowspan": 2
+            },
+            {
+              "key": "continuous"
+            },
+            "140–630",
+            "110–630",
+            "90–800",
+            "70–800",
+            "55–800",
+            "45–460",
+            "45–380",
+            "45–340"
           ],
           [
-            "LLT-3001",
-            "DN300",
-            "180–540",
-            "135–540",
-            "100–540",
-            "100–540",
-            "90–360",
-            "90–360",
-            "60–240"
-          ],
-          [
-            "LLT-3002",
-            "DN300",
-            "250–800",
-            "220–900",
-            "180–900",
-            "180–900",
-            "150–600",
-            "150–600",
-            "110–450"
-          ],
-          [
-            "LLT-3501",
-            "DN350",
-            "250–800",
-            "220–900",
-            "180–900",
-            "180–900",
-            "150–600",
-            "150–600",
-            "110–450"
+            {
+              "key": "intermittent"
+            },
+            "140–900",
+            "110–900",
+            "90–950",
+            "70–950",
+            "55–950",
+            "45–550",
+            "45–450",
+            "45–400"
           ]
         ]
       }
     ],
     "review": [
-      "流量表口径列由型号前三位推断（原表合并单元格丢失），需对照原表",
-      "\"规格为 DN80/100/150\"与表中 DN25–350 的关系：网页理解为 DN80/100/150 可特制 6.3 MPa",
-      "材质表（壳体、盖板、轴套）未写入，需公司提供",
-      "\"适用介质\"一行取自网站原简介"
-    ]
+      "流量表已按 PDF（LXZ 型号、DN25–300）替换宣传册 LLT 表",
+      "LXZ25 连续 B 重油原文\"08~8\"，网页写 0.8–8",
+      "LXZ80 B 重油原文\"86100 / 86120\"，网页显示\"待确认\"",
+      "LXZ200 间歇 1000–2000\"12~290\"大于 200–1000\"12~230\"，疑有误",
+      "LXZ300 间歇 2000–3500 原文\"45~4000\"，网页写 45–400",
+      "材质表（壳体、盖板、轴套）未写入，需公司提供"
+    ],
+    "introKey": "helical-intro",
+    "principle": {
+      "diagram": "helicalRotor",
+      "captionKey": "helical-caption",
+      "legendKeys": [
+        "hl-1",
+        "hl-2",
+        "hl-3",
+        "hl-4"
+      ],
+      "numbered": true,
+      "textKey": "helical-principle"
+    },
+    "tables": [],
+    "variantList": null,
+    "optionList": null,
+    "installation": null
   },
   {
-    "slug": "turbine-vortex-flowmeter",
+    "slug": "turbine-flowmeter",
     "tagKey": "product-05",
     "nameKey": "turbine-vortex-series",
-    "subName": "Turbine / Vortex / Roots Series",
+    "subName": "Turbine Flowmeter",
     "descKey": "versatile-gas-and-liquid-measurement-for",
     "cardParams": {
-      "key": "gas-liquid-multi-industry"
+      "key": "card-params-turbine"
     },
     "placeholderKey": "turbine-vortex-flowmeter-product-photo-c",
     "formValue": "turbine",
     "images": [],
-    "highlights": [],
-    "specs": [
+    "highlights": [
       {
-        "labelKey": "medium",
-        "valueKey": "medium-gas-liquid"
+        "value": "±0.2%",
+        "labelKey": "accuracy"
+      },
+      {
+        "value": "DN4–200",
+        "labelKey": "bore-range"
+      },
+      {
+        "value": "1:20",
+        "labelKey": "turndown"
       }
     ],
-    "featureKeys": [],
+    "specs": [
+      {
+        "labelKey": "bore-connection",
+        "valueKey": "turbine-connection-value"
+      },
+      {
+        "labelKey": "accuracy",
+        "valueKey": "turbine-accuracy-value"
+      },
+      {
+        "labelKey": "turndown",
+        "value": "1:10 / 1:15 / 1:20"
+      },
+      {
+        "labelKey": "material",
+        "valueKey": "turbine-material-value"
+      },
+      {
+        "labelKey": "media-temperature",
+        "value": "-20 ~ +120 °C"
+      },
+      {
+        "labelKey": "ambient-temperature",
+        "valueKey": "turbine-ambient-value"
+      },
+      {
+        "labelKey": "signal-output",
+        "valueKey": "turbine-signal-value"
+      },
+      {
+        "labelKey": "power-supply",
+        "valueKey": "turbine-power-value"
+      },
+      {
+        "labelKey": "signal-cable",
+        "valueKey": "turbine-cable-value"
+      },
+      {
+        "labelKey": "transmission-distance",
+        "value": "≤ 1000 m"
+      },
+      {
+        "labelKey": "signal-port",
+        "valueKey": "turbine-port-value"
+      },
+      {
+        "labelKey": "explosion-rating",
+        "valueKey": "turbine-ex-value"
+      },
+      {
+        "labelKey": "ip-rating",
+        "value": "IP65"
+      },
+      {
+        "labelKey": "medium",
+        "valueKey": "turbine-medium-value"
+      }
+    ],
+    "featureKeys": [
+      "tf-1",
+      "tf-2",
+      "tf-3",
+      "tf-4",
+      "tf-5",
+      "tf-6",
+      "tf-7",
+      "tf-8"
+    ],
     "applicationKeys": [],
-    "flowTables": [],
-    "detailed": false
+    "flowTables": [
+      {
+        "captionKey": "flow-range-pressure",
+        "head": [
+          [
+            {
+              "text": "DN"
+            },
+            {
+              "key": "normal-flow"
+            },
+            {
+              "key": "extended-flow"
+            },
+            {
+              "key": "std-pressure"
+            },
+            {
+              "key": "special-pressure"
+            }
+          ]
+        ],
+        "rows": [
+          [
+            "4",
+            "0.04–0.25",
+            "0.04–0.4",
+            "6.3",
+            "12 / 16 / 25"
+          ],
+          [
+            "6",
+            "0.1–0.6",
+            "0.06–0.6",
+            "6.3",
+            "12 / 16 / 25"
+          ],
+          [
+            "10",
+            "0.2–1.2",
+            "0.15–1.5",
+            "6.3",
+            "12 / 16 / 25"
+          ],
+          [
+            "15",
+            "0.6–6",
+            "0.4–8",
+            {
+              "key": "p63-flange"
+            },
+            "4.0 / 6.3 / 12 / 16 / 25"
+          ],
+          [
+            "20",
+            "0.8–8",
+            "0.45–9",
+            {
+              "key": "p63-flange"
+            },
+            "4.0 / 6.3 / 12 / 16 / 25"
+          ],
+          [
+            "25",
+            "1–10",
+            "0.5–10",
+            {
+              "key": "p63-flange"
+            },
+            "4.0 / 6.3 / 12 / 16 / 25"
+          ],
+          [
+            "32",
+            "1.5–15",
+            "0.8–15",
+            {
+              "key": "p63-flange"
+            },
+            "4.0 / 6.3 / 12 / 16 / 25"
+          ],
+          [
+            "40",
+            "2–20",
+            "1–20",
+            {
+              "key": "p63-flange"
+            },
+            "4.0 / 6.3 / 12 / 16 / 25"
+          ],
+          [
+            "50",
+            "4–40",
+            "2–40",
+            "2.5",
+            "4.0 / 6.3 / 12 / 16 / 25"
+          ],
+          [
+            "65",
+            "7–70",
+            "4–70",
+            "2.5",
+            "4.0 / 6.3 / 12 / 16 / 25"
+          ],
+          [
+            "80",
+            "10–100",
+            "5–100",
+            "2.5",
+            "4.0 / 6.3 / 12 / 16 / 25"
+          ],
+          [
+            "100",
+            "20–200",
+            "10–200",
+            "1.6",
+            "4.0 / 6.3 / 12 / 16 / 25"
+          ],
+          [
+            "125",
+            "25–250",
+            "13–250",
+            "1.6",
+            "2.5 / 4.0 / 6.3 / 12 / 16"
+          ],
+          [
+            "150",
+            "30–300",
+            "15–400",
+            "1.6",
+            "2.5 / 4.0 / 6.3 / 12 / 16"
+          ],
+          [
+            "200",
+            "80–800",
+            "40–800",
+            "1.6",
+            "2.5 / 4.0 / 6.3 / 12 / 16"
+          ]
+        ]
+      },
+      {
+        "captionKey": "installation-dimensions",
+        "noteKey": "turbine-dims-note",
+        "head": [
+          [
+            {
+              "text": "DN"
+            },
+            {
+              "key": "length-l"
+            },
+            {
+              "key": "thread-g"
+            },
+            {
+              "key": "pcd"
+            },
+            {
+              "key": "hole-d"
+            },
+            {
+              "key": "holes-n"
+            }
+          ]
+        ],
+        "rows": [
+          [
+            "4",
+            "295",
+            "G1/2",
+            "—",
+            "—",
+            "—"
+          ],
+          [
+            "6",
+            "330",
+            "G1/2",
+            "—",
+            "—",
+            "—"
+          ],
+          [
+            "10",
+            "450",
+            "G1/2",
+            "—",
+            "—",
+            "—"
+          ],
+          [
+            "15",
+            "75",
+            "G1",
+            "65",
+            "14",
+            "4"
+          ],
+          [
+            "20",
+            "80",
+            "G1",
+            "75",
+            "14",
+            "4"
+          ],
+          [
+            "25",
+            "100",
+            "G5/4",
+            "85",
+            "14",
+            "4"
+          ],
+          [
+            "32",
+            "140",
+            "G2",
+            "100",
+            "14",
+            "4"
+          ],
+          [
+            "40",
+            "140",
+            "G2",
+            "110",
+            "18",
+            "4"
+          ],
+          [
+            "50",
+            "150",
+            "—",
+            "125",
+            "18",
+            "4"
+          ],
+          [
+            "65",
+            "170",
+            "—",
+            "145",
+            "18",
+            "4"
+          ],
+          [
+            "80",
+            "200",
+            "—",
+            "160",
+            "18",
+            "8"
+          ],
+          [
+            "100",
+            "220",
+            "—",
+            "180",
+            "18",
+            "8"
+          ],
+          [
+            "125",
+            "250",
+            "—",
+            "210",
+            "25",
+            "8"
+          ],
+          [
+            "150",
+            "300",
+            "—",
+            "250",
+            "25",
+            "8"
+          ],
+          [
+            "200",
+            "360",
+            "—",
+            "295",
+            "23",
+            "12"
+          ]
+        ]
+      }
+    ],
+    "detailed": true,
+    "introKey": "turbine-intro",
+    "principle": {
+      "diagram": "turbinePrinciple",
+      "captionKey": "turbine-caption",
+      "legendKeys": [
+        "tl-1",
+        "tl-2",
+        "tl-3",
+        "tl-4",
+        "tl-5"
+      ],
+      "numbered": true,
+      "textKey": "turbine-principle"
+    },
+    "variantList": {
+      "titleKey": "product-types",
+      "keys": [
+        "tt-1",
+        "tt-2",
+        "tt-3",
+        "tt-4",
+        "tt-5"
+      ]
+    },
+    "installation": {
+      "figure": {
+        "diagram": "turbineInstall",
+        "captionKey": "turbine-install-caption",
+        "legendKeys": [
+          "ti-1",
+          "ti-2",
+          "ti-3",
+          "ti-4",
+          "ti-5",
+          "ti-6",
+          "ti-7",
+          "ti-8"
+        ],
+        "numbered": true
+      },
+      "tables": [
+        {
+          "captionKey": "straight-pipe",
+          "head": [
+            [
+              {
+                "key": "upstream-fitting"
+              },
+              {
+                "key": "single-elbow"
+              },
+              {
+                "key": "two-elbows-same"
+              },
+              {
+                "key": "two-elbows-diff"
+              },
+              {
+                "key": "reducer"
+              },
+              {
+                "key": "valve-full"
+              },
+              {
+                "key": "valve-half"
+              },
+              {
+                "key": "downstream-length"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              "L / DN",
+              "20",
+              "25",
+              "40",
+              "15",
+              "20",
+              "50",
+              "5"
+            ]
+          ]
+        }
+      ],
+      "noteKeys": [
+        "tn-1",
+        "tn-2",
+        "tn-3",
+        "tn-4",
+        "tn-5",
+        "tn-6"
+      ]
+    },
+    "review": [
+      "产品 05 由\"涡轮/涡街系列\"改名为\"涡轮流量计\"，网址改为 /products/turbine-flowmeter/",
+      "原卡片写\"气液两用\"，PDF 为液体，已按 PDF 改",
+      "材质原文\"340(L)\"，网页写 316(L)；\"相对温度\"写为相对湿度；量程比原文\"1:10:1:15:1:20\"",
+      "DN20 扩展流量：参数表 0.45–9 vs 选型表 0.4–8（网页按参数表）",
+      "DN150 扩展流量：参数表 15–400 vs 选型表 15–300（网页按参数表）",
+      "DN250 行与\"最大压力损失\"列未放",
+      "安装尺寸表 G 后两列理解为螺栓孔中心圆 Ø、螺栓孔 Ø（原表头均为 D(mm)）",
+      "工作原理示意图依据原理文字绘制（PDF 无原理图）"
+    ],
+    "tables": [],
+    "optionList": null
   },
   {
     "slug": "automation-equipment",
@@ -1082,7 +1728,13 @@
     "featureKeys": [],
     "applicationKeys": [],
     "flowTables": [],
-    "detailed": false
+    "detailed": false,
+    "tables": [],
+    "variantList": null,
+    "optionList": null,
+    "installation": null,
+    "introKey": null,
+    "principle": null
   },
   {
     "slug": "roots-flowmeter",
@@ -1091,21 +1743,280 @@
     "subName": "Roots Flowmeter",
     "descKey": "high-precision-gas-measurement-with-low",
     "cardParams": {
-      "key": "gas-measurement-low-p"
+      "key": "card-params-roots"
     },
     "placeholderKey": "roots-flowmeter-product-photo-coming-soo",
     "formValue": null,
     "images": [],
-    "highlights": [],
+    "highlights": [
+      {
+        "value": "0.2",
+        "labelKey": "accuracy-class"
+      },
+      {
+        "value": "DN25–150",
+        "labelKey": "bore-range"
+      },
+      {
+        "value": "0.6–250",
+        "labelKey": "m3h-range"
+      }
+    ],
     "specs": [
       {
+        "labelKey": "bore-range",
+        "value": "DN25 ~ DN150"
+      },
+      {
+        "labelKey": "nominal-pressure",
+        "value": "0.6 / 1.0 / 1.6 / 2.5 / 4.0 MPa"
+      },
+      {
+        "labelKey": "working-temperature",
+        "value": "LL-A: -20 ~ +60 °C; LL-E, LL-L: -41 ~ +60 °C"
+      },
+      {
+        "labelKey": "accuracy-class",
+        "valueKey": "class-05-03-02"
+      },
+      {
         "labelKey": "medium",
-        "valueKey": "medium-gas"
+        "valueKey": "roots-medium-value"
+      },
+      {
+        "labelKey": "counter",
+        "valueKey": "roots-counter-value"
+      },
+      {
+        "labelKey": "transmitter",
+        "valueKey": "roots-transmitter-value"
       }
     ],
     "featureKeys": [],
     "applicationKeys": [],
-    "flowTables": [],
-    "detailed": false
+    "flowTables": [
+      {
+        "captionKey": "flow-range-m3h",
+        "noteKey": "roots-table-note",
+        "head": [
+          [
+            {
+              "text": "DN",
+              "rowspan": 2
+            },
+            {
+              "key": "class-05",
+              "colspan": 2
+            },
+            {
+              "key": "class-03",
+              "colspan": 2
+            },
+            {
+              "key": "class-02",
+              "colspan": 2
+            }
+          ],
+          [
+            {
+              "text": "2.0–150"
+            },
+            {
+              "text": "0.6–2.0"
+            },
+            {
+              "text": "2.0–150"
+            },
+            {
+              "text": "0.6–2.0"
+            },
+            {
+              "text": "2.0–150"
+            },
+            {
+              "text": "0.6–2.0"
+            }
+          ]
+        ],
+        "rows": [
+          [
+            "25",
+            "0.6–6",
+            "1.2–6",
+            "1.2–6",
+            "1.5–6",
+            "1.5–6",
+            "2–6"
+          ],
+          [
+            "40",
+            "1.6–16",
+            "3.2–16",
+            "3.2–16",
+            "4–16",
+            "4–16",
+            "5–16"
+          ],
+          [
+            "50",
+            "2.5–25",
+            "5–25",
+            "5–25",
+            "6–25",
+            "6–25",
+            "8–25"
+          ],
+          [
+            "80",
+            "6–60",
+            "12–60",
+            "12–60",
+            "15–60",
+            "15–60",
+            "20–60"
+          ],
+          [
+            "100",
+            "10–100",
+            "20–100",
+            "20–100",
+            "25–100",
+            "25–100",
+            "33–100"
+          ],
+          [
+            "150",
+            "25–250",
+            "50–250",
+            "50–250",
+            "60–250",
+            "60–250",
+            "80–250"
+          ]
+        ]
+      }
+    ],
+    "detailed": true,
+    "introKey": "roots-intro",
+    "principle": {
+      "diagram": "rootsMeter",
+      "captionKey": "roots-caption",
+      "legendKeys": [
+        "roots-legend"
+      ],
+      "numbered": false,
+      "textKey": "roots-principle"
+    },
+    "tables": [
+      {
+        "captionKey": "main-materials",
+        "head": [
+          [
+            {
+              "key": "model"
+            },
+            {
+              "key": "housing-covers"
+            },
+            {
+              "key": "cover-plate"
+            },
+            {
+              "key": "rotor"
+            },
+            {
+              "key": "shaft"
+            },
+            {
+              "key": "bushing"
+            },
+            {
+              "key": "nominal-pressure"
+            }
+          ]
+        ],
+        "rows": [
+          [
+            "LL-AL",
+            {
+              "key": "cast-iron"
+            },
+            {
+              "key": "cast-iron"
+            },
+            {
+              "key": "aluminium-alloy"
+            },
+            {
+              "key": "stainless-steel"
+            },
+            {
+              "key": "ball-bearing"
+            },
+            "0.6 / 1.0 / 1.6 MPa"
+          ],
+          [
+            "LL-EL",
+            {
+              "key": "cast-steel"
+            },
+            {
+              "key": "cast-iron"
+            },
+            {
+              "key": "aluminium-alloy"
+            },
+            {
+              "key": "stainless-steel"
+            },
+            {
+              "key": "ball-bearing"
+            },
+            "2.5 / 4.0 MPa"
+          ],
+          [
+            "LL-LL",
+            {
+              "key": "aluminium-alloy"
+            },
+            {
+              "key": "cast-iron-or-stainless"
+            },
+            {
+              "key": "aluminium-alloy"
+            },
+            {
+              "key": "stainless-steel"
+            },
+            {
+              "key": "ball-bearing"
+            },
+            "0.6 / 1.0 / 1.6 MPa"
+          ]
+        ]
+      }
+    ],
+    "variantList": {
+      "titleKey": "models-and-media",
+      "keys": [
+        "rv-1",
+        "rv-2",
+        "rv-3"
+      ]
+    },
+    "installation": {
+      "noteKeys": [
+        "rn-1",
+        "rn-2",
+        "rn-3",
+        "rn-4",
+        "rn-5"
+      ]
+    },
+    "review": [
+      "网站原写腰轮为\"气体计量、天然气/压缩空气\"，PDF 为成品油液体计量，已按 PDF 改",
+      "流量表表头为粘度（mPa·s）分 0.5/0.3/0.2 级，按 PDF 原样"
+    ],
+    "optionList": null
   }
 ]
