@@ -173,15 +173,38 @@ function specsHtml(product) {
         </table>`;
 }
 
-function featuresHtml(product) {
-  if (!product.featureKeys.length) return '';
-  const items = product.featureKeys.map(k => `<li>{{${k}}}</li>`).join('');
-  return `<h3 class="detail-subtitle">{{key-features}}</h3><ul class="detail-features">${items}</ul>`;
+function listHtml(titleKey, keys) {
+  if (!keys.length) return '';
+  const items = keys.map(k => `<li>{{${k}}}</li>`).join('');
+  return `<h3 class="detail-subtitle">{{${titleKey}}}</h3><ul class="detail-features">${items}</ul>`;
+}
+
+const cellText = cell => cell.key ? `{{${cell.key}}}` : escapeHtml(cell.text);
+const spanAttrs = cell => `${cell.colspan ? ` colspan="${cell.colspan}"` : ''}${cell.rowspan ? ` rowspan="${cell.rowspan}"` : ''}`;
+
+function flowTablesHtml(product) {
+  return product.flowTables.map(table => {
+    const head = table.head.map(row =>
+      `<tr>${row.map(cell => `<th scope="col"${spanAttrs(cell)}>${cellText(cell)}</th>`).join('')}</tr>`).join('');
+    const body = table.rows.map(([first, ...rest]) =>
+      `<tr><th scope="row">${escapeHtml(first)}</th>${rest.map(v => `<td>${escapeHtml(v)}</td>`).join('')}</tr>`).join('\n            ');
+    const note = table.noteKey ? `<p class="table-note">{{${table.noteKey}}}</p>` : '';
+    return `<h3 class="detail-subtitle">{{${table.captionKey}}}</h3>
+        ${note}
+        <div class="table-scroll" role="region" aria-label="{{${table.captionKey}}}" tabindex="0">
+          <table class="flow-table">
+            <thead>${head}</thead>
+            <tbody>
+            ${body}
+            </tbody>
+          </table>
+        </div>`;
+  }).join('\n        ');
 }
 
 // Products without verified detailed data say so instead of showing invented values.
 function moreComingHtml(product) {
-  if (product.highlights.length) return '';
+  if (product.detailed) return '';
   return `<div class="detail-note">{{more-specs-coming}} <a href="#" data-quote>{{contact-us}} <span class="arrow" aria-hidden="true">→</span></a></div>`;
 }
 
@@ -246,7 +269,9 @@ function renderProduct(code, product) {
     gallery: galleryHtml(product),
     highlights: highlightsHtml(product),
     specs: specsHtml(product),
-    features: featuresHtml(product),
+    features: listHtml('key-features', product.featureKeys),
+    applications: listHtml('applications', product.applicationKeys),
+    flowTables: flowTablesHtml(product),
     moreComing: moreComingHtml(product),
     quoteHref,
     whatsappUrl: WHATSAPP_URL,
@@ -277,7 +302,8 @@ function renderAbout(code) {
     nav: localizeAnchors(NAV, code),
     footer: localizeAnchors(FOOTER, code),
     lang: code,
-    factorySection: FACTORY,
+    // Alternate section backgrounds on the About page: profile, capabilities, factory, certificates.
+    factorySection: FACTORY.replace('section section-white', 'section section-cream'),
     certificates: certificatesHtml(),
     whatsappUrl: WHATSAPP_URL,
   });

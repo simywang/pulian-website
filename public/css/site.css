@@ -1118,6 +1118,39 @@ a.product-card:hover .card-more { color: var(--green-dark); }
   font-size: 15px; line-height: 1.7; color: var(--ink);
 }
 .detail-note a { color: var(--green-mid); font-weight: 600; white-space: nowrap; }
+.table-note { font-size: 14px; color: var(--ink-light); margin: -6px 0 12px; }
+.table-scroll {
+  overflow-x: auto;
+  margin-bottom: 40px;
+  border: 1px solid rgba(27,58,47,0.12);
+  border-radius: 2px;
+}
+.table-scroll:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+.flow-table { border-collapse: collapse; width: 100%; font-size: 14px; white-space: nowrap; }
+.flow-table th,
+.flow-table td { padding: 10px 14px; text-align: center; border-bottom: 1px solid rgba(27,58,47,0.08); }
+.flow-table thead th { background: var(--green-dark); color: var(--white); font-weight: 600; border-bottom-color: rgba(255,255,255,0.12); }
+.flow-table tbody th { color: var(--green-dark); font-weight: 700; }
+.flow-table tbody tr:nth-child(even) { background: rgba(27,58,47,0.03); }
+[dir="rtl"] .flow-table td,
+[dir="rtl"] .flow-table th { unicode-bidi: plaintext; }
+.capabilities-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 56px;
+  align-items: start;
+}
+.capabilities-grid p { font-size: 16px; line-height: 1.75; color: var(--ink-light); margin-bottom: 16px; }
+.patent-box {
+  padding: 28px 32px;
+  background: var(--cream);
+  border-inline-start: 3px solid var(--gold);
+}
+.patent-box .detail-features { margin-bottom: 16px; }
+.patent-box .table-note { margin: 0; }
+@media (max-width: 1024px) {
+  .capabilities-grid { grid-template-columns: 1fr; gap: 32px; }
+}
 @media (max-width: 1024px) {
   .detail-grid { grid-template-columns: 1fr; gap: 32px; }
 }
