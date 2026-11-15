@@ -434,7 +434,17 @@
       border-radius: 2px;
       overflow: hidden;
     }
-    .factory-item > * { width: 100%; height: 100%; }
+    .factory-item { position: relative; margin: 0; }
+    .factory-item > img,
+    .factory-item > .ph { width: 100%; height: 100%; }
+    .factory-item figcaption {
+      position: absolute; inset-inline: 0; bottom: 0;
+      padding: 28px 16px 12px;
+      background: linear-gradient(to top, rgba(16,36,28,0.85), transparent);
+      color: var(--white);
+      font-size: 15px; font-weight: 600;
+      pointer-events: none;
+    }
     .factory-item img { object-fit: cover; transition: transform .5s; }
     .factory-item:hover img { transform: scale(1.04); }
     .factory-item .ph svg { width: 72px; height: 72px; }
@@ -925,6 +935,7 @@
       .nav-toggle { display: block; margin-inline-start: 12px; }
       .cards-grid { grid-template-columns: 1fr 1fr; }
       .factory-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+      .factory-item figcaption { padding: 20px 10px 8px; font-size: 13px; }
       .industries-grid { grid-template-columns: 1fr 1fr; }
       .cert-items { grid-template-columns: 1fr 1fr; }
       .form-row { grid-template-columns: 1fr; }
@@ -1126,12 +1137,12 @@
       <p class="section-subtitle dark">{{factory-subtitle}}</p>
     </div>
     <div class="factory-grid reveal">
-      <div class="factory-item"><img src="/images/factory/factory-01.jpg" alt="{{factory-alt-01}}" width="1000" height="750" loading="lazy" /></div>
-      <div class="factory-item"><img src="/images/factory/factory-02.jpg" alt="{{factory-alt-02}}" width="1000" height="750" loading="lazy" /></div>
-      <div class="factory-item"><img src="/images/factory/factory-03.jpg" alt="{{factory-alt-03}}" width="1000" height="750" loading="lazy" /></div>
-      <div class="factory-item"><img src="/images/factory/factory-04.jpg" alt="{{factory-alt-04}}" width="1000" height="750" loading="lazy" /></div>
-      <div class="factory-item"><img src="/images/factory/factory-05.jpg" alt="{{factory-alt-05}}" width="1000" height="750" loading="lazy" /></div>
-      <div class="factory-item"><img src="/images/factory/factory-06.jpg" alt="{{factory-alt-06}}" width="1000" height="750" loading="lazy" /></div>
+      <figure class="factory-item"><img src="/images/factory/factory-01.jpg" alt="{{factory-alt-01}}" width="1000" height="750" loading="lazy" /><figcaption>{{factory-caption-01}}</figcaption></figure>
+      <figure class="factory-item"><img src="/images/factory/factory-02.jpg" alt="{{factory-alt-02}}" width="1000" height="750" loading="lazy" /><figcaption>{{factory-caption-02}}</figcaption></figure>
+      <figure class="factory-item"><img src="/images/factory/factory-03.jpg" alt="{{factory-alt-03}}" width="1000" height="750" loading="lazy" /><figcaption>{{factory-caption-03}}</figcaption></figure>
+      <figure class="factory-item"><img src="/images/factory/factory-04.jpg" alt="{{factory-alt-04}}" width="1000" height="750" loading="lazy" /><figcaption>{{factory-caption-04}}</figcaption></figure>
+      <figure class="factory-item"><img src="/images/factory/factory-05.jpg" alt="{{factory-alt-05}}" width="1000" height="750" loading="lazy" /><figcaption>{{factory-caption-05}}</figcaption></figure>
+      <figure class="factory-item"><img src="/images/factory/factory-06.jpg" alt="{{factory-alt-06}}" width="1000" height="750" loading="lazy" /><figcaption>{{factory-caption-06}}</figcaption></figure>
     </div>
   </div>
 </section>
