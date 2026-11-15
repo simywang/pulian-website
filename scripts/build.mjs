@@ -337,7 +337,7 @@ function renderProduct(code, product) {
 
 function certificatesHtml() {
   const items = certificates.items.map(c =>
-    `        <figure class="cert-card"><img src="${c.src}" alt="{{${c.titleKey}}}" loading="lazy" data-lightbox="certificates" /><figcaption>{{${c.titleKey}}}</figcaption></figure>`);
+    `        <figure class="cert-card"><img src="${c.src}" alt="{{${c.titleKey}}}" width="${c.width}" height="${c.height}" loading="lazy" data-lightbox="certificates" /><figcaption>{{${c.titleKey}}}</figcaption></figure>`);
   const empty = Math.max(0, certificates.slots - certificates.items.length);
   for (let i = 0; i < empty; i++) {
     items.push(`        <figure class="cert-card"><div class="ph cert-ph" role="img" aria-label="{{certificate-coming-soon}}"><svg aria-hidden="true"><use href="#ico-certificate"/></svg><span class="ph-note">{{certificate-coming-soon}}</span></div></figure>`);

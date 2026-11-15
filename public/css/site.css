@@ -1239,7 +1239,7 @@ a.product-card:hover .card-more { color: var(--green-dark); }
 .about-cta .section-title { color: var(--white); }
 .cert-gallery {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 24px;
 }
 .cert-card { margin: 0; }
@@ -1250,7 +1250,7 @@ a.product-card:hover .card-more { color: var(--green-dark); }
   border-radius: 2px;
   box-shadow: 0 2px 16px rgba(0,0,0,0.08);
 }
-.cert-card > img { object-fit: contain; background: var(--white); padding: 12px; }
+.cert-card > img { height: auto; object-fit: contain; background: var(--white); padding: 12px; }
 .cert-card figcaption {
   margin-top: 12px;
   font-size: 15px; font-weight: 600; color: var(--green-dark);
@@ -1259,6 +1259,7 @@ a.product-card:hover .card-more { color: var(--green-dark); }
 .cert-ph svg { width: 72px; height: 72px; }
 @media (max-width: 1024px) {
   .about-profile { grid-template-columns: 1fr; gap: 32px; }
+  .cert-gallery { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 768px) {
   .cert-gallery { grid-template-columns: 1fr 1fr; gap: 16px; }

@@ -498,5 +498,9 @@
   "tn-5": "Fit a filter upstream if the liquid contains impurities and an air eliminator if it contains gas; the flow control valve goes downstream of the sensor; add a check valve where reverse flow may occur.",
   "tn-6": "Keep the sensor concentric with the pipe and do not let gaskets protrude into the bore; do not install at the highest point of a horizontal line; insulate the sensor and adjacent pipe for liquids that solidify easily.",
   "card-params-turbine": "DN4 ~ DN200 · ±0.2% ~ ±1%",
-  "pulse-4-20-rs485-hart": "Pulse / 4-20mA / RS485 / HART"
+  "pulse-4-20-rs485-hart": "Pulse / 4-20mA / RS485 / HART",
+  "cert-business-license": "Business License",
+  "cert-iso9001": "ISO 9001:2015 Quality Management System Certificate",
+  "cert-work-safety": "Work Safety Standardization Certificate",
+  "cert-bank-permit": "Bank Account Opening Permit (account details hidden)"
 }

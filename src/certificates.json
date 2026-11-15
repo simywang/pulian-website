@@ -1,4 +1,35 @@
 {
-  "slots": 6,
-  "items": []
+  "slots": 4,
+  "items": [
+    {
+      "src": "/images/certificates/business-license.jpg",
+      "titleKey": "cert-business-license",
+      "width": 1536,
+      "height": 1024
+    },
+    {
+      "src": "/images/certificates/iso-9001.jpg",
+      "titleKey": "cert-iso9001",
+      "width": 1080,
+      "height": 1572
+    },
+    {
+      "src": "/images/certificates/work-safety.jpg",
+      "titleKey": "cert-work-safety",
+      "width": 1163,
+      "height": 1600
+    },
+    {
+      "src": "/images/certificates/bank-account-permit.jpg",
+      "titleKey": "cert-bank-permit",
+      "width": 924,
+      "height": 752
+    }
+  ],
+  "review": [
+    "ISO 9001 证书有效期至 2025-05-26，已过期",
+    "安全生产标准化证书有效期至 2024-01，已过期",
+    "营业执照住所写\"摄镇镇\"，其他证件为\"撮镇镇\"；发证日期/经营范围与产品手册内版本不同，需确认为原件扫描",
+    "开户许可证已遮盖账号和核准号"
+  ]
 }
