@@ -208,6 +208,18 @@
         "altKey": "scraper-alt-3",
         "width": 1200,
         "height": 900
+      },
+      {
+        "src": "/images/products/scraper-4.jpg",
+        "altKey": "scraper-alt-4",
+        "width": 800,
+        "height": 1200
+      },
+      {
+        "src": "/images/products/scraper-5.jpg",
+        "altKey": "scraper-alt-5",
+        "width": 800,
+        "height": 1200
       }
     ],
     "highlights": [
@@ -287,7 +299,8 @@
     ],
     "flowTables": [],
     "review": [
-      "平均故障间隔时间 ≥240 h 与宣传册一致，仍建议公司确认"
+      "平均故障间隔时间 ≥240 h 与宣传册一致，仍建议公司确认",
+      "照片 scraper-4 计数器上有他牌商标\"HQH®\"及乱码标签，上线前需替换或处理"
     ],
     "tables": [],
     "variantList": null,
@@ -791,18 +804,6 @@
         "altKey": "helical-alt-4",
         "width": 1200,
         "height": 1097
-      },
-      {
-        "src": "/images/products/helical-5.jpg",
-        "altKey": "helical-alt-5",
-        "width": 800,
-        "height": 1200
-      },
-      {
-        "src": "/images/products/helical-6.jpg",
-        "altKey": "helical-alt-6",
-        "width": 800,
-        "height": 1200
       }
     ],
     "highlights": [
@@ -1236,8 +1237,7 @@
       "LXZ80 B 重油原文\"86100 / 86120\"，网页显示\"待确认\"",
       "LXZ200 间歇 1000–2000\"12~290\"大于 200–1000\"12~230\"，疑有误",
       "LXZ300 间歇 2000–3500 原文\"45~4000\"，网页写 45–400",
-      "材质表（壳体、盖板、轴套）未写入，需公司提供",
-      "照片 helical-6 计数器上有他牌商标\"HQH®\"，上线前需替换或处理"
+      "材质表（壳体、盖板、轴套）未写入，需公司提供"
     ],
     "introKey": "helical-intro",
     "principle": {
