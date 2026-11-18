@@ -6,7 +6,7 @@
     "subName": "Miniature Flowmeter",
     "descKey": "ultra-low-flow-precision-measurement-for",
     "cardParams": {
-      "value": "DN4 ~ DN20 · ±0.2%"
+      "value": "DN5 ~ DN25 · ±0.5%"
     },
     "placeholderKey": "miniature-flowmeter-product-photo-coming",
     "formValue": "miniature",
@@ -26,26 +26,26 @@
     ],
     "highlights": [
       {
-        "value": "±0.2%",
+        "value": "±0.5%",
         "labelKey": "accuracy"
       },
       {
-        "value": "DN4–20",
+        "value": "DN5–25",
         "labelKey": "bore-range"
       },
       {
-        "value": "1–1800",
+        "value": "0.2–200",
         "labelKey": "l-h-flow-range"
       }
     ],
     "specs": [
       {
         "labelKey": "bore-range",
-        "value": "DN4 ~ DN20"
+        "value": "DN5 ~ DN25"
       },
       {
         "labelKey": "accuracy",
-        "value": "±0.2% / ±0.5% / ±1%"
+        "value": "±0.5% / ±1% / ±1.5%"
       },
       {
         "labelKey": "material",
@@ -121,28 +121,28 @@
         ],
         "rows": [
           [
-            "DN4",
-            "1–30"
+            "DN5",
+            "0.2–2"
           ],
           [
             "DN6",
-            "5–80"
+            "0.5–5"
           ],
           [
             "DN8",
-            "10–200"
+            "1–10"
           ],
           [
             "DN10",
-            "20–600"
+            "10–100"
           ],
           [
             "DN15",
-            "30–800"
+            "15–150"
           ],
           [
             "DN20",
-            "50–1800"
+            "20–200"
           ]
         ],
         "noteKey": "miniature-table-note"
@@ -151,7 +151,8 @@
     "review": [
       "照片 miniature-1 显示他牌\"KTRANITE DH-6430B\"（PDF 内同款照片亦然），由公司决定",
       "照片 miniature-2 铭牌 ±0.5%FS / 12-24VDC 与 PDF 精度选项、BPLZ-I 输出一致，已不再矛盾",
-      "工作原理文字依据原理图及特点撰写"
+      "工作原理文字依据原理图及特点撰写",
+      "口径、精度、流量表按业务方 2026-11 审核稿修改；口径写到 DN25，但流量表只到 DN20，DN25 流量待补"
     ],
     "introKey": "miniature-intro",
     "principle": {
@@ -186,7 +187,7 @@
     "subName": "Scraper Flowmeter",
     "descKey": "high-flow-industrial-metering-for-aviati",
     "cardParams": {
-      "value": "DN80 · 2000 L/min"
+      "value": "DN80 ~ DN150 · 6000 L/min"
     },
     "placeholderKey": "scraper-flowmeter-product-photo-coming-s",
     "formValue": "scraper",
@@ -228,7 +229,7 @@
         "labelKey": "accuracy-class"
       },
       {
-        "value": "2000",
+        "value": "6000",
         "labelKey": "l-min-max-flow"
       },
       {
@@ -239,15 +240,15 @@
     "specs": [
       {
         "labelKey": "bore",
-        "value": "DN80"
+        "value": "DN80 / DN100 / DN150"
       },
       {
         "labelKey": "max-flow-rate",
-        "value": "2000 L/min"
+        "value": "2000 / 4000 / 6000 L/min"
       },
       {
         "labelKey": "min-flow-rate",
-        "value": "100 L/min"
+        "value": "100 / 200 / 300 L/min"
       },
       {
         "labelKey": "accuracy",
@@ -275,7 +276,7 @@
       },
       {
         "labelKey": "weight",
-        "valueKey": "45-kg"
+        "valueKey": "scraper-weight-value"
       },
       {
         "labelKey": "explosion-proof",
@@ -300,7 +301,8 @@
     "flowTables": [],
     "review": [
       "平均故障间隔时间 ≥240 h 与宣传册一致，仍建议公司确认",
-      "照片 scraper-4 计数器上有他牌商标\"HQH®\"及乱码标签，上线前需替换或处理"
+      "照片 scraper-4 计数器上有他牌商标\"HQH®\"及乱码标签，上线前需替换或处理",
+      "口径扩为 DN80/100/150，流量与重量按业务方 2026-11 审核稿；DN80 重量由 ≤45 kg 改为 ≤32 kg，工作压力与精度是否三个口径通用待确认"
     ],
     "tables": [],
     "variantList": null,
