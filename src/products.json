@@ -1270,7 +1270,14 @@
     },
     "placeholderKey": "turbine-vortex-flowmeter-product-photo-c",
     "formValue": "turbine",
-    "images": [],
+    "images": [
+      {
+        "src": "/images/products/turbine-1.jpg",
+        "altKey": "turbine-alt-1",
+        "width": 1097,
+        "height": 1200
+      }
+    ],
     "highlights": [
       {
         "value": "±0.2%",
@@ -1787,7 +1794,14 @@
     },
     "placeholderKey": "roots-flowmeter-product-photo-coming-soo",
     "formValue": null,
-    "images": [],
+    "images": [
+      {
+        "src": "/images/products/roots-1.jpg",
+        "altKey": "roots-alt-1",
+        "width": 1097,
+        "height": 1200
+      }
+    ],
     "highlights": [
       {
         "value": "0.2",
