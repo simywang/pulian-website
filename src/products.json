@@ -6,7 +6,7 @@
     "subName": "Miniature Flowmeter",
     "descKey": "ultra-low-flow-precision-measurement-for",
     "cardParams": {
-      "value": "DN5 ~ DN25 · ±0.5%"
+      "value": "DN5 ~ DN20 · ±0.5%"
     },
     "placeholderKey": "miniature-flowmeter-product-photo-coming",
     "formValue": "miniature",
@@ -30,7 +30,7 @@
         "labelKey": "accuracy"
       },
       {
-        "value": "DN5–25",
+        "value": "DN5–20",
         "labelKey": "bore-range"
       },
       {
@@ -41,7 +41,7 @@
     "specs": [
       {
         "labelKey": "bore-range",
-        "value": "DN5 ~ DN25"
+        "value": "DN5 ~ DN20"
       },
       {
         "labelKey": "accuracy",
@@ -152,7 +152,7 @@
       "照片 miniature-1 显示他牌\"KTRANITE DH-6430B\"（PDF 内同款照片亦然），由公司决定",
       "照片 miniature-2 铭牌 ±0.5%FS / 12-24VDC 与 PDF 精度选项、BPLZ-I 输出一致，已不再矛盾",
       "工作原理文字依据原理图及特点撰写",
-      "口径、精度、流量表按业务方 2026-11 审核稿修改；口径写到 DN25，但流量表只到 DN20，DN25 流量待补"
+      "口径、精度、流量表按业务方 2026-11 审核稿修改；口径确认为 DN5~DN20（不做 DN25）"
     ],
     "introKey": "miniature-intro",
     "principle": {
@@ -302,7 +302,7 @@
     "review": [
       "平均故障间隔时间 ≥240 h 与宣传册一致，仍建议公司确认",
       "照片 scraper-4 计数器上有他牌商标\"HQH®\"及乱码标签，上线前需替换或处理",
-      "口径扩为 DN80/100/150，流量与重量按业务方 2026-11 审核稿；DN80 重量由 ≤45 kg 改为 ≤32 kg，工作压力与精度是否三个口径通用待确认"
+      "口径扩为 DN80/100/150，流量与重量按业务方 2026-11 审核稿；已确认 DN80 重量 ≤32 kg 为有意修改，工作压力 1.0 MPa 与 0.2 级精度三个口径通用"
     ],
     "tables": [],
     "variantList": null,
