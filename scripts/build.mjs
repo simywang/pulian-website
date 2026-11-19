@@ -383,14 +383,8 @@ ${isPreview ? '  <meta name="robots" content="noindex" />\n' : ''}  <script>
       var lang = null;
       try { lang = localStorage.getItem('pl_lang'); } catch (e) {}
       if (lang === 'cn') lang = 'zh';
-      if (langs.indexOf(lang) < 0) {
-        lang = 'en';
-        var prefs = navigator.languages || [navigator.language || ''];
-        for (var i = 0; i < prefs.length; i++) {
-          var code = String(prefs[i]).slice(0, 2).toLowerCase();
-          if (langs.indexOf(code) >= 0) { lang = code; break; }
-        }
-      }
+      // English by default; only a language the visitor picked from the menu overrides it.
+      if (langs.indexOf(lang) < 0) lang = 'en';
       location.replace('/' + lang + '/' + location.hash);
     })();
   </script>
