@@ -16,8 +16,8 @@ const WHATSAPP_URL = 'https://wa.me/31645228942';
 const LANGS = {
   en: { htmlLang: 'en',    dir: 'ltr', label: 'English', short: 'EN', status: 'public' },
   zh: { htmlLang: 'zh-CN', dir: 'ltr', label: '中文',    short: '中', status: 'public' },
-  ru: { htmlLang: 'ru',    dir: 'ltr', label: 'Русский', short: 'RU', status: 'draft' },
-  ar: { htmlLang: 'ar',    dir: 'rtl', label: 'العربية', short: 'ع',  status: 'draft' },
+  ru: { htmlLang: 'ru',    dir: 'ltr', label: 'Русский', short: 'RU', status: 'public' },
+  ar: { htmlLang: 'ar',    dir: 'rtl', label: 'العربية', short: 'ع',  status: 'public' },
 };
 
 // Safe default: drafts and noindex only when the environment is explicitly a Preview.
